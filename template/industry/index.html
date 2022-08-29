@@ -1,0 +1,79 @@
+{extend name="../base" /}
+{block name="title"}<title>{$channelinfo.title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$channelinfo.keywords}">{/block}
+{block name="description"}<meta name="description" content="{$channelinfo.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<!--栏目banner部分 Start-->
+<section class="industry">
+    <div class="d-flex channel container align-items-center">
+        <div class="col col-md-6 mt-5 mt-md-0 text-white text-left">
+            <h1 class="mb-4">{$channelinfo.cname}</h1>
+            <p class="p12">{$channelinfo.description}</p>
+        </div>
+    </div>
+</section>
+<!--栏目banner部分 End-->
+<!--文章列表部分 Start-->
+<section>
+    <div class="container part-artList">
+{include file="../basic/crumbs" /}
+        <div class="row">
+            <!--左侧内容 Start-->
+            <div class="col-12 col-md-8">
+                <ul class="list-unstyled">
+{volist name="result" id="item" empty="<p class='text-danger'>There is nothing</p>"}
+                    <li>
+                        <a href="{:url('article', ['id' => $item.id])}" target="_blank" class="text-reset text-decoration-none" title="{$item.title}">
+                            <div class="row gx-0 img-animated part-artList-item border-bottom-dashed">
+                                <div class="col-5 col-md-3 exclude rounded overflow-hidden">
+                                    <img alt="{$item.title}" class="img-fluid" title="{$item.title}" src="{$item.litpic}"/>
+                                </div>
+                                <div class="col-7 exclude col-md-9 part-artList-desc">
+                                    <h3 class="transition text-clamp-2 text-clamp-ellipsis">{$item.title}</h3>
+                                    <p class="text-muted text-clamp-2 text-clamp-ellipsis">{$item.description}</p>
+                                    <div class="text-muted part-artList-detail">
+                                        <span class="d-none d-md-inline">
+                                            <svg class="bi align-text-top" width="16" height="16" fill="currentColor">
+                                                <use xlink:href="/static/icon/bootstrap-icons.svg#geo-alt-fill"></use>
+                                            </svg>{$item.channel.cname}
+                                        </span>
+                                        <span class="d-none d-md-inline">
+                                            <svg class="bi align-text-top" width="16" height="16" fill="currentColor">
+                                                <use xlink:href="/static/icon/bootstrap-icons.svg#person-fill"></use>
+                                            </svg>{$item.author}
+                                        </span>
+                                        <span>
+                                            <svg class="bi align-text-top" width="16" height="16" fill="currentColor">
+                                                <use xlink:href="/static/icon/bootstrap-icons.svg#book"></use>
+                                            </svg>{$item.click}
+                                        </span>
+                                        <span>
+                                            <svg class="bi align-text-top" width="16" height="16" fill="currentColor">
+                                                <use xlink:href="/static/icon/bootstrap-icons.svg#clock"></use>
+                                            </svg>{$item.create_time|date='Y-m-d'}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+{/volist}
+                    <li>
+                        <nav aria-label="Page navigation">
+                            {$result|raw}
+                        </nav>
+                    </li>
+                </ul>
+            </div>
+            <!--左侧内容 End-->
+            <!--右侧内容 Start-->
+            <div class="col-12 d-none exclude col-md-4 d-md-block">
+{include file="../basic/side-right-recom"}
+            </div>
+            <!--右侧内容 End-->
+        </div>
+    </div>
+</section>
+<!--文章列表部分 End-->
+{/block}

@@ -1,0 +1,71 @@
+{extend name="../base" /}
+{block name="title"}<title>使命必达——田者高拍&贵州省纪委合作案例</title>{/block}
+{block name="keywords"}<meta name="keywords" content="田者高拍,高拍仪案例,高拍仪应用">{/block}
+{block name="description"}<meta name="description" content="田者高拍&贵州省纪委的高拍仪合作案例">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<!--案例内容部分 Start-->
+<section>
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="flex-nowrap breadcrumb">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                <li class="breadcrumb-item"><a href="/case/">成功案例</a></li>
+                <li aria-current="page" class="active breadcrumb-item">田者高拍&贵州省纪委合作案例</li>
+            </ol>
+        </nav>
+        <div class="part-case-content">
+            <h2>使命必达——田者高拍&贵州省纪委合作案例</h2>
+            <div>
+                <div class="row g-2 g-md-3">
+                    <div class="col-12 col-md-6">
+                        <img class="img-fluid" alt="贵州省纪委合作案例" title="使命必达——田者高拍&贵州省纪委合作案例" src="__STATIC__/static/images/guizhoujiwei-1.png"/>
+                    </div>
+                    <div class="col-12 col-md-6 part-case-desc">
+                        <p>贵州省纪委某日下了一批集成指纹仪+人证比对的高拍仪订单后，要求高拍仪第二天必须安装到位，设备安装的地市相对偏远，航空件第二天也到不了，为了贵州省纪委项目能有最快速的服务体验，田者高拍指派了专门的司机和技术人员，满载高拍仪，当天连续驾车奔袭一千多公里，十多个小时后，跨越万水千山，将要求的高拍仪带到项目安装现场完成了上线安装！而几年来，高拍仪一直运行正常！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--案例内容部分 End-->
+<!--合作咨询部分 Start-->
+<section>
+    <div class="container part-consulting">
+        <div class="title">
+            <h2>合作咨询</h2>
+            <p class="text-muted">COOPERATION</p>
+        </div>
+        <div class="row g-5">
+            <div class="col-12 col-md-6">
+                <div class="part-consulting-content">
+                    <p>如果您对我们的产品感兴趣,可以在线咨询或者提交您的需求，我们的专业人员会及时与您联系！</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">提交留言</button>
+                        <button type="button" class="btn me-2 btn-outline-danger" onclick="consulting()">在线咨询</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="rounded overflow-hidden">
+                    <img class="img-fluid" alt="合作咨询" title="合作咨询" src="__STATIC__/static/images/contact.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--合作咨询部分 End-->
+{/block}
+{block name="formModal"}{include file="../basic/formModal"}{/block}
+{block name="customjs"}
+<script>
+    // 固定导航栏
+    // FIXME:和首页导航栏冲突
+    $(function() {
+        const navbar = $('.navbar')
+        navbar.addClass('bg-primary')
+        navbar.removeClass('fixed-top')
+    })
+</script>
+{/block}

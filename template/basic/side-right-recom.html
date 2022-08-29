@@ -1,0 +1,57 @@
+                <!--热门资讯 Start-->
+                <div class="d-flex flex-column position-relative">
+                    <h4 class="part-artList-title">&nbsp;热门资讯</h4>
+{present name="$hotArt[3]"}
+                    <!--大图部分 Start-->
+                    <a title="{$hotArt[0]['title']}" href="{:url('article', ['id' => $hotArt[0]['id']])}" class="col-12 rounded img-animated part-artList-related">
+                        <div class="top basetags"><i>TOP1</i></div>
+                        <img alt="{$hotArt[0]['title']}" class="img-fluid" src="{$hotArt[0]['litpic']}">
+                        <h2>{$hotArt[0]['title']}</h2>
+                    </a>
+                    <a title="{$hotArt[1]['title']}" href="{:url('article', ['id' => $hotArt[1]['id']])}" class="col-12 rounded img-animated part-artList-related">
+                        <div class="top1 basetags"><i>TOP2</i></div>
+                        <img alt="{$hotArt[1]['title']}" class="img-fluid" src="{$hotArt[1]['litpic']}">
+                        <h2>{$hotArt[1]['title']}</h2>
+                    </a>
+                    <a title="{$hotArt[2]['title']}" href="{:url('article', ['id' => $hotArt[2]['id']])}" class="col-12 rounded img-animated part-artList-related">
+                        <div class="top2 basetags"><i>TOP3</i></div>
+                        <img alt="{$hotArt[2]['title']}" class="img-fluid" src="{$hotArt[2]['litpic']}">
+                        <h2>{$hotArt[2]['title']}</h2>
+                    </a>
+                    <!--大图部分 End-->
+                    <!--小图部分 Start-->
+                    <ul class="list-unstyled">
+{volist name="hotArt" id="item"}
+                        <li class="mb-3">
+                            <a href="{:url('article', ['id' => $item.id])}" target="_blank" class="text-reset text-decoration-none" title="{$item.title}">
+                                <div class="row gx-3 img-animated part-artList-related-small">
+                                    <div class="col-4 exclude position-relative">
+                                        <div class="hot">热</div>
+                                        <div class="rounded overflow-hidden">
+                                            <img alt="{$item.title}" class="img-fluid" src="{$item.litpic}">
+                                        </div>
+                                    </div>
+                                    <div class="col-8 d-flex exclude flex-cloumn flex-wrap part-artList-detail align-content-between">
+                                        <h2>{$item.title}</h2>
+                                        <span>
+                                            <svg class="bi align-text-top" width="16" height="16" fill="currentColor">
+                                                <use xlink:href="/static/icon/bootstrap-icons.svg#book"></use>
+                                            </svg>{$item.click}
+                                        </span>
+                                        <span>
+                                            <svg class="bi align-text-top" width="16" height="16" fill="currentColor">
+                                                <use xlink:href="/static/icon/bootstrap-icons.svg#clock"></use>
+                                            </svg>{$item.create_time|date='Y-m-d'}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+{/volist}
+                    </ul>
+                    <!--小图部分 End-->
+{else /}
+                    <p class="text-danger">There is nothing</p>
+{/present}
+                </div>
+                <!--热门资讯 End-->

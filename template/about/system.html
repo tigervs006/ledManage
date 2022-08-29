@@ -1,0 +1,112 @@
+{extend name="../base" /}
+{block name="title"}<title>{$channelinfo.title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$channelinfo.keywords}">{/block}
+{block name="description"}<meta name="description" content="{$channelinfo.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<!--服务体系部分 Start-->
+<section>
+    <div class="container">
+        <div class="part-system">
+            <h4>服务体系<span class="fs-6 text-muted">SERVICE</span></h4>
+            <p>田者高拍，根据行业不断优化，提供标准化工作服务规范，负责产品的安装指导、售后维护、开发集成等工作职能。</p>
+            <h4>服务理念</h4>
+            <p>以“责任至上、技术至专、关怀入微、服务至优”为服务宗旨，围绕用户提供专业、可信赖的安装操作、开发集成、常见问题、维修服务，以达到全方位满足用户需求，全面提升阳光服务口碑和美誉度。</p>
+            <div class="row g-3">
+                <div class="col-6 col-md-4">
+                    <div class="card part-system-idea">
+                        <img alt="责任至上" title="责任至上" class="card-img-top" src="__STATIC__/static/images/lservice1-img1.png"/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">责任至上</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card part-system-idea">
+                        <img alt="技术至专" title="技术至专" class="card-img-top" src="__STATIC__/static/images/lservice1-img2.png"/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">技术至专</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card part-system-idea">
+                        <img alt="关怀入微" title="关怀入微" class="card-img-top" src="__STATIC__/static/images/lservice1-img3.png"/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">关怀入微</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4>售前服务</h4>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="rounded overflow-hidden position-relative part-system-service">
+                        <img class="img-fluid" alt="项目对接·需求分析" title="项目对接·需求分析" src="__STATIC__/static/images/analyze.png" />
+                        <div class="position-absolute">
+                            <span class="fs-3">项目对接 · 需求分析</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="rounded overflow-hidden position-relative part-system-service">
+                        <img class="img-fluid" alt="软件修改·接口开发" title="软件修改·接口开发" src="__STATIC__/static/images/develop.png" />
+                        <div class="position-absolute">
+                            <span class="fs-3">软件修改 · 接口开发</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4>售后服务</h4>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="d-flex flex-row align-items-center justify-content-start">
+                                <img class="img-fluid" alt="24小时服务" title="24小时服务" src="__STATIC__/static/icon/24hour.png"/>
+                                <div class="part-system-customer">
+                                    <p>全国24小时服务热线：400-901-1302</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-row align-items-center justify-content-start">
+                                <img class="img-fluid" alt="24小时服务" title="24小时服务" src="__STATIC__/static/icon/response.png"/>
+                                <div class="part-system-customer">
+                                    <p>服务响应时间为1小时（从报告故障到着手解决故障的时间），以确保对用户的要求做出第一时间的响应。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-row align-items-center justify-content-start">
+                                <img class="img-fluid" alt="24小时服务" title="24小时服务" src="__STATIC__/static/icon/support.png"/>
+                                <div class="part-system-customer">
+                                    <p>在保修期内发生故障或需要技术服务时，按照客户技术服务流程操作，以解除用户的后顾之忧！</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div>
+                        <img class="img-fluid" alt="客户服务" title="客户服务" src="__STATIC__/static/images/customer-service.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--服务体系部分 End-->
+{/block}
+{block name="formModal"}{include file="../basic/formModal"}{/block}
+{block name="customjs"}
+<script>
+    // 固定导航栏
+    // FIXME:和首页导航栏冲突
+    $(function() {
+        const navbar = $('.navbar')
+        navbar.addClass('bg-primary')
+        navbar.removeClass('fixed-top')
+    })
+</script>
+{/block}

@@ -1,0 +1,90 @@
+<!--留言表单部分 Start-->
+<div class="modal fade" id="formModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><svg class="bi me-1 align-middle" width="24" height="24" fill="currentColor">
+                    <use xlink:href="/static/icon/bootstrap-icons.svg#list-ul"></use>
+                </svg>提交留言</h5>
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="agentForm">
+                    <div class="row g-0">
+                        <label for="username" class="col-2 col-form-label"><svg class="bi align-text-bottom" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#person"></use>
+                        </svg>姓名</label>
+                        <div class="col-10 exclude">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="您的称呼">
+                            <div class="invalid-feedback">请填写您的姓名</div>
+                        </div>
+                    </div>
+                    <div class="row g-0">
+                        <label for="mobile" class="col-2 col-form-label"><svg class="bi align-text-bottom" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#phone-vibrate"></use>
+                        </svg>手机</label>
+                        <div class="col-10 exclude">
+                            <input maxlength="11" type="tel" class="form-control" id="mobile" name="mobile" placeholder="您的手机号">
+                            <div class="invalid-feedback">请填写您的手机号</div>
+                        </div>
+                    </div>
+                    <div class="row g-0">
+                        <label for="company" class="col-2 col-form-label"><svg class="bi align-text-bottom" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#credit-card-2-front"></use>
+                        </svg>公司</label>
+                        <div class="col-10 exclude">
+                            <input type="tel" class="form-control" id="company" name="company" placeholder="您的公司名">
+                            <div class="invalid-feedback">请填写您的公司名</div>
+                        </div>
+                    </div>
+                    <div class="row g-0">
+                        <label for="email" class="col-2 col-form-label"><svg class="bi align-text-bottom" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#mailbox"></use>
+                        </svg>邮箱</label>
+                        <div class="col-10 exclude">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="您的电子邮箱">
+                            <div class="invalid-feedback">请填写您的电子邮箱</div>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-4 exclude">
+                            <label class="form-label" for="inputProvinces">省份</label>
+                            <select id="inputProvinces" class="form-select" name="province">
+                                <option value="">--请选择--</option>
+                            </select>
+                            <div class="invalid-feedback">请选择你所在省份</div>
+                        </div>
+                        <div class="col-4 exclude">
+                            <label class="form-label" for="inputCity">城市</label>
+                            <select name="city" id="inputCity" class="form-select">
+                                <option value="">--请选择--</option>
+                            </select>
+                            <div class="invalid-feedback">请选择你所在城市</div>
+                        </div>
+                        <div class="col-4 exclude">
+                            <label class="form-label" for="inputDistrict">区域</label>
+                            <select name="district" id="inputDistrict" class="form-select">
+                                <option value="">--请选择--</option>
+                            </select>
+                            <div class="invalid-feedback">请选择你所在区域</div>
+                        </div>
+                    </div>
+                    <div class="row g-0">
+                        <label for="message" class="col-2 col-form-label"><svg class="bi align-text-bottom" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#card-text"></use>
+                        </svg>需求</label>
+                        <div class="col-10">
+                            <textarea rows="5" name="message" class="form-control" id="message" placeholder="请简单描述您的需求"></textarea>
+                            <div class="invalid-feedback">请简单描述您的需求</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  btn-danger rounded-pill" onclick="$('#agentForm')[0].reset()">重置表单</button>
+                <button type="button" class="btn submit rounded-pill btn-primary" onclick="commitForm('#agentForm')">提交留言</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--留言表单部分 End-->

@@ -1,0 +1,72 @@
+{extend name="../base" /}
+{block name="title"}<title>{$result.title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$result.keywords}">{/block}
+{block name="description"}<meta name="description" content="{$result.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<!--文章内容部分 Start-->
+<section>
+    <div class="container part-article">
+{include file="../basic/crumbs" /}
+        <div class="row">
+            <!--左侧内容 Start-->
+            <div class="col-12 exclude col-md-8">
+                <h2 class="fs-3 text-center">{$result.title}</h2>
+                <p class="part-article-info">
+                    <span class="d-none d-md-block">
+                        <svg class="bi align-text-top" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#person-fill"></use>
+                        </svg>作者：{$result.author}
+                    </span>
+                    <span>
+                        <svg class="bi align-text-top" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#clock"></use>
+                        </svg>日期：{$result.create_time|date='Y-m-d'}
+                    </span>
+                    <span>
+                        <svg class="bi align-text-top" width="20" height="20" fill="currentColor">
+                            <use xlink:href="/static/icon/bootstrap-icons.svg#book"></use>
+                        </svg>阅读量：{$result.click}
+                    </span>
+                </p>
+                <div class="part-article-content">
+                    {$result.content.content|raw}
+                    <div class="col mb-3 px-3 py-3 bg-light text-muted">
+                        <small>免责声明：本站部分内容及插图来源于网络，如有发现涉嫌侵权的内容或插图，请联系客服进行举报并提供相关证据，一经查实，本站将立刻删除涉嫌侵权的相关内容或插图。</small>
+                    </div>
+                </div>
+                <div class="part-article-prenext">
+{present name="$prenext.pre.id"}
+                    <div class="transition text-ellipsis"><a href="/industry/{$prenext.pre.id}.html" title="{$prenext.pre.title}">上一篇：{$prenext.pre.title}</a></div>
+{else /}
+                    <div class="transition text-ellipsis"><a href="javascript:">上一篇：{$prenext.pre.title}</a></div>
+{/present}
+{present name="$prenext.next.id"}
+                    <div class="transition text-ellipsis"><a href="/industry/{$prenext.next.id}.html" title="{$prenext.next.title}">下一篇：{$prenext.next.title}</a></div>
+{else /}
+                    <div class="transition text-ellipsis"><a href="javascript:">下一篇：{$prenext.next.title}</a></div>
+{/present}
+                </div>
+            </div>
+            <!--左侧内容 End-->
+            <!--右侧内容 Start-->
+            <div class="col-12 d-none exclude col-md-4 d-md-block">
+{include file="../basic/side-right-recom"}
+            </div>
+            <!--右侧内容 End-->
+        </div>
+    </div>
+</section>
+<!--文章内容部分 End-->
+{/block}
+{block name="customjs"}
+<script>
+    // 固定导航栏
+    // FIXME:和首页导航栏冲突
+    $(function() {
+        const navbar = $('.navbar')
+        navbar.addClass('bg-primary')
+        navbar.removeClass('fixed-top')
+    })
+</script>
+{/block}

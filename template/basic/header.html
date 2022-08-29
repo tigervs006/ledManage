@@ -1,0 +1,68 @@
+<!--navbar部分 Start-->
+<header>
+    <nav class="navbar fixed-top translate navbar-dark navbar-expand-lg justify-content-between justify-content-md-center">
+        <a class="navbar-brand" href="/">
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <div class="navbar-brand-logo">
+                    <img alt="logo" src="__STATIC__/static/icon/logo.png" class="align-top d-inline-block">
+                </div>
+                <div class="navbar-brand-text">
+                    <h1>田者高拍</h1>
+                    <p>FIELD TECHNOLOGY</p>
+                </div>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNav" class="collapse offset-md-1 navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active position-relative" href="/">首页</a>
+                </li>
+{volist name="channel" id="item"}
+{if $item.children}
+                <li class="nav-item dropdown">
+                    <a class="nav-link position-relative" href="/{$item.name}/" id="{$item.name}" data-bs-toggle="dropdown">{$item.cname}</a>
+{present name="item['children'][0]['children']"}
+                    <div class="dropdown-menu" aria-labelledby="product">
+                        <ul class="list-group list-group-horizontal-md">
+{volist name="item.children" id="child1"}
+                            <li class="list-group-item">
+                                <dl class="accordion">
+                                    <dt>{$child1.cname}</dt>
+{volist name="child1.children" id="child2"}
+                                    <dd><a class="dropdown-item" href="/{$item.name}/{$child1.name}/{$child2.name}/" target="_blank">{$child2.cname}</a></dd>
+{/volist}
+                                </dl>
+                            </li>
+{/volist}
+                        </ul>
+                    </div>
+{else /}
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="{$item.name}">
+{volist name="item.children" id="child"}
+                        <li><a class="dropdown-item" href="/{$item.name}/{$child.name}/">{$child.cname}</a></li>
+{/volist}
+                    </ul>
+{/present}
+                </li>
+{else /}
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="/{$item.name}/">{$item.cname}</a>
+                </li>
+{/if}
+{/volist}
+                <li class="nav-item d-none d-md-block">
+                    <p class="mb-0 py-1 d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" color="orange" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                        <span class="fs-3 text-white">{$Think.config.index.aftermarket}</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!--navbar部分 End-->

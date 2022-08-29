@@ -1,0 +1,165 @@
+/*4K分辨率*/
+@media screen and (max-width: 3840px) {
+    .img-wqhd img {
+        width: 100%
+    }
+    .channel {
+        height: 40vh !important;
+    }
+    .navbar-nav .nav-item {
+        padding: 0 2rem !important
+    }
+    .carousel-inner .carousel-item {
+        height: calc(100vh - 500px) !important
+    }
+}
+/*2K分辨率*/
+@media screen and (max-width: 2560px) {
+    .channel {
+        height: calc(100vh - 750px) !important
+    }
+    .carousel-inner .carousel-item {
+        height: calc(100vh - 350px) !important
+    }
+}
+/*HD分辨率*/
+@media screen and (max-width: 1920px) {
+    nav.navbar {
+        padding: .5rem 10% !important;
+    }
+    .navbar-nav .nav-item {
+        padding: 0 1.5rem !important
+    }
+    .carousel-inner .carousel-item {
+        height: calc(100vh - 200px) !important
+    }
+    .channel {
+        height: calc(100vh - 350px) !important
+    }
+}
+/*缩放125%*/
+@media screen and (max-width: 1600px) {
+    nav.navbar {
+        padding: 0 10% !important;
+    }
+    .navbar-nav .nav-item {
+        padding: 0 1rem !important;
+    }
+    .carousel-inner .carousel-item {
+        height: calc(100vh - 150px) !important
+    }
+    .channel {
+        height: calc(100vh - 300px) !important
+    }
+}
+/*手机移动端*/
+@media screen and (max-width: 768px) {
+    .btn {
+        font-size: .875rem !important;
+    }
+    h5 {
+        font-size: 1rem !important;
+    }
+    h2,h3,h4 {
+        font-size: 1.25rem !important;
+    }
+    .container {
+        padding-top: 1rem !important;
+        padding-bottom: 2rem !important
+    }
+    table {
+        font-size: .75rem;
+    }
+    .channel {
+        padding-top: 5rem;
+        height: 50vh !important
+    }
+    .channel h1 {
+        font-size: 2rem !important
+    }
+    .col-custom-2 {
+        flex: 100% !important;
+        max-width: 100% !important;
+    }
+    .col-custom-5 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important
+    }
+    .carousel-inner .carousel-item {
+        height: 100vh !important
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        text-align: left !important
+    }
+    .dropdown-menu .list-group-item > dl > dt {
+        position: relative;
+        margin-bottom: unset !important;
+    }
+    .dropdown-menu .list-group-item > dl > dd {
+        display: none;
+    }
+    .selected dd {
+       display: block !important
+    }
+    .iconRotate::after {
+        transform: rotate(0deg) !important;
+    }
+    .dropdown-menu .list-group-item > dl > dt::after {
+        right: 0;
+        content: "";
+        flex-shrink: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-left: auto;
+        position: absolute;
+        transform: rotate(-90deg);
+        background-size: 1.25rem;
+        background-repeat: no-repeat;
+        transition: transform .2s ease-in-out;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+    }
+    /*高德地图*/
+    #container {
+        height: 300px !important;
+    }
+    .part-footer {
+        padding: 1rem 3% 0 !important
+    }
+    .part-service img {
+        width: 3rem;
+    }
+    .part-product-item {
+        padding: .5rem !important;
+    }
+    .part-case-top h4 {
+        margin-top: 1rem;
+        margin-bottom: unset;
+    }
+    .part-case-item p {
+        font-size: .75rem;
+    }
+    .part-case-top > div {
+        margin-bottom: 1rem;
+    }
+    .part-partner-item {
+        border: 1px solid #dee2e6!important;
+    }
+    .part-produce-detail p {
+        font-size: .75rem;
+    }
+    .part-product-tabpane {
+        margin-top: 1rem;
+    }
+    .part-artList-item div:nth-child(2) h3 {
+        font-size: 1rem !important;
+    }
+    .part-article-prenext div:first-child {
+        margin-bottom: 1rem !important;
+    }
+    .part-article-prenext div:last-child {
+        margin-bottom: unset !important;
+    }
+    #agentForm .form-select {
+        font-size: .75rem !important;
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "name": "topthink/think",
+    "description": "the new thinkphp framework",
+    "type": "project",
+    "keywords": [
+        "framework",
+        "thinkphp",
+        "ORM"
+    ],
+    "homepage": "https://thinkphp.cn/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "liu21st",
+            "email": "liu21st@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0.15",
+        "lcobucci/jwt": "4.2.x-dev",
+        "qcloud/cos-sdk-v5": "^2.5.5",
+        "topthink/framework": "6.0.12",
+        "topthink/think-orm": "^2.0.52",
+        "topthink/think-view": "^1.0.14",
+        "topthink/think-queue": "^3.0.7",
+        "aliyuncs/oss-sdk-php": "^2.5.0",
+        "topthink/think-multi-app": "^1.0.14",
+        "alibabacloud/cdn-20180510": "^1.0.12",
+        "qcloud_sts/qcloud-sts-sdk": "^3.0.8",
+        "phpmailer/phpmailer": "^6.6"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.4.42",
+        "topthink/think-trace":"^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app",
+            "core\\": "core"
+        },
+        "psr-0": {
+            "": "extend/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php think service:discover",
+            "@php think vendor:publish"
+        ]
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}

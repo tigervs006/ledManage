@@ -1,0 +1,62 @@
+{extend name="../base" /}
+{block name="title"}<title>{$channelinfo.title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$channelinfo.keywords}">{/block}
+{block name="description"}<meta name="description" content="{$channelinfo.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<!--栏目banner部分 Start-->
+<section class="services">
+    <div class="d-flex channel container align-items-center">
+        <div class="col col-md-6 mt-5 mt-md-0 text-white text-left">
+            <h1 class="mb-4">{$channelinfo.cname}</h1>
+            <p class="text-clamp-3 text-clamp-ellipsis">{$channelinfo.description}</p>
+        </div>
+    </div>
+</section>
+<!--栏目banner部分 End-->
+<!--服务支持部分 Start-->
+<section>
+    <div class="container">
+{include file="../basic/crumbs" /}
+        <div class="title">
+            <h2>服务支持</h2>
+            <p class="text-muted">SERVICES SUPPORT</p>
+        </div>
+        <div class="row g-2 g-md-3">
+            <div class="col-6 col-md-3">
+                <div class="text-center">
+                    <a target="_blank" class="text-reset text-decoration-none" title="下载软件驱动" href="software/" >
+                        <img alt="软件驱动" title="软件驱动" class="img-fluid ani-simple" src="__STATIC__/static/icon/download.png"/>
+                        <p>软件驱动下载</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="text-center">
+                    <a target="_blank" class="text-reset text-decoration-none" title="手册&说明书" href="instruction/" >
+                        <img alt="手册&说明书" title="手册&说明书" class="img-fluid ani-simple" src="__STATIC__/static/icon/instruction.png"/>
+                        <p>手册&说明书</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="text-center">
+                    <a target="_blank" class="text-reset text-decoration-none" title="产品操作视频" href="video/" >
+                        <img alt="产品操作视频" title="产品操作视频" class="img-fluid ani-simple" src="__STATIC__/static/icon/video.png"/>
+                        <p>产品操作视频</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="text-center">
+                    <a target="_blank" class="text-reset text-decoration-none" title="在线技术支持" href="javascript:" onclick="consulting()" >
+                        <img alt="在线技术支持" title="在线技术支持" class="img-fluid ani-simple" src="__STATIC__/static/icon/custom-support.png"/>
+                        <p>在线技术支持</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--服务支持部分 End-->
+{/block}
