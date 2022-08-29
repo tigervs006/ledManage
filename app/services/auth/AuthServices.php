@@ -50,7 +50,7 @@ class AuthServices extends BaseServices
             return $this->dao->queryMenu($groupRole, ['type' => 3])->toArray();
         }, 3600 * 24 * 7);
         if (!in_array($rules, array_column($roleMenu, 'routes'))) {
-            throw new AuthException("Access Denied! You don't have permission to access this resource", 403);
+            throw new AuthException("Access Denied. You don't have permission to access this resource", 403);
         }
     }
 
