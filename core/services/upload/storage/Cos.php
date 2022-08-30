@@ -169,7 +169,9 @@ class Cos extends BaseUpload
     public function delete(string $filePath): bool|object
     {
         try {
-            return $this->app()->deleteObject(['Bucket' => $this->storageName, 'Key' => $filePath]);
+            $fileExist = $this->app()->doesObjectExist($this->storageName, $filePath);
+            $fileExist && $this->app()->deleteObject(['Bucket' => $this->storageName, 'Key' => $filePath]);
+            return $fileExist;
         } catch (\Exception $e) {
             return $this->setError($e->getMessage());
         }

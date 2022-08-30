@@ -155,14 +155,15 @@ class Oss extends BaseUpload
 
     /**
      * 删除资源
-     * @return bool
+     * @return bool|object
      * @param string $filePath
      */
-    public function delete(string $filePath): bool
+    public function delete(string $filePath): bool|object
     {
         try {
-            $removeInfo = $this->app()->deleteObject($this->storageName, $filePath);
-            return isset($removeInfo['info']['url']);
+            $fileExist = $this->app()->doesObjectExist($this->storageName, $filePath);
+            $fileExist && $this->app()->deleteObject($this->storageName, $filePath);
+            return $fileExist ?: throw new UploadException("Object doesn't exist");
         } catch (OssException $e) {
             return $this->setError($e->getMessage());
         }
