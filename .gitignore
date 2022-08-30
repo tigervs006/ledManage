@@ -9,4 +9,4 @@
 *.min.js
 *.min.css
 /public/static/icon
-/public/static/images
+/public/static/img
