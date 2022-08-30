@@ -3,18 +3,6 @@ declare (strict_types = 1);
 
 // 应用公共文件
 
-if (!function_exists('sys_config')) {
-    /**
-     * 获取单个配置项
-     * @return string
-     * @param string $name 配置名
-     * @param string $value 字段名
-     */
-    function sys_config(string $name, string $value = 'value'): string
-    {
-        return app('sysConfig')->value(['name' => $name], $value);
-    }
-}
 if (!function_exists('msectime')) {
     /**
      * 获取毫秒数

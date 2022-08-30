@@ -4,7 +4,6 @@ namespace app;
 
 use think\Service;
 use core\utils\Json;
-use app\services\system\ConfigServices;
 
 /**
  * 应用服务类
@@ -15,8 +14,7 @@ class AppService extends Service
     {
         // 服务注册
         $this->app->bind([
-            'json' => Json::class,
-            'sysConfig' => ConfigServices::class
+            'json' => Json::class
         ]);
     }
 
