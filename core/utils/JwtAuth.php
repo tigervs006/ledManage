@@ -40,13 +40,13 @@ class JwtAuth
      * jwt编号
      * @var string
      */
-    private string $identified = 'yEbgoir0QOwf13VrSJ';
+    private string $identified = 'LmB6MtvrprP@8cMqaT';
 
     /**
      * jwt签发者
      * @var string
      */
-    private string $issuedBy = 'https://www.brandsz.cn';
+    private string $issuedBy = 'https://www.lcs-led.com';
 
     /**
      * jwt密钥串
@@ -80,7 +80,7 @@ class JwtAuth
      * @param int $gid 用户组id
      * @param  string $audience 当前用户
      */
-    public function createToken(int $uid = 0, int $gid = 0, string $audience = 'szbrand'): string
+    public function createToken(int $uid = 0, int $gid = 0, string $audience = 'lcs_led_com'): string
     {
         $config = $this->createJwtObject();
         $builder = $config->builder();
