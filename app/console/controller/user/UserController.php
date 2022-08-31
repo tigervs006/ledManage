@@ -49,8 +49,10 @@ class UserController extends BaseController
      */
     final public function index(): Json
     {
-        $info = $this->services->getOne(['id' => $this->id], $this->field)->toArray();
-        if (!is_null($info)) {
+        $info = [];
+        $data = $this->services->getOne(['id' => $this->id], $this->field);
+        if (!is_null($data)) {
+            $info = $data->toArray();
             /* 获取所属用户组权限菜单 */
             $userMenu = $this->groupServices->value(['id' => $info['gid']], 'menu');
             $userAuth = $this->authServices->queryMenu($userMenu);
@@ -59,7 +61,7 @@ class UserController extends BaseController
                 2 == $val['type'] && $info['btnRules'][] = $val['name'];
             }
         }
-        return is_null($info) ? $this->json->fail() : $this->json->successful(compact('info'));
+        return empty($info) ? $this->json->fail('User does not exist') : $this->json->successful(compact('info'));
     }
 
     /**
