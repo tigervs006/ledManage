@@ -27,12 +27,10 @@ Route::group(function () {
         Route::post('del', 'delete')->option(['route_name' => '删除文章']);
         Route::get('author', 'getAuthor')->option(['route_name' => '获取文章作者']);
         Route::post('status', 'setStatus')->option(['route_name'  => '设置文章状态']);
-        Route::get('channel', 'getChannel')->option(['route_name' => '获取新闻栏目']);
     })->prefix('article.articleController/');
     // 商品部分
     Route::group('product', function () {
         Route::get('<id?>$', 'index')->option(['route_name' => '获取商品详情']);
-        Route::get('cate', 'getCate')->option(['route_name' => '获取商品分类']);
         Route::get('list', 'list')->option(['route_name' => '商品列表']);
         Route::post('save', 'save')->option(['route_name' => '新增/编辑商品']);
         Route::post('status', 'setStatus')->option(['route_name' => '设置商品状态']);
@@ -59,6 +57,7 @@ Route::group(function () {
         Route::post('save', 'save')->option(['route_name' => '新增/编辑栏目']);
         Route::post('del', 'delete')->option(['route_name' => '删除栏目']);
         Route::post('status', 'setStatus')->option(['route_name' => '设置栏目状态']);
+        Route::get('cate', 'getCate')->option(['route_name' => '获取指定分类的栏目']);
     })->prefix('channel.channelController/');
     Route::group('module', function () {
         Route::get('list', 'list')->option(['route_name' => '模型列表']);
