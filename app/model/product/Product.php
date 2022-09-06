@@ -27,6 +27,6 @@ class Product extends BaseModel
      */
     public function channel(): HasOne
     {
-        return $this->hasOne(Channel::class, 'id', 'pid')->field('id, cname');
+        return $this->hasOne(Channel::class, 'id', 'pid')->field('id, cname, dirname, fullpath');
     }
 }

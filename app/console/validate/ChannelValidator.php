@@ -6,6 +6,10 @@ use think\validate;
 
 class ChannelValidator extends validate
 {
+    protected $regex = [
+        'url'   => '[\/\/]{2}\w.*?'
+    ];
+
     protected $rule = [
         'nid'           => 'require|integer',
         'pid'           => 'require|integer',
@@ -13,6 +17,7 @@ class ChannelValidator extends validate
         'path'          => 'require|max:50',
         'name'          => 'require|alphaDash|min:2|max:20',
         'cname'         => 'require|chs|min:2|max:20',
+        'banner'        => 'regex:url',
         'status'        => 'integer|between:0,1',
         'title'         => 'require|min:8|max:32',
         'keywords'      => 'require|min:8|max:32',
@@ -36,6 +41,7 @@ class ChannelValidator extends validate
         'cname.chs'             => '栏目名称必须是中文字符',
         'cname.min'             => '栏目名称不得于2个中文字符',
         'cname.max'             => '栏目名称不得超过20个中文字符',
+        'banner.regex'          => '栏目图片网址错误，只需截取[//]后面的网址则可',
         'status.integer'        => '栏目状态必须是正整数',
         'status.between'        => '栏目状态的值应为0或1',
         'title.require'         => 'SEO标题不得为空',

@@ -9,6 +9,9 @@ use Lcobucci\JWT\UnencryptedToken;
 use core\exceptions\AuthException;
 use Lcobucci\JWT\Signer\Hmac\Sha384;
 use Lcobucci\JWT\Signer\Key\InMemory;
+use Lcobucci\JWT\Token\InvalidTokenStructure;
+use Lcobucci\JWT\Encoding\CannotDecodeContent;
+use Lcobucci\JWT\Token\UnsupportedHeaderFound;
 use Lcobucci\JWT\Validation\Constraint\IssuedBy;
 use Lcobucci\JWT\Validation\Constraint\SignedWith;
 use Lcobucci\JWT\Validation\Constraint\IdentifiedBy;
@@ -80,7 +83,7 @@ class JwtAuth
      * @param int $gid 用户组id
      * @param  string $audience 当前用户
      */
-    public function createToken(int $uid = 0, int $gid = 0, string $audience = 'lcs_led_com'): string
+    public function createToken(int $uid = 0, int $gid = 0, string $audience = 'szbrand'): string
     {
         $config = $this->createJwtObject();
         $builder = $config->builder();
@@ -110,11 +113,11 @@ class JwtAuth
      */
     public function parseToken(string $token): mixed
     {
+        $config = $this->createJwtObject();
         try {
-            $config = $this->createJwtObject();
-            $decodeToken = $config->parser()->parse($token);
-            return json_decode(base64_decode($decodeToken->claims()->toString()), true);
-        } catch (\Exception $e) {
+            $parseToken = $config->parser()->parse($token);
+            return json_decode(base64_decode($parseToken->claims()->toString()), true);
+        } catch (CannotDecodeContent | InvalidTokenStructure | UnsupportedHeaderFound $e) {
             throw new AuthException($e->getMessage());
         }
     }
@@ -131,7 +134,7 @@ class JwtAuth
         try {
             $token = $config->parser()->parse($token);
             assert($token instanceof UnencryptedToken);
-        } catch (\Exception $e) {
+        } catch (CannotDecodeContent | InvalidTokenStructure | UnsupportedHeaderFound $e) {
             throw new AuthException($e->getMessage());
         }
 

@@ -24,6 +24,6 @@ return [
     'taglib_end'    => '}',
     // 静态资源URL地址
     'tpl_replace_string' => [
-        '__STATIC__' => 'static'
+        '__STATIC__' => env('static.cdnhost')
     ]
 ];

@@ -242,8 +242,8 @@ abstract class BaseDao
      */
     public function getPrenext(int $id, ?string $field = 'id, title', ?string $firstPre = '已经是第一篇了', ?string $lastNext = '这是最后一篇了'): array
     {
-        $next = $this->getModel()->where('id', '>', $id)->field($field)->limit(1)->select();
-        $pre = $this->getModel()->where('id', '<', $id)->field($field)->order('id', 'desc')->limit(1)->select();
+        $next = $this->getModel()->where('id', '>', $id)->field($field)->with(['channel'])->limit(1)->select();
+        $pre = $this->getModel()->where('id', '<', $id)->field($field)->with(['channel'])->order('id', 'desc')->limit(1)->select();
         if ($pre->isEmpty()) {
             $pre = array(
                 'title' => $firstPre
@@ -251,7 +251,8 @@ abstract class BaseDao
         } else {
             $pre = array(
                 'id' => $pre[0]['id'],
-                'title' => $pre[0]['title']
+                'title' => $pre[0]['title'],
+                'dirname' => $pre[0]['channel']['dirname']
             );
         }
         if ($next->isEmpty()) {
@@ -261,7 +262,8 @@ abstract class BaseDao
         } else {
             $next = array(
                 'id' => $next[0]['id'],
-                'title' => $next[0]['title']
+                'title' => $next[0]['title'],
+                'dirname' => $next[0]['channel']['dirname']
             );
         }
         return compact('pre', 'next');

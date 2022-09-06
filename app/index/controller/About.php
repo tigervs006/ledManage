@@ -16,10 +16,6 @@ class About extends BaseController
         return $this->view::fetch('../about/system');
     }
 
-    final public function contact(): string {
-        return $this->view::fetch('../about/index');
-    }
-
     final public function produce(): string
     {
         return $this->view::fetch('../about/produce');

@@ -213,6 +213,6 @@ abstract class BaseController
      */
     public function __call($method, $args)
     {
-        return '404 Not Found!';
+        return "Method $method doesn't exist";
     }
 }

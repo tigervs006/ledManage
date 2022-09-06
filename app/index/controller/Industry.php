@@ -2,13 +2,13 @@
 declare (strict_types = 1);
 namespace app\index\controller;
 
+use think\Collection;
 use core\basic\BaseController;
 use app\services\channel\ChannelServices;
 use app\services\article\ArticleServices;
 
 class Industry extends BaseController
 {
-    private string $nid = 'article';
     /**
      * @var ArticleServices
      */
@@ -18,6 +18,11 @@ class Industry extends BaseController
      * @var ChannelServices
      */
     private ChannelServices $channelServices;
+
+    /**
+     * @var string
+     */
+    private string $field = 'id, cid, click, title, author, litpic, create_time, description';
 
     protected function initialize()
     {
@@ -31,15 +36,16 @@ class Industry extends BaseController
      * 文章列表
      * @return string
      */
-    final public function list(): string
+    final public function index(): string
     {
-        $map = $this->status;
-        $field = 'id,cid,click,title,author,litpic,create_time,description';
-        $name = $this->request->param('name/s', null, 'trim');
-        $name && $channelId = $this->channelServices->value(['name' => $name], 'id');
-        $name && $channelId && $map['cid'] = $channelId; // 当$name和$channelId都为true的时赋值$map['cid']
-        $result = $this->services->getPaginate($map, $this->pageSize, $field, $this->order, ['channel']);
-        return $this->view::fetch('../industry/index', ['result' => $result]);
+        $name = ['name' => getPath()];
+        $pid = $this->channelServices->value($name, 'pid');
+        is_null($pid) && abort(404, "page doesn't exist");
+        $map = !$pid
+            ? $this->status
+            : array_merge($this->status, ['cid' => $this->channelServices->value($name)]);
+        $list = $this->services->getPaginate($map, $this->pageSize, $this->field, $this->order, ['channel']);
+        return $this->view::fetch('../industry/index', compact('list'));
     }
 
     /**
@@ -52,16 +58,21 @@ class Industry extends BaseController
         // 阅读量自增
         $result && $this->services->setInc($result['id'], $this->incValue);
         // 上/下一篇文章
-        $prenext = $this->services->getPrenext($result['id']);
+        $prenext = $this->services->getPrenext($result['id'], 'id, cid, title');
         return $this->view::fetch('../industry/detail', ['result' => $result, 'prenext' => $prenext]);
     }
 
     /**
      * 热门文章
-     * @return array|\think\Collection
+     * @return array|Collection
      */
-    final public function hortArt(): array|\think\Collection
+    final public function hortArt(): array|Collection
     {
-        return $this->services->getList($this->current, $this->pageSize, $this->status, 'id, click, title, litpic, create_time', ['click' => 'desc']);
+        return $this->services->getList(
+            $this->current,
+            $this->pageSize,
+            $this->status,
+            'id, click, title, litpic, create_time',
+            ['click' => 'desc'], null, null, ['channel']);
     }
 }

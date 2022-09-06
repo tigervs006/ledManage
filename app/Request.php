@@ -13,11 +13,10 @@ class Request extends \think\Request
     /**
      * 获取token
      * @return string
-     * @param string|null $name
      */
-    public function token(?string $name = null): string
+    public function token(): string
     {
-        $token = $this->header($name ?: 'Authorization');
+        $token = $this->header('Authorization');
         !$token && throw new AuthException('Token is missing or incorrect');
         return $token;
     }

@@ -3,6 +3,18 @@ declare (strict_types = 1);
 
 // 应用公共文件
 
+if (!function_exists('getPath')) {
+    /**
+     * 获取pathinfo
+     * @return string
+     */
+    function getPath(): string
+    {
+        $pathArr = array_filter(explode('/', request()->pathinfo()));
+        return end($pathArr);
+    }
+}
+
 if (!function_exists('msectime')) {
     /**
      * 获取毫秒数

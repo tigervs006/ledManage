@@ -14,7 +14,7 @@ class AppService extends Service
     {
         // 服务注册
         $this->app->bind([
-            'json' => Json::class
+            'json' => Json::class,
         ]);
     }
 

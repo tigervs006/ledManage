@@ -34,20 +34,20 @@ class Article extends BaseModel
     }
 
     /**
-     * 关联栏目模型
-     * @return HasOne
-     */
-    public function channel(): HasOne
-    {
-        return $this->hasOne(Channel::class, 'id', 'cid')->field('id, name, cname');
-    }
-
-    /**
      * 关联内容模型
      * @return HasOne
      */
     public function content(): HasOne
     {
         return $this->hasOne(ArticleContent::class, 'aid', 'id')->withoutField('delete_time');
+    }
+
+    /**
+     * 关联栏目模型
+     * @return HasOne
+     */
+    public function channel(): HasOne
+    {
+        return $this->hasOne(Channel::class, 'id', 'cid')->field('id, name, cname, dirname, fullpath');
     }
 }
