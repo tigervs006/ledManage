@@ -128,16 +128,4 @@ class ProductController extends BaseController
         $this->services->updateOne($this->id, $data);
         return $this->json->successful($message . '商品成功');
     }
-
-    /**
-     * 获取商品分类
-     * @return Json
-     */
-    final public function getCate(): Json
-    {
-        $field = 'id, name, cname, dirname, fullpath';
-        $channelServices = $this->app->make(ChannelServices::class);
-        $list = $channelServices->getData(['nid' => 2], ['id' => 'asc'], $field);
-        return $list ? $this->json->successful(compact('list')) : $this->json->fail();
-    }
 }

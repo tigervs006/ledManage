@@ -121,4 +121,16 @@ class ChannelController extends BaseController
         $this->services->updateOne($this->id, $data);
         return $this->json->successful($message . '栏目成功');
     }
+
+    /**
+     * 获取指定分类的栏目
+     * @return Json
+     */
+    final public function getCate(): Json
+    {
+        $field = 'id, name, cname, fullpath';
+        $map = $this->request->only(['nid'], 'get', 'trim');
+        $list = $this->services->getData($map, ['id' => 'asc'], $field);
+        return $list ? $this->json->successful(compact('list')) : $this->json->fail();
+    }
 }

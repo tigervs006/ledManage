@@ -143,18 +143,6 @@ class ArticleController extends BaseController
     }
 
     /**
-     * 新闻栏目
-     * @return Json
-     */
-    final public function getChannel(): Json
-    {
-        /** @var \app\services\channel\ChannelServices $channelServices */
-        $channelServices = $this->app->make(\app\services\channel\ChannelServices::class);
-        $list = $channelServices->getData(['nid' => 1], ['id' => 'asc'], 'id, name, cname');
-        return $list ? $this->json->successful(compact('list')) : $this->json->fail();
-    }
-
-    /**
      * 文章状态
      * @return Json
      */
