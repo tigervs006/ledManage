@@ -24,7 +24,8 @@ class ExceptionHandle extends Handle
      */
     public function report(Throwable $exception): void
     {
-        $tokenInfo = request()->tokenInfo();
+        /* AuthTokenMiddleware class method */
+        $tokenInfo = request()->parseTokenInfo;
 
         $data = [
             'file' => $exception->getFile(),
@@ -35,18 +36,21 @@ class ExceptionHandle extends Handle
 
         /* 日志内容 */
         $log = [
-            $tokenInfo['aud'],
+            $tokenInfo ? $tokenInfo['aud'] : 'visitor',
             request()->ip(),
-            ceil(msectime() - (request()->time(true) * 1000)),
+            ceil(msectime() - (request()->time(true) * 1000)) . 'ms',
             strtoupper(request()->rule()->getMethod()),
             app('http')->getName() . '/' . request()->rule()->getRule(),
             json_encode(request()->param(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
             json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
 
         ];
+
+        /* 把日志写入到文件 */
         Log::write(implode("|", $log), "error");
-        if (Config::get('index.record_action_log')) {
-            /* 写入日志到数据库 */
+
+        if ($tokenInfo && Config::get('index.record_action_log')) {
+            /* 把日志写入到数据库 */
             $logServices = $this->app->make(SystemLogServices::class);
             $logServices->actionLogRecord($tokenInfo, 1, $this->getMessage($exception));
         }
