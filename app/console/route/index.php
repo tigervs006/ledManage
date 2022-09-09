@@ -7,6 +7,8 @@ Route::group(function () {
         Route::post('login', 'login')->option(['route_name' => '用户登录']);
         Route::post('logout', 'logout')->option(['route_name' => '用户登出']);
         Route::post('submit', 'submitForm')->option(['route_name' => '表单留言']);
+        Route::post('refresh_token', 'refreshToken')->option(['route_name' => '刷新令牌'])
+            ->middleware([app\http\middleware\AuthTokenMiddleware::class]); /* 只验证token */
     })->prefix('publicController/');
 })->option(['https' => true])->pattern(['id' => '\d+', 'name' => '\w+']);
 
@@ -91,6 +93,7 @@ Route::group(function () {
     Route::group('public', function () {
         Route::post('upload', 'upload')->option(['route_name' => '文件上传']);
         Route::post('remove', 'removeFile')->option(['route_name' => '文件删除']);
+        Route::post('clear_log', 'clearLog')->option(['route_name' => '清除错误日志']);
         Route::post('refresh_cache', 'refreshCache')->option(['route_name' => '刷新缓存']);
     })->prefix('publicController/');
     // 行政区域
