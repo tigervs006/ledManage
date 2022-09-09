@@ -13,11 +13,11 @@ use Lcobucci\JWT\Token\InvalidTokenStructure;
 use Lcobucci\JWT\Encoding\CannotDecodeContent;
 use Lcobucci\JWT\Token\UnsupportedHeaderFound;
 use Lcobucci\JWT\Validation\Constraint\IssuedBy;
+use Lcobucci\JWT\Validation\Constraint\RelatedTo;
 use Lcobucci\JWT\Validation\Constraint\SignedWith;
 use Lcobucci\JWT\Validation\Constraint\IdentifiedBy;
 use Lcobucci\JWT\Validation\Constraint\PermittedFor;
 use Lcobucci\JWT\Validation\Constraint\StrictValidAt;
-use Lcobucci\JWT\Validation\RequiredConstraintsViolated;
 
 class JwtAuth
 {
@@ -34,10 +34,16 @@ class JwtAuth
     private DateTimeImmutable $issuedAt;
 
     /**
-     * 失效时间
+     * access_token失效时间
      * @var DateTimeImmutable
      */
     private DateTimeImmutable $expiresAt;
+
+    /**
+     * refresh_token失效时间
+     * @var DateTimeImmutable
+     */
+    private DateTimeImmutable $refresh_token_expiresAt;
 
     /**
      * jwt编号
@@ -65,6 +71,7 @@ class JwtAuth
         ];
         $this->issuedAt = new DateTimeImmutable();
         $this->expiresAt = $this->issuedAt->modify(config('index.token_expire_time'));
+        $this->refresh_token_expiresAt = $this->issuedAt->modify(config('index.refresh_token_expire_time'));
     }
 
     /**
@@ -77,37 +84,46 @@ class JwtAuth
     }
 
     /**
-     * 创建Token字符串
-     * @return string
-     * @param int $uid 用户id
-     * @param int $gid 用户组id
-     * @param  string $audience 当前用户
+     * 生成Token
+     * @return array
+     * @param int|null $uid 用户id
+     * @param int|null $gid 用户组id
+     * @param string|null $audience 当前用户
+     * @param null|bool $isRefreshToken 是否为refreshToken
      */
-    public function createToken(int $uid = 0, int $gid = 0, string $audience = 'szbrand'): string
+    public function createToken(?int $uid, ?int $gid, ?string $audience = 'brand', ?bool $isRefreshToken = false): array
     {
         $config = $this->createJwtObject();
         $builder = $config->builder();
 
-        foreach($this->claim as $k => $v){
-            $builder->withClaim($k, $v);
+        if ($isRefreshToken) {
+            $builder
+                ->relatedTo('refresh_token')
+                ->expiresAt($this->refresh_token_expiresAt);
+        } else {
+            $builder
+                ->relatedTo('access_token')
+                ->expiresAt($this->expiresAt);
+            $claims = array_merge(
+                $this->claim, ['uid' => $uid, 'gid' => $gid]);
+            foreach($claims as $k => $v){
+                $builder->withClaim($k, $v);
+            }
         }
 
         $token = $builder
             ->permittedFor($audience)
             ->issuedBy($this->issuedBy)
             ->issuedAt($this->issuedAt)
-            ->expiresAt($this->expiresAt)
-            ->withClaim('uid', $uid)
-            ->withClaim('gid', $gid)
             ->identifiedBy($this->identified)
             ->canOnlyBeUsedAfter($this->issuedAt)
             ->getToken($config->signer(), $config->signingKey());
 
-        return $token->toString();
+        return ['token' => $token->toString(), 'expiresAt' => $this->expiresAt->getTimestamp()];
     }
 
     /**
-     * 解析token
+     * 解析Token
      * @return mixed
      * @param string $token
      */
@@ -126,11 +142,12 @@ class JwtAuth
      * 验证Token
      * @return void
      * @param string $token
+     * @param bool|null $isRefreshToken 是否为refreshToken
      */
-    public function verifyToken(string $token): void
+    public function verifyToken(string $token, ?bool $isRefreshToken = false): void
     {
         $config = $this->createJwtObject();
-
+        $sub = $isRefreshToken ? 'refresh_token' : 'access_token';
         try {
             $token = $config->parser()->parse($token);
             assert($token instanceof UnencryptedToken);
@@ -142,30 +159,39 @@ class JwtAuth
         $timezone = new \DateTimeZone('Asia/Shanghai');
         $time = new SystemClock($timezone);
         $validateExp = new StrictValidAt($time);
-        /* validateJti */
-        $validateJti = new IdentifiedBy($this->identified);
-        /* validateAud */
-        $audience = $token->claims()->get('aud');
-        $validateAud = new PermittedFor($audience[0] ?? 'brand');
+        !$config->validator()->validate($token, $validateExp)
+        && throw new AuthException('Token has expired, Please try login again');
         /* validateIssued */
         $validateIssued = new IssuedBy($this->issuedBy);
+        !$config->validator()->validate($token, $validateIssued)
+        && throw new AuthException('Issued verification failed, Please try login again');
         /* validatorSigned */
-        $validatorSigned = new SignedWith(new Sha384(),InMemory::base64Encoded($this->jwtSercet));
-        $config->setValidationConstraints($validateJti, $validateExp, $validateAud, $validateIssued, $validatorSigned);
-        $constraints = $config->validationConstraints();
-        try {
-            $config->validator()->assert($token, ...$constraints);
-        } catch(RequiredConstraintsViolated $e) {
-            throw new AuthException(substr($e->getMessage(), 58) . ', Please try login again');
+        $validatorSigned = new SignedWith(new Sha384(), InMemory::base64Encoded($this->jwtSercet));
+        !$config->validator()->validate($token, $validatorSigned)
+        && throw new AuthException('Signed verification failed, Please try login again');
+        /* validateAud */
+        $audience = $token->claims()->get('aud');
+        $validateAud = new PermittedFor(array_shift($audience));
+        !$config->validator()->validate($token, $validateAud)
+        && throw new AuthException('Audience verification failed, Please try login again');
+        /* validateJti */
+        $validateJti = new IdentifiedBy($this->identified);
+        !$config->validator()->validate($token, $validateJti)
+        && throw new AuthException('Identified verification failed, Please try login again');
+        /* validateSub */
+        $validateSub = new RelatedTo($sub);
+        !$config->validator()->validate($token, $validateSub)
+        && throw new AuthException('Subject verification failed, Please check your token or try login again');
+        /** Custom validate */
+        if (!$isRefreshToken) {
+            /* Gets the userAgent from current token */
+            $userAgent = $token->claims()->get('userAgent');
+            /* Gets the ipaddress from current token */
+            $ipaddress = $token->claims()->get('ipaddress');
+            /* Validate the userAgent from current token and now userAgent */
+            $userAgent !== $this->claim['userAgent'] && throw new AuthException('Unauthorized operation, UserAgent have been changed');
+            /* Validate the ipaddress from current token and now ipaddress */
+            $ipaddress !== $this->claim['ipaddress'] && throw new AuthException('Unauthorized operation, Ipaddress have been changed');
         }
-
-        /* Gets the userAgent from current token */
-        $userAgent = $token->claims()->get('userAgent');
-        /* Gets the ipaddress from current token */
-        $ipaddress = $token->claims()->get('ipaddress');
-        /* Validate the userAgent from current token and now userAgent */
-        $userAgent !== $this->claim['userAgent'] && throw new AuthException('Unauthorized operation, UserAgent have been changed');
-        /* Validate the ipaddress from current token and now ipaddress */
-        $ipaddress !== $this->claim['ipaddress'] && throw new AuthException('Unauthorized operation, Ipaddress have been changed');
     }
 }
