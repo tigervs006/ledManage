@@ -97,22 +97,25 @@ class PublicController extends BaseController
         !$groupStatus && throw new AuthException('所属的用户组已被禁用，请联系后台管理员');
         !$userInfo['status'] && throw new AuthException("用户：${data['name']} 已禁用");
         !password_verify($data['password'], $userInfo['password']) && throw new AuthException('密码验证失败');
-        /* 验证通过后签发token */
-        $token = $this->jwtAuth->createToken($userInfo['id'], $userInfo['gid'], $userInfo['name']);
+        /* 签发access_token */
+        $access_token = $this->jwtAuth->createToken($userInfo['id'], $userInfo['gid'], $userInfo['name']);
+        /* 签发refresh_token */
+        $refresh_token = $this->jwtAuth->createToken(null, null, $userInfo['name'], true);
         /* 更新登录时间和ip地址 */
         $this->userServices->updateOne($userInfo['id'], ['ipaddress' => ip2long($ipAddress), 'last_login' => time()]);
-
-        /* 把token同步到数据库 */
-        isset($userInfo['token'])
-            ? $this->jwtServices->updateOne($userInfo['id'], ['token' => $token])
-            : $this->jwtServices->saveOne(['uid' => $userInfo['id'], 'user' => $userInfo['name'], 'token' => $token]);
+        /* 获取数据库token信息 */
+        $userToken = $this->jwtServices->value(['uid' => $userInfo['id']], 'uid');
+        $tokenData = ['uid' => $userInfo['id'], 'user' => $userInfo['name'], 'access_token' => $access_token['token'], 'refresh_token' => $refresh_token['token']];
+        /* 同步token到数据库中 */
+        $userToken ? $this->jwtServices->updateOne($userInfo['id'], $tokenData) : $this->jwtServices->saveOne($tokenData);
 
         $info = [
             'uid' => $userInfo['id'],
             'gid' => $userInfo['gid'],
             'name' => $userInfo['name'],
-            'avatar' => $userInfo['avatar'],
-            'authorization' => $token,
+            'access_token' => $access_token['token'],
+            'refresh_token' => $refresh_token['token'],
+            'expiresAt' => $access_token['expiresAt'] * 1000
         ];
 
         /* 记录用户登录日志 */
@@ -228,6 +231,36 @@ class PublicController extends BaseController
 
         $message = isset($cid) ? '更新信息成功' : '留言成功';
         return $this->json->successful("{$message}，我们将会在24小时内联系您");
+    }
+
+    /**
+     * 清理日志
+     * @return Json
+     */
+    final public function clearLog(): Json
+    {
+        $result = \think\facade\Log::clear();
+        return $result ? $this->json->successful('Clear log successfully') : $this->json->fail('Clear log failed');
+    }
+
+    /**
+     * refreshToken
+     * @return Json
+     */
+    final public function refreshToken(): Json
+    {
+        /* 从旧的access_token获取信息 */
+        $tokenInfo = $this->request->tokenInfo();
+        $access_token = $this->jwtAuth->createToken($tokenInfo['uid'], $tokenInfo['gid'], $tokenInfo['aud']);
+        $info = [
+            'uid' => $tokenInfo['uid'],
+            'gid' => $tokenInfo['gid'],
+            'name' => $tokenInfo['aud'],
+            'access_token' => $access_token['token'],
+            'expiresAt' => $access_token['expiresAt'] * 1000
+        ];
+        $this->logServices->actionLogRecord($info, 2, '刷新令牌');
+        return $this->json->successful('refresh token successed', compact('info'));
     }
 
     /**
