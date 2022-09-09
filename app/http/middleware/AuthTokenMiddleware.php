@@ -14,7 +14,6 @@ use core\interfaces\MiddlewareInterface;
  */
 class AuthTokenMiddleware implements MiddlewareInterface
 {
-
     /**
      * JwtAuth
      * @var JwtAuth
@@ -32,7 +31,12 @@ class AuthTokenMiddleware implements MiddlewareInterface
      */
     public function handle(Request $request, \Closure $next): Response
     {
-        config('index.access_token_check') && $this->jwtService->verifyToken($request->token());
+        if (config('index.access_token_check')) {
+            $isRefreshToken = $request->isRefreshToken();
+            /* 此方法仅在ExceptionHandle类使用 */
+            $request->parseTokenInfo = $this->jwtService->parseToken($request->token());
+            $this->jwtService->verifyToken($isRefreshToken ? $request->refreshToken() : $request->token(), $isRefreshToken);
+        }
         return $next($request);
     }
 }
