@@ -1,16 +1,22 @@
 <?php
 use think\facade\Route;
 
+/** 自定义接口 */
+Route::group(function () {
+    Route::group('public', function () {
+        Route::post('refresh_token', 'refreshToken')->option(['route_name' => '刷新令牌'])
+            ->middleware([app\http\middleware\AuthTokenMiddleware::class]);
+    })->prefix('publicController/');
+})->option(['https' => true])->pattern(['id' => '\d+']);
+
 /** 无授权接口 */
 Route::group(function () {
     Route::group('public', function () {
         Route::post('login', 'login')->option(['route_name' => '用户登录']);
         Route::post('logout', 'logout')->option(['route_name' => '用户登出']);
         Route::post('submit', 'submitForm')->option(['route_name' => '表单留言']);
-        Route::post('refresh_token', 'refreshToken')->option(['route_name' => '刷新令牌'])
-            ->middleware([app\http\middleware\AuthTokenMiddleware::class]); /* 只验证token */
     })->prefix('publicController/');
-})->option(['https' => true])->pattern(['id' => '\d+', 'name' => '\w+']);
+})->option(['https' => true])->pattern(['id' => '\d+']);
 
 /** 需授权接口 */
 Route::group(function () {
