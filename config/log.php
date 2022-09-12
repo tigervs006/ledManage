@@ -19,7 +19,7 @@ return [
     'channels'     => [
         'file' => [
             // 独立日志级别
-            'apart_level'    => [],
+            'apart_level'    => ['sql', 'error'],
             // 最大日志文件数量
             'max_files'      => 30,
             // 日志处理
