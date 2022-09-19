@@ -138,4 +138,4 @@ Route::group(function () {
     });
     /* miss路由 */
     Route::miss(function() { return '404 Not Found!'; });
-})->option(['method' => 'get', 'https' => true])->pattern(['id' => '\d+', 'dirname' => '[\w\/]+']);
+})->option(['method' => 'get', 'https' => true])->pattern(['id' => '\d+', 'dirname' => '[a-zA-Z\_\-\/]+']);
