@@ -31,8 +31,8 @@
 .submenu3{ min-width: 760px; }
 .submenu4{ min-width: 820px; }
 .submenu5{ min-width: 950px; }
-.submenu6{ min-width: 120px; width: 120px; padding:10px 20px; }
-.submenu6 a{display: block; line-height: 34px; font-size:14px;}
+.submenu6{ width: unset; padding:10px 20px; }
+.submenu6 a{ display: block; line-height: 34px; font-size:14px; }
 /* .header .uk-navbar-center .uk-drop{ background:#fff; margin-top:0;  left: 0!important; right: 0!important; width:100%!important; }
 .header .uk-navbar-center .uk-drop .f14{ color:#525252; }
 .header .uk-navbar-center .uk-drop .uk-slider-items li>div{ padding:20px 0; border-bottom:5px solid #fff;}
@@ -131,7 +131,7 @@
 .ipart8 .uk-wrap:hover{ background:#fff; border-color:#8fbd20; }
 .ipart8 .uk-position-small{ background:#f4f4f4; border-radius: 50%; color:#000; width:40px; height: 40px; text-align: center; padding:8px; }
 .uk-child-width-1-7\@m>*{ width:14.28% }
-.footer{ border-top:5px solid #8fbd20; background: #2c2c2c; position: relative; color:#9f9f9f; padding-top:50px; }
+.footer{ border-top:5px solid #8fbd20; background: darkslategray; position: relative; color:#9f9f9f; padding-top:50px; }
 .footer a{ color:#9f9f9f; }
 .footer a:hover{ color:#fff; }
 .footer .fottel{ margin-bottom: 20px; }
@@ -335,10 +335,10 @@
 #amap{ height:500px; width: 100%;}
 .map-mask{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 101; pointer-events: none; background:rgba(0,0,0,0.15); }
 .catinfo{ width:420px; background:#211b19; padding:25px 30px 35px; border-radius: 10px; color:#b6b4b4; }
-.gbook{ background:#f3f3f3; padding:30px 65px 50px; }
+.gbook{ background:#f3f3f3; padding:30px 65px; }
 .gbook .tit{ margin-bottom: 20px; }
 .gbook .uk-input{ background: #fff; height: 50px; font-size:16px; border-color:#fff; }
-.gbook .uk-select:not([multiple]):not([size]){ background: #fff; height: 50px; font-size:16px; border-color:#fff; }
+.gbook .uk-select:not([multiple]):not([size]){ height: 50px; font-size:16px; border-color:#fff; }
 .gbook .uk-textarea{  height: 100px; padding-top:8px; background: #fff; font-size:16px; border-color:#fff; }
 .gbook .btn .uk-button{ height: 50px; line-height: 48px; margin-left: 10px; font-size:16px; }
 /*报告查询*/
