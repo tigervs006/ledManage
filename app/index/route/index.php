@@ -6,8 +6,10 @@ Route::group(function () {
     Route::rule('/', 'index');
     /* 行政区域 */
     Route::rule('region', 'index/region');
-    /* 单页模型伪静态 */
+    /* 单页模型 */
     Route::rule('single/<dirname?>$', 'single/index');
+    /* 网站地图 */
+    Route::rule('sitemap', 'index/sitemap')->option(['ext' => 'html']);
     /* 行业模型伪静态 */
     Route::group('area', function () {
         /* 顶级栏目 */
@@ -45,11 +47,38 @@ Route::group(function () {
     /* 文档模型伪静态 */
     Route::group('news', function () {
         /* 顶级栏目 */
-        Route::rule('<id>$', 'industry/detail');
+        Route::rule('<id>$', 'industry/index');
         /* 文档列表 */
-        Route::rule('<dirname?>/$', 'industry/index')->name('newsList');
+        Route::rule('<dirname?>/$', 'industry/list')->name('newsList');
         /* 文章详情 */
-        Route::rule('<dirname?><id>$', 'industry/detail')->name('newsDetail');
+        Route::rule('<dirname?><id>$', 'industry/index')->name('newsDetail');
+    });
+    /* 灯具检测伪静态 */
+    Route::group('testing', function () {
+        /* 顶级栏目 */
+        Route::rule('<id>$', 'testing/index');
+        /* 文档列表 */
+        Route::rule('<dirname?>/$', 'testing/list')->name('testingList');
+        /* 文章详情 */
+        Route::rule('<dirname?><id>$', 'testing/index')->name('testingDetail');
+    });
+    /* 灯具认证伪静态 */
+    Route::group('attestation', function () {
+        /* 顶级栏目 */
+        Route::rule('<id>$', 'testing/index');
+        /* 文档列表 */
+        Route::rule('<dirname?>/$', 'testing/list')->name('testingList');
+        /* 文章详情 */
+        Route::rule('<dirname?><id>$', 'testing/index')->name('testingDetail');
+    });
+    /* 灯具认证伪静态 */
+    Route::group('illuminant', function () {
+        /* 顶级栏目 */
+        Route::rule('<id>$', 'testing/index');
+        /* 文档列表 */
+        Route::rule('<dirname?>/$', 'testing/list')->name('testingList');
+        /* 文章详情 */
+        Route::rule('<dirname?><id>$', 'testing/index')->name('testingDetail');
     });
     /* 关于我们伪静态 */
     Route::group('about', function () {
@@ -78,7 +107,7 @@ Route::group(function () {
         /* 商品列表 */
         Route::rule('<dirname?>/$', 'product/list')->name('productList');
         /* 商品详情 */
-        Route::rule('<dirname?><id>$', 'product/detail')->name('productDetail');
+        Route::rule('<dirname?><id>$', 'product/index')->name('productDetail');
     });
     /* 图集模型伪静态 */
     Route::group('images', function () {
