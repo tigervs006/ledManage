@@ -13,18 +13,17 @@ class ArticleValidator extends Validate
     protected $rule =   [
         'cid'           => 'require',
         'author'        => 'require',
-        'title'         => 'require|min:10',
+        'title'         => 'require',
         'keywords'      => 'require|min:10',
         'description'   => 'require|min:50',
         'content'       => 'require|min:100',
-        'litpic'        => 'require|regex:url'
+        'litpic'        => 'require'
     ];
 
     protected $message  =   [
         'cid.require'           => '请选择文章发布的栏目',
         'author.require'        => '请为文章署名',
         'title.require'         => '文章标题不得为空',
-        'title.min'             => '文章标题不得少于10个字',
         'keywords.require'      => '关键词不得为空',
         'keywords.min'          => '关键词不得少于10个字',
         'description.require'   => '文章描述不得为空',
