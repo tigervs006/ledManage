@@ -151,38 +151,38 @@
 $(function() {
 
 	//留言板
-	$(document).on('click','#msg',function(){
-		var contacts = $('#contacts').val();
-		if(contacts==''){ layer.msg('请输入您的姓名.'); return false; }
-		var mobile = $('#mobile').val();
-		if(mobile==''){ layer.msg('请输入您的电话.'); return false; }
-		var company = $('#company').val();
-		if(company==''){ layer.msg('请输入您的公司.'); return false; }
-		var products = $('#products').val();
-		if(products==''){ layer.msg('请输入您的产品.'); return false; }
-		var content = $('#content').val();
-		if(content==''){ layer.msg('请输入您的认证需求.'); return false; }
-		// var checkcode = $('#checkcode').val();
-		// if(checkcode==''){ layer.msg('请输入验证码.'); return false; }
-		var url=$('#url').val();
-		$.post(url,{
-			contacts:contacts,
-			mobile:mobile,
-			company:company,
-			products:products,
-			content:content,
-			//checkcode:checkcode,
-		},function(msg){
-			// $('#msgcodepic').trigger("click");
-			// console.log(msg);
-			if(msg.code==1){
-				layer.alert('您的留言已收到!');
+	$(document).on('click','#msg',function() {
+		if(!$(':input[name="username"]').val()) {
+			layer.msg('请输入您的姓名'); return false;
+		}
+		const mobile = $(':input[name="mobile"]').val();
+		if(!mobile) {
+			layer.msg('请输入您的电话'); return false;
+		} else if (!/^1[3456789]\d{9}$/.test(mobile)) {
+			layer.msg('手机号格式错误'); return false;
+		}
+		if(!$(':input[name="company"]').val()) {
+			layer.msg('请输入您的公司'); return false;
+		}
+		const email = $(':input[name="email"]').val();
+		if(!email) {
+			layer.msg('请输入您的邮箱'); return false;
+		} else if (!/^([a-zA-Z]|\d)(\w|-)+@[a-zA-Z\d]+\.([a-zA-Z]{2,4})$/.test(email)) {
+			layer.msg('邮箱格式错误'); return false;
+		}
+		if(!$(':input[name="message"]').val()) {
+			layer.msg('请简单描述您的需求'); return false;
+		}
+		$.post('/console/public/submit',
+			$('#gbookform').serialize(),
+			function(res) {
+			if (res.success) {
+				layer.alert(res.msg);
 				$('#gbookform')[0].reset();
-			}else{
-				layer.msg(msg.data);
+			} else {
+				layer.msg(res.msg);
 			}
-		},'json');
-		return false;
+		}, 'json');
 	})
 
 	//投诉建议
@@ -216,12 +216,49 @@ $(function() {
 		},'json');
 		return false;
 	})
-
-	//数字滚动
-	// $('.counter').countUp({
-	// 	time: 2000
-	// });
-
-
 })
-
+$(function () {
+	let html = ''
+	const city = $('select[name="city"]')
+	const district = $('select[name="district"]')
+	const province = $('select[name="province"]')
+	city.append(html)
+	district.append(html)
+	$.each(getRegion(), (idx, item) => {
+		html += "<option data-code=" +item.cid+ " value=" +item.cid+ ">" +item.name+ "</options>"
+	})
+	province.append(html)
+	province.change(function () {
+		if ($(this).val() === '') return
+		$("#inputCity option").remove()
+		$("#inputDistrict option").remove()
+		let code = $(this).find("option:selected").data('code').toString()
+		let html = "<option value=''>--请选择--</option>"
+		district.append(html)
+		$.each(getRegion(code),function(idx, item){
+			html += "<option data-code=" +item.cid+ " value=" +item.cid+ ">" +item.name+ "</options>"
+		})
+		city.append(html)
+	})
+	city.change(function () {
+		if ($(this).val() === "") return
+		$("#inputDistrict option").remove()
+		let code = $(this).find("option:selected").data('code').toString()
+		let html = "<option value=''>--请选择--</option>"
+		$.each(getRegion(code),function(idx, item) {
+			html += "<option data-code=" +item.cid+ " value=" +item.cid+ ">" +item.name+ "</options>"
+		})
+		district.append(html)
+	})
+})
+/* 城市列表 */
+function getRegion(pid = 0) {
+	let region
+	$.ajax({
+		async: false,
+		url: '/region',
+		data: { pid: pid },
+		success: res => region = res?.data?.list ?? []
+	})
+	return region
+}
