@@ -180,7 +180,6 @@ class PublicController extends BaseController
             'district',
             'company' => '未知',
         ], 'post', 'trim');
-
         /* 数据验证 */
         $validator = 'app\console\validate\FormValidator';
         try {
