@@ -288,9 +288,9 @@ abstract class BaseDao
      * @param array|null $with 关联模型
      * @throws DbException
      */
-    public function getPaginate(array $map, int $rows = 15, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = []): \think\Paginator
+    public function getPaginate(array $map, int $rows = 15, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null): \think\Paginator
     {
-        return $this->getModel()->where($map)->when(count($with), function ($query) use ($with) {
+        return $this->getModel()->where($map)->when($with, function ($query) use ($with) {
             $query->with($with);
         })->field($field)->order($order)->paginate($rows);
     }
