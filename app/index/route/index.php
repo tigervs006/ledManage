@@ -67,18 +67,18 @@ Route::group(function () {
         /* 顶级栏目 */
         Route::rule('<id>$', 'testing/index');
         /* 文档列表 */
-        Route::rule('<dirname?>/$', 'testing/list')->name('testingList');
+        Route::rule('<dirname?>/$', 'testing/list')->name('attestationList');
         /* 文章详情 */
-        Route::rule('<dirname?><id>$', 'testing/index')->name('testingDetail');
+        Route::rule('<dirname?><id>$', 'testing/index')->name('attestationDetail');
     });
-    /* 灯具认证伪静态 */
+    /* 光源驱动伪静态 */
     Route::group('illuminant', function () {
         /* 顶级栏目 */
         Route::rule('<id>$', 'testing/index');
         /* 文档列表 */
-        Route::rule('<dirname?>/$', 'testing/list')->name('testingList');
+        Route::rule('<dirname?>/$', 'testing/list')->name('illuminantList');
         /* 文章详情 */
-        Route::rule('<dirname?><id>$', 'testing/index')->name('testingDetail');
+        Route::rule('<dirname?><id>$', 'testing/index')->name('illuminantDetail');
     });
     /* 关于我们伪静态 */
     Route::group('about', function () {
