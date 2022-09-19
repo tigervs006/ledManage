@@ -56,6 +56,15 @@ class Index extends BaseController
     }
 
     /**
+     * 网站地图
+     * @return string
+     */
+    final public function sitemap(): string
+    {
+        return $this->view::fetch('../sitemap');
+    }
+
+    /**
      * 获取商品列表
      * @return Collection
      */
@@ -73,18 +82,25 @@ class Index extends BaseController
 
     /**
      * 获取文档列表
-     * @return Collection
+     * @return array|Collection
      */
-    private function getArticle(): Collection
+    private function getArticle(): array|Collection
     {
-        return $this->articleServices->getList(
+        $list = $this->articleServices->getList(
             1,
-            7,
+            36,
             $this->status,
             $this->article_field,
             ['is_head' => 'desc', 'id' => 'desc'],
             null, null, ['channel']
         );
+        $result = [];
+        if (!$list->isEmpty()) {
+            $Arr = $this->app->make(\core\utils\ArrHandler::class);
+            $list = $Arr->ArrMultisort($list->toArray(), 'click', 'DESC');
+            $result = $Arr->ArrToGroup($list, 'cid'); /* 根据文档分类分组 */
+        }
+        return empty($result) ? [] : array_merge(array($list), $result);
     }
 
     /**
