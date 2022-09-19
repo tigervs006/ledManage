@@ -146,12 +146,11 @@ abstract class BaseController
             $key = 'name';
             // 以下字段在获取栏目SEO信息及获取面包屑导航都需要用到
             static $field = 'id, pid, name, title, cname, keywords, description';
-            if (preg_match('/\d+/', $channel, $pathDetail)) { // 如果是详情页
+            if (preg_match('/\d+/', $channel)) { // 如果是详情页
                 $key = 'id';
-                /** @var \app\services\article\ArticleServices $artServices */
-                $artServices = $this->app->make(\app\services\article\ArticleServices::class);
-                $value = $artServices->value(['id' => $pathDetail[0]], 'cid'); // 获取父级栏目ID
-            } else if (preg_match('/[a-zA-Z]+/', $channel, $pathCategory)) { // 如果是栏目页
+                $pname = $pathFilter[count($pathFilter)-2];
+                $value = $services->value(['name' => $pname], 'id'); // 获取父级栏目ID
+            } else if (preg_match('/\w+/', $channel, $pathCategory)) { // 如果是栏目页
                 $value = $pathCategory[0];
             }
             // 获取当前栏目信息
@@ -165,7 +164,7 @@ abstract class BaseController
             }
         }
         // 获取所有栏目数据
-        $channelData = $services->getData($this->status, ['id' => 'asc', 'sort' => 'desc'], 'id, pid, name, cname');
+        $channelData = $services->getData($this->status, ['id' => 'asc', 'sort' => 'desc'], 'id, pid, name, cname, fullpath');
         // 获取网站栏目树状结构
         $result = $services->getTreeData($channelData, 0, null);
         $this->view::assign(['channel' => $result, 'crumbs' => $crumbsData ?? [], 'channelinfo' => $pinfo ?? []]);
