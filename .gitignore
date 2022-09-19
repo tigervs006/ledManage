@@ -8,5 +8,6 @@
 /runtime
 *.min.js
 *.min.css
-/public/static/icon
-/public/static/img
+/public/static/img/
+/public/static/icon/
+/public/static/upload/
