@@ -246,8 +246,8 @@ abstract class BaseDao
         $nextMap = array(['id', '>', $id]);
         $pretMap = array(['id', '<', $id]);
         if ($map) {
-            $nextMap = array(['id', '>', $id], $map);
-            $pretMap = array(['id', '<', $id], $map);
+            $nextMap = array(['id', '>', $id], ...$map);
+            $pretMap = array(['id', '<', $id], ...$map);
         }
         $next = $this->getModel()->where($nextMap)->field($field)->with(['channel'])->limit(1)->select();
         $pre = $this->getModel()->where($pretMap)->field($field)->with(['channel'])->order('id', 'desc')->limit(1)->select();
@@ -259,7 +259,8 @@ abstract class BaseDao
             $pre = array(
                 'id' => $pre[0]['id'],
                 'title' => $pre[0]['title'],
-                'dirname' => $pre[0]['channel']['dirname']
+                'dirname' => $pre[0]['channel']['dirname'],
+                'fullpath' => $pre[0]['channel']['fullpath']
             );
         }
         if ($next->isEmpty()) {
@@ -270,7 +271,8 @@ abstract class BaseDao
             $next = array(
                 'id' => $next[0]['id'],
                 'title' => $next[0]['title'],
-                'dirname' => $next[0]['channel']['dirname']
+                'dirname' => $next[0]['channel']['dirname'],
+                'fullpath' => $next[0]['channel']['fullpath']
             );
         }
         return compact('pre', 'next');
