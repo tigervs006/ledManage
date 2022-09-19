@@ -20,7 +20,6 @@
 {volist name="product" id="item"}
                             <div>
                                 <div class="uk-wrap uk-position-relative">
-                                    <h3>{$item.id}</h3>
                                     <a href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
                                     <div class="ico img" data-ratio="4:3">
                                         <div class="uk-flex uk-flex-middle uk-flex-center"><img src="{$item.litpic}" alt="{$item.title}"></div>
