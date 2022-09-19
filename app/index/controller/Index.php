@@ -7,7 +7,6 @@ use think\response\Json;
 use core\basic\BaseController;
 use app\services\system\RegionServices;
 use app\services\article\ArticleServices;
-use app\services\product\ProductServices;
 
 class Index extends BaseController
 {
@@ -15,11 +14,6 @@ class Index extends BaseController
      * @var RegionServices
      */
     private RegionServices $regionServices;
-
-    /**
-     * @var ProductServices
-     */
-    private ProductServices $productServices;
 
     /**
      * @var ArticleServices
@@ -31,8 +25,6 @@ class Index extends BaseController
      */
     private string $region_field = 'id, cid, pid, code, name';
 
-    private string $product_field = 'id, pid, title, click, album, special, description';
-
     /**
      * @var string 文档字段
      */
@@ -43,7 +35,6 @@ class Index extends BaseController
         parent::initialize();
         $this->regionServices = $this->app->make(RegionServices::class);
         $this->articleServices = $this->app->make(ArticleServices::class);
-        $this->productServices = $this->app->make(ProductServices::class);
     }
 
     /**
@@ -70,11 +61,11 @@ class Index extends BaseController
      */
     private function getProduct(): Collection
     {
-        return $this->productServices->getList(
+        return $this->articleServices->getList(
             1,
-            8,
-            $this->status,
-            $this->product_field,
+            20,
+            array(['status', '=', 1], ['cid', 'notin', '35,36']),
+            $this->article_field,
             ['click' => 'desc', 'id' => 'desc'],
             null, null, ['channel']
         );
@@ -89,7 +80,7 @@ class Index extends BaseController
         $list = $this->articleServices->getList(
             1,
             36,
-            $this->status,
+            array_merge($this->status, ['cid' => [35, 36]]),
             $this->article_field,
             ['is_head' => 'desc', 'id' => 'desc'],
             null, null, ['channel']
