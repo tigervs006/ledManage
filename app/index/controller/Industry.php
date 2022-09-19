@@ -56,7 +56,7 @@ class Industry extends BaseController
         $pid = $this->channelServices->value($name, 'pid');
         is_null($pid) && abort(404, "page doesn't exist");
         $map = !$pid
-            ? $this->status
+            ? array_merge($this->status, ['cid' => [35, 36]])
             : array_merge($this->status, ['cid' => $this->channelServices->value($name)]);
         $list = $this->services->getPaginate($map, $this->pageSize, $this->field, $this->order, ['channel']);
         return $this->view::fetch('../industry/list', compact('list'));
