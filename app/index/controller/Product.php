@@ -27,6 +27,18 @@ class Product extends BaseController
     }
 
     /**
+     * 商品详情
+     * @return string
+     */
+    public function index(): string
+    {
+        $map = array_merge($this->status, ['id' => $this->id]);
+        $info = $this->services->getOne($map, '*', ['detail']);
+        is_null($info) && abort(404, "page doesn't exist");
+        return $this->view::fetch('../product/detail', compact('info'));
+    }
+
+    /**
      * 商品列表
      * @return string
      */
@@ -40,17 +52,5 @@ class Product extends BaseController
             : array_merge($this->status, ['pid' => $this->channelServices->value($name)]);
         $list = $this->services->getPaginate($map, $this->pageSize, null, $this->order, ['channel']);
         return $this->view::fetch('../product/index', compact('list'));
-    }
-
-    /**
-     * 商品详情
-     * @return string
-     */
-    public function detail(): string
-    {
-        $map = array_merge($this->status, ['id' => $this->id]);
-        $info = $this->services->getOne($map, '*', ['detail']);
-        is_null($info) && abort(404, "page doesn't exist");
-        return $this->view::fetch('../product/detail', compact('info'));
     }
 }
