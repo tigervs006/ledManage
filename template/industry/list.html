@@ -1,0 +1,61 @@
+{extend name="../base" /}
+{block name="title"}<title>电池检测_BIS认证_CE_TISI_MSDS_BSMI_可靠性测试-立讯检测</title>{/block}
+{block name="keywords"}<meta name="keywords" content="锂电池检测，UN38.3认证，UL认证，CB认证，KC认证，CQC认证，电池测试，电池检测，BIS认证，CE，TISI，MSDS，BSMI，可靠性测试">{/block}
+{block name="description"}<meta name="description" content="电池检测,可靠性测试,BIS认证,立讯检测">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(/static/img/ban_6.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+  <img src="/static/img/ban_6.png" alt="电池检测">
+</div>
+{include file="../basic/crumbs" /}
+<div class="uk-hidden@s subname pt15">
+  <div class="uk-text-center">
+    <span class="f30 text-blue">行业新闻</span>
+  </div>
+</div>
+<div class="uk-container">
+  <div class="tBody">
+    <div class="uk-grid">
+{include file="../basic/news_left_nav" /}
+      <div class="uk-width-expand">
+        <div class="newslist">
+          <ul uk-scrollspy="target: > li; cls: uk-animation-slide-left-medium; repeat: false; delay:200">
+{volist name="list" id="item" empty="There's nothing here..."}
+            <li class="uk-scrollspy-inview uk-animation-slide-left-medium" style="">
+              <div class="uk-grid uk-position-relative">
+                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                <div class="pic">
+                  <div class=" img" data-ratio="3:2">
+                    <div class="uk-flex uk-flex-middle uk-flex-center">
+                      <img src="{$item.litpic}" alt="{$item.title}">
+                    </div>
+                  </div>
+                </div>
+                <div class="con uk-width-expand">
+                  <div class="f24 text-black uk-text-truncate">{$item.title}</div>
+                  <div class="mdate f14 text-gray"><span class="iconfont icon-calendar text-blue f16"></span> {$item.create_time}</div>
+                  <div class="desc f14 max-line-2 uk-visible@m">{$item.description}</div>
+                </div>
+              </div>
+            </li>
+{/volist}
+          </ul>
+        </div>
+        <!-- 分页 -->
+        <nav class="uk-pagination pages f14 uk-flex uk-flex-right uk-flex-middle">
+          <a class="page-item page-link" href="/news_10/">首页</a>
+          <a class="page-item page-link" href="javascript:;"><span uk-icon="chevron-double-left" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 14 6 10 10 6"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="14 14 10 10 14 6"></polyline></svg></span></a>
+          <a href="/news_10/" class="page-num page-num-current">1</a><a href="/news_10_2/" class="page-num">2</a><a href="/news_10_3/" class="page-num">3</a><a href="/news_10_4/" class="page-num">4</a>
+          <!-- 数字条，小屏幕时自动隐藏-->
+          <a class="page-item page-link" href="/news_10_2/"><span uk-icon="chevron-double-right" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a>
+          <a class="page-item page-link" href="/news_10_4/">尾页</a>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+</div>
+{/block}
+{block name="footer"}{/block}

@@ -1,0 +1,44 @@
+{extend name="../base" /}
+{block name="title"}<title>网站地图</title>{/block}
+{block name="keywords"}<meta name="keywords" content="网站地图">{/block}
+{block name="description"}<meta name="description" content="网站地图,电池检测,立讯检测">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(/static/img/ban_1.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+  <img src="/static/img/mban_1.png" alt="电池检测">
+</div>
+<div class="uk-container uk-visible@s">
+    <div class="crumb">
+        <div class="wrap f14">
+            <span class="iconfont icon-home text-green"></span> 您所在的位置：<a href="/">首页</a> &gt; <a href="{:url('/sitemap')}">网站地图</a>
+        </div>
+    </div>
+</div>
+<div class="uk-container">
+    <div class="tBody">
+        <div class="sitemap">
+{volist name="channel" id="item"}
+            <dl>
+                <dt><a href="/{$item.fullpath}" class="f22 fb text-white">{$item.cname}</a></dt>
+                <dd class="submenu sub1">
+                    <div class="uk-flex uk-flex-top uk-flex-between">
+                        <div class="son">
+                            <div class="uk-flex uk-flex-top">
+                                <div class="uk-wrap uk-column-1-2 uk-column-1-3@l">
+{volist name="item.children" id="item"}
+                                    <div><a href="/{$item.fullpath}">● {$item.cname}</a></div>
+{/volist}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+{/volist}
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footer"}{/block}

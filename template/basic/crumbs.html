@@ -1,0 +1,14 @@
+<!-- 面包屑导航 Start -->
+<div class="uk-container uk-visible@s">
+    <div class="crumb">
+        <div class="wrap f14">
+            <?php
+                echo '<span class="iconfont icon-home text-green"></span> 您所在的位置：<a href="/">首页</a>';
+                foreach ($crumbs as $key => $val) {
+                    echo ' &gt; <a href="' . htmlentities($val['path']) . '">' . htmlentities($val['cname']) . '</a>';
+                }
+            ?>
+        </div>
+    </div>
+</div>
+<!-- 面包屑导航 End -->

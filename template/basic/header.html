@@ -1,0 +1,83 @@
+    <section class="header uk-visible@m">
+      <div class="hd f14">
+        <div class="uk-container">
+          <div class="uk-flex uk-flex-between uk-flex-middle">
+            <div class="left">
+              <span class="text-gray iconfont icon-home"></span>
+              <span>深圳市立讯产品技术服务有限公司</span>
+            </div>
+            <div class="right uk-flex uk-flex-middle">
+              <a href="/sitemap.html"><span class="text-blue iconfont icon-diqiu2"></span>
+                <span>网站地图</span></a>
+              <a href="#modal-weixin" uk-toggle class="uk-margin-left"><span
+                      class="text-blue iconfont icon-weixin"></span>
+                  <span>官方微信</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bd uk-container">
+        <div class="uk-navbar">
+          <div class="uk-navbar-left">
+            <div class="uk-flex uk-flex-middle">
+              <a href="/" class="logo"><img src="/static/img/logo.png" alt="深圳市立讯产品技术服务有限公司" class="uk-align-center uk-responsive-width"></a>
+            </div>
+          </div>
+          <div class="uk-navbar-right f16">
+            <span class="text-green f30 iconfont icon-telq"></span>
+            <span class="f16 plr10">服务热线</span>
+            <span class="f30 text-green">{$Think.config.index.aftermarket}</span>
+          </div>
+        </div>
+      </div>
+      <div class="fd">
+        <div class="uk-container">
+          <div class="uk-grid uk-grid-collapse">
+            <div class="uk-width-expand">
+              <ul class="uk-width-1-1 uk-flex uk-flex-between uk-flex-middle menu">
+                <li class="active"><a href="/">首页</a></li>
+{present name="channel"}
+{volist name="channel" id="item"}
+                <li class="">
+                  <a href="/{$item.fullpath}">{$item.cname}</a>
+{if $item.children}
+                  <div uk-drop class="submenu submenu6 uk-box-shadow-small">
+                    <ul <?php if (10 <= count($item['children'])) echo 'class="uk-column-1-2@m"'; ?>>
+{volist name="item.children" id="item"}
+                      <li><a href="/{$item.fullpath}">● {$item.cname}</a></li>
+{/volist}
+                    </ul>
+                  </div>
+{/if}
+                </li>
+{/volist}
+{/present}
+              </ul>
+            </div>
+            <div class="uk-width-auto f16">
+              <form class="uk-search uk-search-default" action="/search/" method="get">
+                <button type="submit" class="uk-search-icon-flip uk-icon uk-search-icon" uk-search-icon=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></button>
+                <input class="uk-search-input" type="search" name="keyword" placeholder="请输入关键词">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="header mheader uk-hidden@m">
+      <div class="uk-navbar">
+        <div class="uk-navbar-center"><a href="/" class="uk-logo uk-flex uk-flex-center"><img src="/static/img/logo.png" alt="深圳市立讯检测技术有限公司"></a></div>
+        <div class="mnav uk-navbar-left">
+          <button type="button" class="uk-button uk-button-default" uk-toggle="target: #offcanvas-push" aria-expanded="false"><span uk-icon="icon: menu; ratio: 1.4" class="uk-icon"><svg width="28" height="28" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="16" height="1"></rect><rect x="2" y="9" width="16" height="1"></rect><rect x="2" y="14" width="16" height="1"></rect></svg></span></button>
+        </div>
+        <div class="so uk-navbar-right">
+          <a href="javascript:;" class="text-blue uk-icon" uk-icon="ratio: 1.2; icon:search" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></a>
+          <div uk-drop="offset: 18" class="uk-drop">
+            <form class="uk-search uk-search-default" action="/search/" method="get">
+              <button type="submit" class="uk-search-icon-flip uk-icon uk-search-icon" uk-search-icon=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></button>
+              <input class="uk-search-input" type="search" name="keyword" placeholder="请输入关键词">
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>

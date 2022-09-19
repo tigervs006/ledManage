@@ -1,0 +1,55 @@
+                <?php if('/' === $_SERVER['REQUEST_URI']) echo '<div class="uk-width-expand">'; ?>
+                    <div class="gbook <?php if('/' !== $_SERVER['REQUEST_URI']) echo 'mb20 uk-scrollspy-inview>'; ?>" uk-scrollspy="cls: uk-animation-slide-right-medium; repeat: false; delay:50">
+                        <form action="" method="post" id="gbookform">
+                            <div class="uk-grid-small" uk-grid>
+                                <div class="uk-width-1-1 uk-width-1-2@m">
+                                    <div class="uk-wrap">
+                                        <input type="text" class="uk-input" name="username" placeholder="请输入您的姓名"/>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1 uk-width-1-2@m">
+                                    <div class="uk-wrap">
+                                        <input type="text" class="uk-input" name="company" placeholder="请输入您的公司"/>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1 uk-width-1-2@m">
+                                    <div class="uk-wrap">
+                                        <input type="text" class="uk-input" name="mobile" placeholder="请输入您的电话"/>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1 uk-width-1-2@m">
+                                    <div class="uk-wrap">
+                                        <input type="text" class="uk-input" name="email" placeholder="请输入您的邮箱"/>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-3">
+                                    <select class="uk-select" name="province" id="inputProvince">
+                                        <option value=''>--请选择省份--</option>
+                                    </select>
+                                </div>
+                                <div class="uk-width-1-3">
+                                    <select class="uk-select" name="city" id="inputCity">
+                                        <option value=''>--请选择城市--</option>
+                                    </select>
+                                </div>
+                                <div class="uk-width-1-3">
+                                    <select class="uk-select" name="district" id="inputDistrict">
+                                        <option value=''>--请选择区域--</option>
+                                    </select>
+                                </div>
+                                <div class="uk-width-1-1">
+                                    <div class="uk-wrap">
+                                        <textarea name="message" class="uk-textarea" placeholder="请简单描述您的需求"></textarea>
+                                    </div>
+                                </div>
+                                <div class="btn uk-width-1-1 uk-flex uk-flex-right">
+                                    <a href="https://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAzNDU0Ml80ODU3NDNfNDAwNzg4Njk4Nl8yXw"
+                                       target="_blank" class="uk-button uk-button-green uk-width-180">在线咨询</a>
+                                    <button type="reset" id="msg" class="uk-button uk-button-blue uk-width-180">
+                                        提交申请
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <?php if('/' === $_SERVER['REQUEST_URI']) echo '</div>'; ?>

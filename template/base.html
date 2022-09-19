@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {block name="title"}Title{/block}
+    {block name="keywords"}Keywords{/block}
+    {block name="description"}Description{/block}
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="author" content="https://www.lcs-led.com"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {block name="pagejs"}{load
+    href="/static/style/iconfont/iconfont.css,/static/style/uikit.min.css,/static/style/common.css,/static/style/custom.css,/static/style/media.css,/static/js/jquery-3.5.1.min.js,/static/js/jquery.waypoints.min.js,/static/js/jquery.countup.min.js,/static/js/layer/layer.js,/static/js/base.min.js,/static/js/common.js"}{/block}
+</head>
+<body>
+<div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
+    <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+            <li><a href="/">首页</a></li>
+{volist name="channel" id="item"}
+{if $item.children}
+            <li class="uk-parent">
+                <a href="/{$item.fullpath}">{$item.cname}</a>
+                <ul class="uk-nav-sub">
+{volist name="item.children" id="item"}
+                    <li><a href="/{$item.fullpath}">{$item.cname}</a></li>
+{/volist}
+                </ul>
+            </li>
+{else /}
+            <li><a href="/{$item.fullpath}">{$item.cname}</a></li>
+{/if}
+{/volist}
+        </ul>
+    </div>
+</div>
+<div id="root">
+{include file="../basic/header" /}
+{block name="main"}{/block}
+{include file="../basic/footer" /}
+</div>
+</body>
+</html>

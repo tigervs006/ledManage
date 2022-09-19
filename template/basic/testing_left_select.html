@@ -1,0 +1,39 @@
+<div class="uk-hidden@s profilter">
+    <div class="uk-grid uk-grid-small uk-child-width-1-2">
+        <div>
+            <select name="sel1" id="sel1" class="uk-select f14">
+{foreach $channel as $k => $v}
+{notequal name="$v.id" value="5"}
+                <option value="{$v.id}" <?php if (1 <= stripos($_SERVER['REQUEST_URI'], $v['fullpath'])) echo 'selected';?>>{$v.cname}</option>
+{/notequal}
+{/foreach}
+            </select>
+        </div>
+        <div>
+            <select name="sel1" id="sel2" class="uk-select f14"></select>
+        </div>
+    </div>
+    <script>
+        $('#sel1').change(function () {
+            getChild($(this).children('option:selected').val());
+        });
+        $('#sel2').change(function () {
+            location.href = $(this).children('option:selected').val();
+        })
+        const getChild = (id) => {
+            /* 加载默认子项 */
+            $.post('/channel/list', {id: id}, function (res) {
+                const {data, success} = res
+                if (success) {
+                    let html = '';
+                    $.each(data.list, function (idx, item) {
+                        html += '<option value="/' + item.fullpath + '"' + (location.pathname.slice(1) === item.fullpath && ' selected') + '>' + item.cname + '</option>';
+                    });
+                    $('#sel2').html(html);
+                }
+            }, 'json');
+        }
+        /* 初始化子项 */
+        getChild($('#sel1').children('option:selected').val());
+    </script>
+</div>

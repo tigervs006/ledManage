@@ -1,0 +1,33 @@
+<div class="uk-width-auto uk-visible@s" uk-scrollspy="cls: uk-animation-slide-left-medium; repeat: false; delay:50">
+    <div class="sidebar">
+        <!--电池认证 电池检测-->
+        <div class="sidenav">
+            <h3 class="text-white f30 fb uk-text-center">产品服务</h3>
+{volist name="channel" id="item"}
+{notin name="item.id" value="5,44"}
+            <dl>
+                <dt>{$item.cname}</dt>
+                <dd>
+                    <div class="uk-grid-small uk-grid uk-child-width-1-2 f14">
+{volist name="item.children" id="item"}
+                        <div><a href="/{$item.fullpath}">{$item.cname}</a></div>
+{/volist}
+                    </div>
+                </dd>
+            </dl>
+{/notin}
+{/volist}
+        </div>
+{notequal name="$_SERVER['REQUEST_URI']" value="/"}
+        <div class="sidetel uk-text-center">
+            <div class="f16 text-green line-height-12">
+                <span class="iconfont icon-telq f60"></span>
+                <div>全国服务热线</div>
+            </div>
+            <div class="f32 text-white line-height-14">
+                {$Think.config.index.aftermarket}
+            </div>
+        </div>
+{/notequal}
+    </div>
+</div>
