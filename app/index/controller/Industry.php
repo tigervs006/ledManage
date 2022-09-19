@@ -38,11 +38,12 @@ class Industry extends BaseController
      */
     final public function index(): string
     {
+        $map = array(['status', '=', 1], ['cid', 'in', '35,36']);
         $info = $this->services->get($this->id, null, ['content']);
         // 阅读量自增
         $info && $this->services->setInc($info['id'], $this->incValue);
         // 上/下一篇文章
-        $prenext = $this->services->getPrenext($info['id'], null, 'id, cid, title');
+        $prenext = $this->services->getPrenext($info['id'], $map, 'id, cid, title');
         return $this->view::fetch('../industry/index', compact('info', 'prenext'));
     }
 

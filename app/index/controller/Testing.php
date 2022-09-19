@@ -38,11 +38,12 @@ class Testing extends BaseController
      */
     final public function index(): string
     {
+        $map = array(['status', '=', 1], ['cid', 'notin', '35,36']);
         $info = $this->services->get($this->id, null, ['content']);
         // 阅读量自增
         $info && $this->services->setInc($info['id'], $this->incValue);
         // 上 / 下一篇
-        $prenext = $this->services->getPrenext($info['id'], null, 'id, cid, title');
+        $prenext = $this->services->getPrenext($info['id'], $map, 'id, cid, title');
         return $this->view::fetch('../testing/index', compact('info', 'prenext'));
     }
 
@@ -56,7 +57,7 @@ class Testing extends BaseController
         $pid = $this->channelServices->value($name, 'pid');
         is_null($pid) && abort(404, "page doesn't exist");
         $map = !$pid
-            ? $this->status
+            ? array(['status', '=', 1], ['cid', 'notin', '35,36'])
             : array_merge($this->status, ['cid' => $this->channelServices->value($name)]);
         $list = $this->services->getPaginate($map, $this->pageSize, $this->field, $this->order, ['channel']);
         return $this->view::fetch('../testing/list', compact('list'));
