@@ -40,39 +40,15 @@
                         <div class="tit f24 fb text-black"><span class="text-blue">相关</span>推荐</div>
                         <div class="relalist">
                             <div class="uk-grid-small uk-child-width-1-4@m uk-child-width-1-2 uk-grid" uk-grid="" uk-scrollspy="target:>div; cls: uk-animation-slide-bottom-small; repeat: false; delay:50">
-
-                                <div class="uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-small" style="">
+{volist name="related" id="item"}
+                                <div class="uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-small">
                                     <div class="uk-wrap uk-position-relative">
-                                        <a href="/testing_22/cdcs.html" class="uk-position-cover uk-position-z-index"></a>
-                                        <img src="/static/upload/images/2022-08-04/w265_h190_1640853027213902.jpg" alt="放电测试">
-                                        <div class="name max-line-1">放电测试</div>
+                                        <a target="_blank" href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                                        <img src="{$item.litpic}" alt="{$item.title}">
+                                        <div class="name max-line-1">{$item.title}</div>
                                     </div>
                                 </div>
-
-                                <div style="" class="uk-scrollspy-inview uk-animation-slide-bottom-small">
-                                    <div class="uk-wrap uk-position-relative">
-                                        <a href="/testing_22/40.html" class="uk-position-cover uk-position-z-index"></a>
-                                        <img src="/static/upload/images/2022-08-04/w265_h190_1640853620180404.jpg" alt="振动测试">
-                                        <div class="name max-line-1">振动测试</div>
-                                    </div>
-                                </div>
-
-                                <div style="" class="uk-scrollspy-inview uk-animation-slide-bottom-small">
-                                    <div class="uk-wrap uk-position-relative">
-                                        <a href="/testing_22/41.html" class="uk-position-cover uk-position-z-index"></a>
-                                        <img src="/static/upload/images/2022-08-04/w265_h190_1640930970313025.png" alt="加速度冲击碰撞">
-                                        <div class="name max-line-1">加速度冲击碰撞</div>
-                                    </div>
-                                </div>
-
-                                <div style="" class="uk-scrollspy-inview uk-animation-slide-bottom-small">
-                                    <div class="uk-wrap uk-position-relative">
-                                        <a href="/testing_22/42.html" class="uk-position-cover uk-position-z-index"></a>
-                                        <img src="/static/upload/images/2022-08-04/w265_h190_1640855466154649.jpg" alt="自由跌落试验">
-                                        <div class="name max-line-1">自由跌落试验</div>
-                                    </div>
-                                </div>
-
+{/volist}
                             </div>
                         </div>
                     </div>

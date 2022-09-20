@@ -28,7 +28,7 @@ class Testing extends BaseController
     {
         parent::initialize();
         $this->services = $this->app->make(ArticleServices::class);
-        $this->view::assign('hotArt', $this->hortArt()); // 获取热门文章
+        $this->view::assign('related', $this->related()); // 获取相关文档
         $this->channelServices = $this->app->make(ChannelServices::class);
     }
 
@@ -90,13 +90,13 @@ class Testing extends BaseController
      * 热门文档
      * @return array|Collection
      */
-    final public function hortArt(): array|Collection
+    final public function related(): array|Collection
     {
         return $this->services->getList(
-            $this->current,
-            $this->pageSize,
-            $this->status,
-            'id, cid, click, title, litpic, create_time',
+            1,
+            4,
+            array(['status', '=', 1], ['cid', 'notin', '35,36']),
+            'id, cid, click, title, litpic',
             ['click' => 'desc'], null, null, ['channel']);
     }
 }
