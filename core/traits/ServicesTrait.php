@@ -25,25 +25,6 @@ namespace core\traits;
 trait ServicesTrait
 {
     /**
-     * 获取子菜单ID
-     * 在删除栏目时用
-     * @return array
-     * @param int $id id
-     * @param array $data data
-     */
-    public function getChildId(array $data, int $id): array
-    {
-        static $idArr = [];
-        foreach ($data as $val) {
-            if ($id == $val['pid']) {
-                $idArr[] = $val['id'];
-                self::getChildId($data, $val['id']);
-            }
-        }
-        return $idArr;
-    }
-
-    /**
      * 生成栏目树状结构
      * @return array
      * @param int|null $pid 父级id
