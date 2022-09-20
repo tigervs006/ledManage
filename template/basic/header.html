@@ -35,16 +35,16 @@
           <div class="uk-grid uk-grid-collapse">
             <div class="uk-width-expand">
               <ul class="uk-width-1-1 uk-flex uk-flex-between uk-flex-middle menu">
-                <li class="active"><a href="/">首页</a></li>
+                <li class="<?php if ('/' === $_SERVER['REQUEST_URI']) echo 'active';?>"><a href="/">首页</a></li>
 {present name="channel"}
 {volist name="channel" id="item"}
-                <li class="">
+                <li class="<?php if (1 <= stripos($_SERVER['REQUEST_URI'], $item['fullpath'])) echo 'active';?>">
                   <a href="/{$item.fullpath}">{$item.cname}</a>
 {if $item.children}
                   <div uk-drop class="submenu submenu6 uk-box-shadow-small">
                     <ul <?php if (10 <= count($item['children'])) echo 'class="uk-column-1-2@m"'; ?>>
 {volist name="item.children" id="item"}
-                      <li><a href="/{$item.fullpath}">● {$item.cname}</a></li>
+                      <li class="<?php if (1 <= stripos($_SERVER['REQUEST_URI'], $item['fullpath'])) echo 'active';?>"><a href="/{$item.fullpath}">● {$item.cname}</a></li>
 {/volist}
                     </ul>
                   </div>
