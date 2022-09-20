@@ -14,312 +14,25 @@
     <div class="tBody product">
         <div class="uk-grid">
 {include file="../basic/testing_left_nav" /}
-            <!---->
             <div class="uk-width-expand">
                 <div class="caselist">
                     <ul class="uk-grid uk-grid-match uk-child-width-1-3@m uk-child-width-1-2" uk-grid uk-scrollspy="target: > li; cls: uk-animation-slide-bottom-medium; repeat: false; delay:100">
-
+{volist name="list" id="item" empty="There's nothing here..."}
                         <li>
                             <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
+                                <a href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                                <div class="pic">
+                                    <img src="{$item.litpic}" alt="{$item.title}" class="uk-transition-scale-up uk-transition-opaque">
+                                </div>
                                 <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">放电测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池充电测试要求UN38.3认证电池在制造商指定的电流和标准电压下连续充电。结果:不起火，不爆炸，不漏液UL认证电池在制造商指定的电流和标准电压下连续充电。结果:不起火，不爆炸，不漏液。CQC认证电池在制造商指定的电流和标准电压下连续充电。结果:不起火，不爆炸，不漏液。CB认证电池在制造商指定的电流和标</div> -->
+                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">{$item.title}</div>
                                 </div>
                             </div>
                         </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">振动测试</div>
-                                    <!-- <div class="desc f16 max-line-1">项目介绍振动测试是在实验室内人工模拟产品（一般电工电子产品）在存储、运输、安装和使用过程中遇到的各种振动环境的影响，用来评估产品是否能承受各种环境振动的能力，是否能正常使用，不出现故障。测试目的振动测试可在产品在正式出厂之前，分析和评估出产品的可靠性，降低后期出现不良品的概率，也能确定产品设计和功能</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">加速度冲击碰撞</div>
-                                    <!-- <div class="desc f16 max-line-1">试验项目：加速度冲击碰撞试验加速度冲击碰撞试验标准GB/T 14412-2005机械振动与冲击 加速度计的机械安装GB/T 18029.6-2009轮椅车 第6部分：电动轮椅车最大速度、加速度和减速度的测定GB/T 33929-2017MEMS高g值加速度传感器性能试验方法GB/T 39079-2020大型游乐设施检验检测 加速度测试加速度冲击碰撞试验流程1、咨询工程师</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">自由跌落试验</div>
-                                    <!-- <div class="desc f16 max-line-1">自由跌落试验分为两种方法。第一种方式通常是用来模拟非包装状态的产品在搬运期间可能经受到的自由跌落，样品通常是按照规定的姿态从规定的高度跌落到规定的表面上两次。第二种方法通常是用来模拟附在电缆上的连接器、小型遥控装置等在使用中可能经受的重复自由跌落。使试验样品从规定高度重复跌落到规定表面上。部分认证项</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">重物冲击测试</div>
-                                    <!-- <div class="desc f16 max-line-1">重物冲击测试检测范围电池，锂电池，软包电池，移动电源，圆柱电池等。部分认证项目电池冲击测试要求UN38.3认证 以稳固的托架固定住每个电芯和电池样品的全部配件表面。 对每个电芯或电池以峰值为150gn的半正弦的加速度撞击，脉冲持续6毫秒，大型电池和大型电池组须经受最大加速度50gn和脉冲持续时间11</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">热滥用试验</div>
-                                    <!-- <div class="desc f16 max-line-1">热滥用测试项目常温外部短路，高温外部短路，过充电，强制放电，低气压，温度循环，振动，加速度冲击，跌落，挤压，重物冲击，热滥用，燃烧喷射，洗涤试验装置；热滥用测试要求将电池按照规定的试验方法充满电后，将电池放入试验箱中。试验箱以（5±2）℃/min的温升速率进行升温，当箱内温度达到130℃±2℃后恒温，并持续30</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">燃烧测试</div>
-                                    <!-- <div class="desc f16 max-line-1">燃烧试验的目地是通过对客户提供的样品进行燃烧测试，根据燃烧的结果进行相应的等级评级，协助客户对产品进行品质管控。检测范围塑料，橡胶，金属材料，石蜡，薄膜，建筑材料，沥青，汽车内饰，纺织品等。检测项目水平燃烧试验，垂直燃烧试验部分认证项目电池燃烧测试要求UL认证 每个检测电池被摆放在每英寸（25.4mm）</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">低气压试验测试</div>
-                                    <!-- <div class="desc f16 max-line-1">低气压试验测试介绍低气压试验就是将试验样品放入试验箱(室)，然后将箱(室)内气压降低到有关标准规定的值，并保持规定持续时间的试验。其目的主要用来确定元件、设备或其他产品在在贮存、运输和使用中对低气压环境的适应性。检测项目：确定产品在低气压气候环境下储存、运输、使用的适应性、放电、介质损耗增加、电离、局部</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">温度循环试验</div>
-                                    <!-- <div class="desc f16 max-line-1">温度循环介绍温度循环就是将试验样品暴露于预设的高低温交替的试验环境中。温度循环主要考察由于剪切疲劳引起的失效。检测范围电子产品，绝缘子，陶瓷电容，灯具，阀门，塑料等。部分认证项目电池温湿度循环测试要求UN38.3认证 电池存储条件如下： 一次温度循环为72±2℃(6h) — -40±2℃(6h) &nb</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">阻燃等级测试</div>
-                                    <!-- <div class="desc f16 max-line-1">阻燃等级测试介绍阻燃等级，即物质具有的或材料经处理后具有的明显推迟火焰蔓延的性质，并以此划分的等级制度。塑料一般通过添加阻燃剂的方法提高阻燃等级，而阻燃剂依其使用方式可以分为添加型阻燃剂和反应型阻燃剂。添加型阻燃剂通常以添加的方式配合到基础树脂中，它们与树脂之间仅仅是简单的物理混合，主要是磷酸酯和含</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">耐压测试</div>
-                                    <!-- <div class="desc f16 max-line-1">电池挤压测试介绍挤压测试考察的是在机械接触式受力作用下的安全性，它模拟的是在整车发生碰撞过程中，电池可能受到挤压而发生变形，进而可能造成危害事件。因为电池包安装的位置不同，所受到的挤压力也有可能会不同，所以，国标在进行测试时强调“与蓄电池模块在整车布局上最容易受到挤压的方向施压”。检测项目挤压试验、</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">外部短路测试</div>
-                                    <!-- <div class="desc f16 max-line-1">外短路测试是将锂离子电池连接一个定值电阻上，锂离子电池的电量通过电阻进行释放。根据定值电阻的大小可以控制短路电流的大小，从数十安到数百安，甚至是数千安，由于大电流会在锂离子电池内短时间内积累大量的热量，可能会引发锂离子电池热失控。能否通过短路测试主要受到短路电流大小的影响，短路电流越大，则锂离子电池</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">接地连续性测试</div>
-                                    <!-- <div class="desc f16 max-line-1">Ground Continuity Test(GC)接地连续性测试(GC)主要是检测产品的接地端与任何金属表面(通常是指机壳)之间是否导通。接地连续性测试是用万用表或100mA的直流电源来完成，如果阻抗是低于1欧姆，那么可以被认为接地是良好。这种方式是符合绝大部份安规标准对产品测试的需求。接地连续性测试：安规测试的目的就是为了要避免使用</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">强制内部短路</div>
-                                    <!-- <div class="desc f16 max-line-1">试验的起源历史单电池强制内部短路试验，是由日本有关方面最先提出的。提出此测试项目的原因是在2004年，日本某公司生产的笔记本电池发生起火，在详细研究分析了电池起火的原因后，认为是在生产过程中，由于工艺控制疏漏，在锂离子电池内部混入了极微小的金属微粒，在电池使用中由于温度变化或各种撞击，金属微粒刺穿正、负</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">过压充电保护</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池过压充电保护测试要求CQC认证将电池样品按照以下顺序进行500次循环测试： a)过压充电； b)保护装置动作后静置1min。过压充电时，充电电流为最大充电电流Icm，充电至n*6.0V 或者可能承受的最高电压值（两者取较高者）,每次循环时电池组的过压充电保护电路都应动作。</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">短路保护测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池短路保护测试要求CQC认证将样品按照以下顺序进行500次循环测试： a)短路屯池组的正负极端子或保护电路中的输出端子； b)保护装置动作后静置1min。短路时，外部短路总电阻为 80mΩ±20mΩ。毎次循环时电池组的短路保护电路都应动作。</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">机械性能试验</div>
-                                    <!-- <div class="desc f16 max-line-1">机械性能简介：材料的机械性能是指材料在不同环境（温度、介质、湿度）下，承受各种外加载荷（拉伸、压缩、弯曲、扭转、冲击、交变应力等）时所表现出的力学特征。测试意义及适用范围：机械性能测试可以应用到生产的任何阶段，从测试原材料质量直到检查制成品的耐用性。 测试可对广泛多样的材料和产品进行，包括化妆品</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">轻型电动车测试</div>
-                                    <!-- <div class="desc f16 max-line-1">能做的项目包含反向模式测试机械性能试验正面冲击测试结构外观检查疲劳试验车轮附着力测试车把和车把套测试车把冲击试验手动制动系统强度测试整车耐久试验停车装置测试跌落测试堵转电机试验行人模式测试运行过载试验启动畏助模式测试</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">模具应力消除</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池模具应力消除测试要求UL认证电池在完全对流循环的干燥室内以70°C（158°F）持续7小时。然后小心取出样品恢复到室温,观察样品表面必须无损坏,比如电池外壳没有破裂或电解质漏液现象。结果：不爆炸，不起火，不漏液。另外,电池外壳不会爆裂,电芯或任何保护装置不能穿孔或泄露。CQC认证将电池放在70℃±2℃的</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">高温使用测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池高温使用测试要求CQC认证 将满电样品置于高温试验箱内，试验箱内温度设为制造商规定的电池组的充电上限温度和放电上限温度、电池的充电上限温度和放电上限温度及80℃中的最大值。待样品表面温度稳定后，保持7h。 a）切断电路 b）未切断电路，在高温试验过程中按照规定的充放电方法继续进</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">洗涤测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池洗涤测试要求CQC认证 将电池充满电后进行本试验。试验按照以下步骤进行： a）配液：配置pH值为11.0±0.1的溶液（可使用质量分数为0.004%的NaOH溶液），并将溶液加热至（45±2）℃； b）浸泡：将样品固定在转动装置上，然后将样品 放置在溶液中（电池中心距液面高度为300 m</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">过压充电测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池过压充电测试要求CQC认证 电池按照制造商规定的充电程序充满电后，继续以最大充电电流Icm恒流充电至n*6.0V 或者可能承受的最高电压值（两者取较高者）,并保持该电压进行恒压充电。 结果：不起火，不爆炸，不漏液。</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">过流充电测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池过流充电测试要求CQC认证 电池按照制造商规定的充电程序充满电后，然后以 1.5倍的过流充电保护电流（1.5Icp）进行恒流充电。 结果：不起火，不爆炸，不漏液。</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">欠压放电测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池欠压放电测试要求CQC认证 电池按照制造商规定的充电程序充满电后，然后以 其最大放电电流（Idm）进行恒流放，测试完成还要再充一次电。 结果：不起火，不爆炸，不漏液。</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">容量测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池容量测试要求UL认证UL1642的电芯需要做寿命总次数的1/4次循环，最后一次的容量不低于额定容量的90%CQC认证电池先按照制造商 规定的充电程序充满电，搁置10min，再按照制造商规定的放电程序放电，放电时所提供的容量即为电池的实际容量（容量测试前需要做两次充放电循环）。结果：电池样品的实际容量应大于或</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">挤压测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池挤压测试要求UN38.3认证挤压（适用于棱柱形、袋装、硬币/纽扣电池和直径小于18毫米的圆柱型电池）将电池或元件电池放在两个平面之间挤压，挤压力度逐渐加大，在第一个接触点上的速度大约为1.5厘米/秒。挤压持续进行，直到出现以下三种情况之一： - 施加的力达到13KN±0.78 KN - 电池的电压下降</div> -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="/testing/dengjuanguijiance/1.html" class="uk-position-cover uk-position-z-index"></a>
-                                <div class="pic"><img src="/static/upload/images/2022-08-04/1640853027213902.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque"></div>
-                                <div class="con">
-                                    <div class="tit f18 fs100 text-black max-line-1 uk-text-center">过载保护测试</div>
-                                    <!-- <div class="desc f16 max-line-1">部分认证项目电池过载保护测试要求CQC认证将样品按照以下顺序进行500次循环测试， a)过流放电； b)保护装置动作后静置1min。过流放电时，放电电流为1.5倍的过流放电保护电流 (1.5Idp)。每次循环时电池组的过流放电保护电路都应动作</div> -->
-                                </div>
-                            </div>
-                        </li>
-
+{/volist}
                     </ul>
                 </div>
                 <!-- 分页 -->
-
                 <nav class="uk-pagination pages f14 uk-flex uk-flex-right uk-flex-middle">
                     <a class="page-item page-link" href="/testing_1/">首页</a>
                     <a class="page-item page-link" href="javascript:;"><span uk-icon="chevron-double-left"></span></a>
@@ -328,7 +41,6 @@
                     <a class="page-item page-link" href="javascript:;"><span uk-icon="chevron-double-right"></span></a>
                     <a class="page-item page-link" href="/testing_1/">尾页</a>
                 </nav>
-
             </div>
         </div>
     </div>
