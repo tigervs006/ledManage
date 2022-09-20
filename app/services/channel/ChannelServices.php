@@ -2,6 +2,7 @@
 declare (strict_types = 1);
 namespace app\services\channel;
 
+use think\facade\Cache;
 use app\services\BaseServices;
 use app\dao\channel\ChannelDao;
 use core\exceptions\ApiException;
@@ -26,6 +27,38 @@ class ChannelServices extends BaseServices
     }
 
     /**
+     * 从缓存中获取栏目
+     * @return mixed
+     * @throws \Throwable
+     */
+    public function channel(): mixed
+    {
+        return Cache::remember('channel', function () {
+            $result = $this->dao->getData($this->status, ['id' => 'asc', 'sort' => 'desc']);
+            return $result->isEmpty() ? [] : $result->toArray();
+        }, 3600 * 24 * 7);
+    }
+
+    /**
+     * 获取子菜单ID
+     * @return array
+     * @param int $id id
+     * @throws \Throwable
+     */
+    public function getChildIds(int $id): array
+    {
+        static $idArr = [];
+        $data = $this->channel();
+        foreach ($data as $val) {
+            if ($id == $val['pid']) {
+                $idArr[] = $val['id'];
+                self::getChildIds($val['id']);
+            }
+        }
+        return array_merge(array($id) ,$idArr);
+    }
+
+    /**
      * 新增/编辑栏目
      * @return void
      * @param array $data 数据
@@ -37,6 +70,7 @@ class ChannelServices extends BaseServices
         unset($data['id']); // 释放$data中的id
         $this->transaction(function () use ($id, $data, $message) {
             $res = $id ? $this->dao->updateOne($id, $data, 'id') : $this->dao->saveOne($data);
+            Cache::delete('channel'); /* 新增/编辑后清除缓存 */
             !$res && throw new ApiException($message . '栏目失败');
         });
     }
