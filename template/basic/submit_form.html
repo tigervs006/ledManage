@@ -1,5 +1,10 @@
-                <?php if('/' === $_SERVER['REQUEST_URI']) echo '<div class="uk-width-expand">'; ?>
+{equal name="$_SERVER['REQUEST_URI']" value="/"}
+                <div class="uk-width-expand">
+{/equal}
                     <div class="gbook <?php if('/' !== $_SERVER['REQUEST_URI']) echo 'mb20 uk-scrollspy-inview>'; ?>" uk-scrollspy="cls: uk-animation-slide-right-medium; repeat: false; delay:50">
+{notequal name="$_SERVER['REQUEST_URI']" value="/"}
+                        <div class="tit f24 fb text-black"><span class="text-blue">在线</span>留言</div>
+{/notequal}
                         <form action="" method="post" id="gbookform">
                             <div class="uk-grid-small" uk-grid>
                                 <div class="uk-width-1-1 uk-width-1-2@m">
@@ -52,4 +57,6 @@
                             </div>
                         </form>
                     </div>
-                <?php if('/' === $_SERVER['REQUEST_URI']) echo '</div>'; ?>
+{equal name="$_SERVER['REQUEST_URI']" value="/"}
+                </div>
+{/equal}
