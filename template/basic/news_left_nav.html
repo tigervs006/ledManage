@@ -18,8 +18,8 @@
         <div class="sidenews">
             <h3 class="text-white f30 fb uk-text-center">最新资讯</h3>
             <ul>
-{volist name="hotArt" id="item" empty="There's nothing here..."}
-                <li><a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate"><span class="iconfont icon-arr-right text-green"></span> {$item.title}</a></li>
+{volist name="hotart" id="item" empty="There's nothing here..."}
+                <li><a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate"><span class="iconfont icon-arr-right text-green"></span> {$item.title}</a></li>
 {/volist}
             </ul>
         </div>

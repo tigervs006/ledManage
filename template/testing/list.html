@@ -20,7 +20,7 @@
 {volist name="list" id="item" empty="There's nothing here..."}
                         <li>
                             <div class="wrap uk-position-relative uk-transition-toggle">
-                                <a href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                                <a target="_blank" href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
                                 <div class="pic">
                                     <img src="{$item.litpic}" alt="{$item.title}" class="uk-transition-scale-up uk-transition-opaque">
                                 </div>

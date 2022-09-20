@@ -25,7 +25,7 @@
 {volist name="list" id="item" empty="There's nothing here..."}
             <li class="uk-scrollspy-inview uk-animation-slide-left-medium" style="">
               <div class="uk-grid uk-position-relative">
-                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                <a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
                 <div class="pic">
                   <div class=" img" data-ratio="3:2">
                     <div class="uk-flex uk-flex-middle uk-flex-center">
