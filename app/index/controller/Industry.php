@@ -28,7 +28,7 @@ class Industry extends BaseController
     {
         parent::initialize();
         $this->services = $this->app->make(ArticleServices::class);
-        $this->view::assign('hotArt', $this->hortArt()); // 获取热门文章
+        $this->view::assign('hotart', $this->hortArt()); // 获取热门文章
         $this->channelServices = $this->app->make(ChannelServices::class);
     }
 
@@ -70,9 +70,9 @@ class Industry extends BaseController
     final public function hortArt(): array|Collection
     {
         return $this->services->getList(
-            $this->current,
-            $this->pageSize,
-            $this->status,
+            1,
+            10,
+            array(['status', '=', 1], ['cid', 'in', '35,36']),
             'id, cid, click, title, litpic, create_time',
             ['click' => 'desc'], null, null, ['channel']);
     }
