@@ -47,6 +47,19 @@ class Index extends BaseController
     }
 
     /**
+     * 网站搜索
+     * @return string
+     * @param string|null $keyword
+     */
+    final public function search(?string $keyword): string
+    {
+        $map = array(['title', 'like', '%' . $keyword . '%']);
+        $list = $this->articleServices->getPaginate($map, 15, '*', $this->order, ['channel']);
+        $total = $list->isEmpty() ? 0 : $this->articleServices->getCount($map);
+        return $this->view::fetch('../search', compact('list', 'total'));
+    }
+
+    /**
      * 网站地图
      * @return string
      */

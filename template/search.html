@@ -1,0 +1,48 @@
+{extend name="../base" /}
+{block name="title"}<title>全站搜索</title>{/block}
+{block name="keywords"}<meta name="keywords" content="全站搜索">{/block}
+{block name="description"}<meta name="description" content="全站搜索,立讯检测">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(/static/img/ban_1.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+  <img src="/static/img/mban_1.png" alt="电池检测">
+</div>
+<div class="uk-container uk-visible@s">
+    <div class="crumb">
+        <div class="wrap f14">
+            <span class="iconfont icon-home text-green"></span> 您所在的位置：<a href="/">首页</a> &gt; <a href="{:url('/sitemap')}">全站搜索</a>
+        </div>
+    </div>
+</div>
+<div class="uk-container">
+    <div class="tBody">
+        <div class="searchlist">
+            <div class="f16 searchinfo">搜索到 <em>{$Request.param.keyword}</em> 相关的结果 <em>{$total}</em> 条</div>
+            <ul class="news">
+{volist name="list" id="item"}
+                <li>
+                    <span class="text-blue uk-icon" uk-icon="chevron-right"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline></svg></span>
+                    <div class="f22 tit uk-text-truncate"><a target="_blank" href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}"><?php echo str_replace($_GET['keyword'], '<em>'.$_GET['keyword'].'</em>', $item['title']); ?></a>
+                    </div>
+                    <div class="f14 date text-gray3">{$item.create_time}</div>
+                    <div class="f16 desc text-gray2 line-height-16 max-line-2"><?php echo str_replace($_GET['keyword'], '<em>'.$_GET['keyword'].'</em>', $item['description']); ?></div>
+                </li>
+{/volist}
+            </ul>
+            <!-- 分页 -->
+            <nav class="uk-pagination pages f14 uk-flex uk-flex-right uk-flex-middle">
+                <a class="page-item page-link" href="/search/?keyword=%E7%94%B5%E6%B1%A0">首页</a>
+                <a class="page-item page-link" href="javascript:;"><span uk-icon="chevron-double-left" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 14 6 10 10 6"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="14 14 10 10 14 6"></polyline></svg></span></a>
+                <a href="/search/?keyword=%E7%94%B5%E6%B1%A0" class="page-num page-num-current">1</a><a href="/search/?keyword=%E7%94%B5%E6%B1%A0&amp;page=2" class="page-num">2</a>
+                <!-- 数字条，小屏幕时自动隐藏-->
+                <a class="page-item page-link" href="/search/?keyword=%E7%94%B5%E6%B1%A0&amp;page=2"><span uk-icon="chevron-double-right" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a>
+                <a class="page-item page-link" href="/search/?keyword=%E7%94%B5%E6%B1%A0&amp;page=2">尾页</a>
+            </nav>
+            <!-- 分页 -->
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footer"}{/block}

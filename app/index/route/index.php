@@ -10,6 +10,8 @@ Route::group(function () {
     Route::rule('single/<dirname?>$', 'single/index');
     /* 网站地图 */
     Route::rule('sitemap', 'index/sitemap')->option(['ext' => 'html']);
+    /* 网站搜索 */
+    Route::rule('search', 'index/search')->pattern(['keyword' => '\w+']);
     /* 行业模型伪静态 */
     Route::group('area', function () {
         /* 顶级栏目 */
