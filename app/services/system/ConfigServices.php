@@ -27,7 +27,9 @@ class ConfigServices extends BaseServices
             && 15 < count(explode(',', $val['value']))
             && throw new ApiException('【首页关键词】不得超过15个，否则会被搜索引擎判断为堆砌关键词而被K站');
         }
-        /* 保存成功后清除缓存 */
-        $this->dao->batchUpdateAll($data) && Cache::delete('config');
+        $this->dao->batchUpdateAll($data);
+        /* 清除前端及后台缓存 */
+        Cache::delete('config');
+        Cache::delete('index');
     }
 }
