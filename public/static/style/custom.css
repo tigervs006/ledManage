@@ -1,3 +1,4 @@
+html { scroll-behavior: smooth; } /* 平滑滚动 */
 .blankgray{ background: #f7f7f7; height: 45px; }
 .uk-width-180{ width: 180px; }
 .uk-container-expand,.maxwidth{ max-width: 1920px; margin-left: auto; margin-right: auto;}
@@ -668,16 +669,22 @@ h1.f30{ margin-top:30px; padding-left:50px; padding-right:50px; line-height: 1.4
 .my-modal-simple .uk-modal-dialog{ width:220px; }
 .my-modal-medium .uk-modal-dialog{ width:450px; }
 .my-modal-large .uk-modal-dialog{ width:940px; }
-/*侧边*/
-.floaticon {z-index: 99;position: fixed; right:0px; top: 50%; margin-top:-200px; }
-.floaticon .floaticonLogo{ width:100px; background: #f5f5f5; }
-.floaticon .floaticonLogo a{ display: block; background: #f5f5f5; height: 100px; color:#5c5c5c; text-align: center; padding-top: 25px;}
-.floaticon .floaticonLogo a span{ font-size: 40px; height: 40px; line-height: 20px; color:#8fbd20;}
-.floaticon .floaticonLogo a span.icon-wechat{ font-size:34px; }
-/* .floaticon .floaticonLogo a:first-child{ border-top-left-radius: 8px; border-top-right-radius: 8px; } */
-.floaticon .floaticonLogo a.backToTop{ background: #8fbd20; color:#fff; padding-top: 15px; height: 80px;}
-.floaticon .floaticonLogo a.backToTop span{ color:#fff;}
-.floaticon .uk-drop{ width:220px; background:#fff; margin:0; }
-.weixinCode,.qqCode{ display: none; position: absolute;z-index: 9999; left: -317px; top: 45px; width: 300px; height: 262px;text-align: center;}
-.weixinCode{ bottom:25px; }
-.qqCode{ top:100px;}
+/* 客服组件 */
+.slow img { transition: all .4s ease-in-out }
+.kefuBox-Two { position: fixed; right:0;top:180px;z-index:99 }
+.kefuBox-Two ul li { position: relative;margin:1px 0;padding:10px; text-align:center;cursor: pointer;background: #0053a4; }
+.kefuBox-Two ul li a { display: block; }
+.kefuBox-Two ul li em { display: block;margin-bottom:5px;width:33px;height:27px;margin: 0 auto 2px;}
+.kefuBox-Two ul li b { font-size:14px; color:#fff; }
+.kefuBox-Two ul li:hover { background: #84ba35;}
+.kefuBox-Two ul li .toolbar-layer { position:absolute;right: 85px;bottom:-10px;width:172px;opacity:0;padding:5px;cursor: initial;border-radius:5px;border:1px #ccc solid;background: #fff;filter:alpha(opacity=0);transform-origin: 95% 95%;-moz-transform-origin: 95% 95%;-ms-transform-origin: 95% 95%;-o-transform-origin: 95% 95%;-webkit-transform-origin: 95% 95%;transform:scale(0.01);-moz-transform:scale(0.01);-ms-transform:scale(0.01);-o-transform:scale(0.01);-webkit-transform:scale(0.01);transition:all 1s;-moz-transition:all 1s;-ms-transition:all 1s;-o-transition:all 1s;-webkit-transition:all 1s; }
+.kefuBox-Two ul li:hover .toolbar-layer { opacity:1;filter:alpha(opacity=100);transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1); }
+.kefuBox-Two ul li.weixin .toolbar-layer { width:140px; height: 140px }
+.kefuBox-Two ul li .hint-layer { display: none; position:absolute;right: 85px;bottom:-10px;width:172px; cursor: initial; }
+.kefuBox-Two ul li.tidings .ico { background: url(../img/ico-kf-tidings.png) no-repeat center; }
+.kefuBox-Two ul li.qq .ico { background: url(../img/ico-kf-qq.png) no-repeat center; }
+.kefuBox-Two ul li.weixin .ico { background: url(../img/ico-kf-weixin.png) no-repeat center; }
+.kefuBox-Two ul li.enroll .ico { background: url(../img/ico-kf-enroll.png) no-repeat center; }
+.kefuBox-Two ul li.top .ico { background: url(../img/ico-kf-top.png) no-repeat center; }
+.kefuBox-Two ul li .hint-layer .close { position: absolute; right:20px;top:20px;width:25px;height:25px;line-height:23px; text-align: center; color:#fff;font-size:18px; border-radius: 50%; background: #e1e1e1; }
+.kefuBox-Two ul li .hint-layer .close:hover { background: #54ab40; }
