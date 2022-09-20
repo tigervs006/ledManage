@@ -25,8 +25,6 @@
                     <ul class="icon-position-left f14">
                         <li><span class="text-green iconfont icon-mark"></span>{$Think.config.index.address}</li>
                         <li><span class="text-green iconfont icon-email"></span>{$Think.config.index.email}</li>
-                        <li><span class="text-green iconfont icon-fly"></span>{$Think.config.index.copyright}</li>
-                        <li><span class="text-green iconfont icon-star"></span><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn/">{$Think.config.index.beian}</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,9 +41,16 @@
                 </div>
             </div>
         </div>
+{notempty name="link"}
         <div class="flinks f14">
-            <span class="f16 fb text-white">友情链接</span>
-            <a href="https://www.lcs-led.com" target="_blank" title="新能源.北测官网">立讯检测</a>
+            <span class="f15 fb text-white">友情链接</span>
+{volist name="link" id="item"}
+            <a href="{$item.url}" target="_blank" title="{$item.name}">{$item.name}</a>
+{/volist}
+        </div>
+{/notempty}
+        <div class="uk-text-meta uk-text-center uk-margin-small-bottom">
+            {$Think.config.index.copyright} | <a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn/">{$Think.config.index.beian}</a>
         </div>
     </div>
     <div class="uk-hidden@m">
@@ -66,7 +71,7 @@
 </div>
 <div class="floaticon uk-visible@s">
     <div class="floaticonLogo uk-box-shadow-small">
-        <a href="javascript:;" class="qqTalk">
+        <a href="javascript:" class="qqTalk">
             <span class="iconfont icon-mqq"></span>
             <div class="f12">QQ咨询</div>
         </a>
