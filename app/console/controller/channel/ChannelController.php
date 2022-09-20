@@ -2,6 +2,7 @@
 declare (strict_types = 1);
 namespace app\console\controller\channel;
 
+use think\facade\Cache;
 use think\response\Json;
 use core\basic\BaseController;
 use core\exceptions\ApiException;
@@ -28,6 +29,7 @@ class ChannelController extends BaseController
     final public function delete(): Json
     {
         $this->services->remove($this->id);
+        Cache::delete('channel'); /* 清除缓存 */
         return $this->json->successful('删除栏目成功');
     }
 
@@ -119,6 +121,7 @@ class ChannelController extends BaseController
         $data = $this->request->post(['status']);
         $message = $data['status'] ? '显示' : '隐藏';
         $this->services->updateOne($this->id, $data);
+        Cache::delete('channel'); /* 清除缓存 */
         return $this->json->successful($message . '栏目成功');
     }
 
