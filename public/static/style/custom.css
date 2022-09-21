@@ -671,7 +671,7 @@ h1.f30{ margin-top:30px; padding-left:50px; padding-right:50px; line-height: 1.4
 .my-modal-large .uk-modal-dialog{ width:940px; }
 /* 客服组件 */
 .slow img { transition: all .4s ease-in-out }
-.kefuBox-Two { position: fixed; right:0;top:180px;z-index:99 }
+.kefuBox-Two { position: fixed; right:0;top:30%;z-index:99 }
 .kefuBox-Two ul li { position: relative;margin:1px 0;padding:10px; text-align:center;cursor: pointer;background: #0053a4; }
 .kefuBox-Two ul li a { display: block; }
 .kefuBox-Two ul li em { display: block;margin-bottom:5px;width:33px;height:27px;margin: 0 auto 2px;}
