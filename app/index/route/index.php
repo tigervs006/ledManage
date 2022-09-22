@@ -103,11 +103,7 @@ Route::group(function () {
     /* 关于我们伪静态 */
     Route::group('about', function () {
         /* 企业简介 */
-        Route::rule('index/$', 'about/index')->name('index');
-        /* 服务体系 */
-        Route::rule('system/$', 'about/system')->name('system');
-        /* 生产制造 */
-        Route::rule('produce/$', 'about/produce')->name('produce');
+        Route::rule('<dirname?>/$', 'about/index')->name('index');
     });
     /* 服务支持伪静态 */
     Route::group('support', function () {
