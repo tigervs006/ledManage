@@ -149,8 +149,7 @@
 });
 
 $(function() {
-
-	//留言板
+	/* 客户留言 */
 	$(document).on('click','#msg',function() {
 		if(!$(':input[name="username"]').val()) {
 			layer.msg('请输入您的姓名'); return false;
@@ -185,38 +184,18 @@ $(function() {
 		}, 'json');
 	})
 
-	//投诉建议
-	$(document).on('click','#suggest',function(){
-		var name = $('#name').val();
-		if(name==''){ layer.msg('请输入您的姓名.'); return false; }
-		var mobile = $('#mobile').val();
-		if(mobile==''){ layer.msg('请输入您的电话.'); return false; }
-		var email = $('#email').val();
-		if(email==''){ layer.msg('请输入您的邮箱.'); return false; }
-		var types = $('#types').val();
-		if(types==''){ layer.msg('请选择投诉类型.'); return false; }
-		var content = $('#content').val();
-		if(content==''){ layer.msg('请输入您的投诉和建议.'); return false; }
-		// var checkcode = $('#checkcode').val();
-		// if(checkcode==''){ layer.msg('请输入验证码.'); return false; }
-		var url=$('#url').val();
-		$.post(url,{
-			name:name,
-			mobile:mobile,
-			email:email,
-			types:types,
-			content:content,
-		},function(msg){
-			if(msg.code==1){
-				layer.alert('您的投诉建议已收到!');
-				$('#suggestform')[0].reset();
-			}else{
-				layer.msg(msg.data);
-			}
-		},'json');
-		return false;
+	/* 搜索按钮 */
+	const search = $('#search-btn')
+
+	/* 监听搜索输入框 */
+	$(':input[name="keyword"]').bind('input porpertychange', function () {
+		const keyword = $(this).val();
+		/* 控制搜索按钮状态 */
+		keyword ? search.removeAttr('disabled') : search.attr('disabled', 'disabled')
 	})
 })
+
+/* 省市区联动 */
 $(function () {
 	let html = ''
 	const city = $('select[name="city"]')
@@ -251,7 +230,7 @@ $(function () {
 		district.append(html)
 	})
 })
-/* 城市列表 */
+/* 获取城市列表 */
 function getRegion(pid = 0) {
 	let region
 	$.ajax({
