@@ -18,7 +18,7 @@ namespace core\traits;
  * @method int getCount(?array $map, ?string $key = null, ?array $betweenTime = null, ?array $whereLike = null) 计算数据总量
  * @method array|\core\basic\BaseModel|\think\Model|null get(int|string|array $id, ?string $field, ?array $with = []) 获取单条数据
  * @method array getPrenext(int $id, ?array $map = null, ?string $field = 'id, title', ?string $firstPre = '已经是第一篇了', ?string $lastNext = '这是最后一篇了') 获取上/下一篇文章
- * @method \think\Paginator getPaginate(array $map, int $page = 1, int $rows = 15, ?string $fullpath = null, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null) 用于前端的分页列表
+ * @method \think\Paginator getPaginate(array $map, int $page = 1, int $rows = 15, ?string $fullpath = null, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null, ?array $query = []) 用于前端的分页列表
  * @method array|\think\Collection getData(?array $map = null, ?array $order = ['id' => 'desc'], ?string $field = '*', ?array $betweenTime = null, ?array $whereLike = null, ?array $with = null) 获取所有带时间段/关联模型的数据
  * @method array|\think\Collection getList(int $current, int $pageSize, ?array $map = null, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $betweenTime = null, ?array $whereLike = null, ?array $with = null) 获取带分页/时间段/关联模型的列表
  */

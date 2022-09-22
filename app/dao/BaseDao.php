@@ -287,14 +287,15 @@ abstract class BaseDao
      * @param string|null $fullpath
      * @param string|null $field 字段
      * @param array|null $order 排序
+     * @param array|null $query url参数
      * @param array|null $with 关联模型
      * @throws DbException
      */
-    public function getPaginate(array $map, int $page = 1, int $rows = 15, ?string $fullpath = null, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null): \think\Paginator
+    public function getPaginate(array $map, int $page = 1, int $rows = 15, ?string $fullpath = null, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null, ?array $query = []): \think\Paginator
     {
         return $this->getModel()->where($map)->when($with, function ($query) use ($with) {
             $query->with($with);
-        })->field($field)->order($order)->paginate(['page' => $page, 'list_rows' => $rows, 'path' => '/' . $fullpath . 'page/[PAGE].html']);
+        })->field($field)->order($order)->paginate(['page' => $page, 'list_rows' => $rows, 'query' => $query, 'path' => '/' . $fullpath . 'page/[PAGE].html']);
     }
 
     /**
