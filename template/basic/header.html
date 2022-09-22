@@ -44,7 +44,7 @@
                   <div uk-drop class="submenu submenu6 uk-box-shadow-small">
                     <ul <?php if (10 <= count($item['children'])) echo 'class="uk-column-1-2@m"'; ?>>
 {volist name="item.children" id="item"}
-                      <li class="<?php if (1 <= stripos($_SERVER['REQUEST_URI'], $item['fullpath'])) echo 'active';?>"><a href="/{$item.fullpath}">● {$item.cname}</a></li>
+                      <li class="<?php if (1 <= stripos($_SERVER['REQUEST_URI'], $item['fullpath'])) echo 'active';?>"><a href="/{$item.fullpath}">{$item.cname}</a></li>
 {/volist}
                     </ul>
                   </div>
