@@ -54,37 +54,12 @@ class Testing extends BaseController
      */
     final public function list(): string
     {
-        $name = ['name' => getPath()];
-        $id = $this->channelServices->value($name, 'id');
-        is_null($id) && abort(404, "page doesn't exist");
-        $ids = $this->channelServices->getChildIds($id);
-        $map = array_merge($this->status, ['cid' => $ids]);
-        $list = $this->services->getPaginate($map, $this->pageSize, $this->field, $this->order, ['channel']);
+        /* 获取当前栏目信息 */
+        $info = $this->channelServices->listInfo();
+        $map = array_merge($this->status, ['cid' => $info['ids']]);
+        $list = $this->services->getPaginate($map, $this->current, 9, $info['fullpath'], $this->field, $this->order, ['channel']);
         return $this->view::fetch('../testing/list', compact('list'));
     }
-
-//    final public function list(): string
-//    {
-//        $name = ['name' => getPath()];
-//        $template = '../testing/list';
-//        $id = $this->channelServices->value($name, 'id');
-//        is_null($id) && abort(404, "page doesn't exist");
-//        $ids = $this->channelServices->getChildIds($id);
-//        $map = array_merge($this->status, ['cid' => $ids]);
-//        $list = $this->services->getPaginate($map, $this->pageSize, $this->field, $this->order, ['channel']);
-//        $result = ['list' => $list];
-//        if (1 == count($ids) && !$list->isEmpty()) {
-//            $list = $list[0];
-//            $id = $list['id'];
-//            $template = '../testing/index';
-//            // 阅读量自增
-//            $this->services->setInc($id, $this->incValue);
-//            // 上 / 下一篇
-//            $prenext = $this->services->getPrenext($id, array(['status', '=', 1], ['cid', 'notin', '35,36']), 'id, cid, title');
-//            $result = ['info' => $list, 'prenext' => $prenext];
-//        }
-//        return $this->view::fetch($template, $result);
-//    }
 
     /**
      * 热门文档

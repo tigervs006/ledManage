@@ -50,16 +50,14 @@ class Industry extends BaseController
     /**
      * 文章列表
      * @return string
+     * @throws \Throwable
      */
     final public function list(): string
     {
-        $name = ['name' => getPath()];
-        $pid = $this->channelServices->value($name, 'pid');
-        is_null($pid) && abort(404, "page doesn't exist");
-        $map = !$pid
-            ? array_merge($this->status, ['cid' => [35, 36]])
-            : array_merge($this->status, ['cid' => $this->channelServices->value($name)]);
-        $list = $this->services->getPaginate($map, $this->pageSize, $this->field, $this->order, ['channel']);
+        /* 获取当前栏目信息 */
+        $info = $this->channelServices->listInfo();
+        $map = array_merge($this->status, ['cid' => $info['ids']]);
+        $list = $this->services->getPaginate($map, $this->current, $this->pageSize, $info['fullpath'], $this->field, $this->order, ['channel']);
         return $this->view::fetch('../industry/list', compact('list'));
     }
 
