@@ -47,10 +47,10 @@ class ChannelServices extends BaseServices
     public function listInfo(): array
     {
         $map = ['name' => getPath()]; /* 获取pathinfo */
-        $info = $this->dao->getOne($map, 'id, fullpath');
+        $info = $this->dao->getOne($map, 'id, title, cname, keywords, description, fullpath');
         is_null($info) && abort(404, "page doesn't exist");
         $ids = $this->getChildIds($info['id']);
-        return ['ids' => $ids, 'fullpath' => $info['fullpath']];
+        return array_merge(['ids' => $ids], $info->toArray());
     }
 
     /**

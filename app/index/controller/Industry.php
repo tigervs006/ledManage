@@ -58,7 +58,7 @@ class Industry extends BaseController
         $info = $this->channelServices->listInfo();
         $map = array_merge($this->status, ['cid' => $info['ids']]);
         $list = $this->services->getPaginate($map, $this->current, $this->pageSize, $info['fullpath'], $this->field, $this->order, ['channel']);
-        return $this->view::fetch('../industry/list', compact('list'));
+        return $this->view::fetch('../industry/list', compact('list', 'info'));
     }
 
     /**
