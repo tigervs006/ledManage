@@ -10,7 +10,10 @@ if (!function_exists('getPath')) {
      */
     function getPath(): string
     {
-        $pathArr = array_filter(explode('/', request()->pathinfo()));
+        $pathinfo = request()->pathinfo();
+        /* 处理带分页的路径 */
+        $path = preg_filter('/\/page\/\d+\.html/' ,'', $pathinfo);
+        $pathArr = array_filter(explode('/', $path ?? $pathinfo));
         return end($pathArr);
     }
 }
