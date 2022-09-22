@@ -135,6 +135,7 @@ abstract class BaseController
     private function channel(): void
     {
         $cname = getPath();
+        $field = 'id, pid, name, cname, fullpath';
         /** @var \app\services\channel\ChannelServices $services */
         $services = $this->app->make(\app\services\channel\ChannelServices::class);
         if ($cname) {
@@ -155,7 +156,7 @@ abstract class BaseController
             }
         }
         // 获取所有栏目数据
-        $channelData = $services->channel();
+        $channelData = $services->getData($this->status, ['id' => 'asc', 'sort' => 'desc'], $field);
         // 获取网站栏目树状结构
         $result = $services->getTreeData($channelData, 0, null);
         $this->view::assign(['channel' => $result, 'crumbs' => $crumbsData ?? [], 'channelinfo' => $pinfo ?? []]);
