@@ -134,31 +134,22 @@ abstract class BaseController
      */
     private function channel(): void
     {
+        $cname = getPath();
         /** @var \app\services\channel\ChannelServices $services */
         $services = $this->app->make(\app\services\channel\ChannelServices::class);
-        $pathArr = explode('/', $this->request->pathinfo());
-        // 过滤空值数组
-        $pathFilter = array_filter($pathArr);
-        // 最后一个数组值作为当前栏目名
-        $channel = end($pathFilter);
-        if ($channel) {
-            $value = '';
-            $key = 'name';
-            // 以下字段在获取栏目SEO信息及获取面包屑导航都需要用到
-            static $field = 'id, pid, name, title, cname, keywords, description';
-            if (preg_match('/\d+/', $channel)) { // 如果是详情页
-                $key = 'id';
-                $pname = $pathFilter[count($pathFilter)-2];
-                $value = $services->value(['name' => $pname], 'id'); // 获取父级栏目ID
-            } else if (preg_match('/\w+/', $channel, $pathCategory)) { // 如果是栏目页
-                $value = $pathCategory[0];
+        if ($cname) {
+            if (preg_match('/\d+/', $cname)) {
+                $pathinfo = $this->request->pathinfo();
+                $pathArr = explode('/', $pathinfo);
+                $cname = $pathArr[count($pathArr)-2];
             }
+            $cid = $services->value(['name' => $cname], 'id');
             // 获取当前栏目信息
-            $pinfo = $services->getOne(array_merge([$key => $value], $this->status), $field);
+            $pinfo = $services->getOne(array_merge(['id' => $cid], $this->status), '*');
             if ($pinfo) {
                 $pinfoArr = $pinfo->toArray();
                 // 获取父级栏目信息
-                $pdata = $services->getParentInfo(array($pinfoArr), $field);
+                $pdata = $services->getParentInfo(array($pinfoArr), '*');
                 // 通过父级栏目信息生成面包屑导航
                 $crumbsData = $services->getParentCrumbs($pdata);
             }
