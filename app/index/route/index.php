@@ -11,7 +11,9 @@ Route::group(function () {
     /* 网站地图 */
     Route::rule('sitemap', 'index/sitemap')->option(['ext' => 'html']);
     /* 网站搜索 */
-    Route::rule('search', 'index/search')->pattern(['keyword' => '\w+']);
+    Route::rule('search/$', 'index/search')->pattern(['keyword' => '\S+']);
+    /* 搜索分页 */
+    Route::rule('search/page/<current>$', 'index/search')->pattern(['keyword' => '\S+']);
     /* 行业模型伪静态 */
     Route::group('area', function () {
         /* 顶级栏目 */
