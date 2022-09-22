@@ -32,14 +32,7 @@
 {/volist}
             </ul>
             <!-- 分页 -->
-            <nav class="uk-pagination pages f14 uk-flex uk-flex-right uk-flex-middle">
-                <a class="page-item page-link" href="/search/?keyword=%E7%94%B5%E6%B1%A0">首页</a>
-                <a class="page-item page-link" href="javascript:;"><span uk-icon="chevron-double-left" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 14 6 10 10 6"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="14 14 10 10 14 6"></polyline></svg></span></a>
-                <a href="/search/?keyword=%E7%94%B5%E6%B1%A0" class="page-num page-num-current">1</a><a href="/search/?keyword=%E7%94%B5%E6%B1%A0&amp;page=2" class="page-num">2</a>
-                <!-- 数字条，小屏幕时自动隐藏-->
-                <a class="page-item page-link" href="/search/?keyword=%E7%94%B5%E6%B1%A0&amp;page=2"><span uk-icon="chevron-double-right" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="10 6 14 10 10 14"></polyline><polyline fill="none" stroke="#000" stroke-width="1.03" points="6 6 10 10 6 14"></polyline></svg></span></a>
-                <a class="page-item page-link" href="/search/?keyword=%E7%94%B5%E6%B1%A0&amp;page=2">尾页</a>
-            </nav>
+            {$list|raw}
             <!-- 分页 -->
         </div>
     </div>
