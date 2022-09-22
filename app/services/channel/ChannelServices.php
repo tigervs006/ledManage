@@ -40,7 +40,21 @@ class ChannelServices extends BaseServices
     }
 
     /**
-     * 获取子菜单ID
+     * 获取当前子栏目id
+     * @return array
+     * @throws \Throwable
+     */
+    public function listInfo(): array
+    {
+        $map = ['name' => getPath()]; /* 获取pathinfo */
+        $info = $this->dao->getOne($map, 'id, fullpath');
+        is_null($info) && abort(404, "page doesn't exist");
+        $ids = $this->getChildIds($info['id']);
+        return ['ids' => $ids, 'fullpath' => $info['fullpath']];
+    }
+
+    /**
+     * 遍历当前子栏目id
      * @return array
      * @param int $id id
      * @throws \Throwable
