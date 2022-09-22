@@ -282,17 +282,19 @@ abstract class BaseDao
      * 用于前端的分页列表
      * @return \think\Paginator
      * @param array $map 条件
+     * @param int $page 当前页
      * @param int $rows 数据量
+     * @param string|null $fullpath
      * @param string|null $field 字段
      * @param array|null $order 排序
      * @param array|null $with 关联模型
      * @throws DbException
      */
-    public function getPaginate(array $map, int $rows = 15, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null): \think\Paginator
+    public function getPaginate(array $map, int $page = 1, int $rows = 15, ?string $fullpath = null, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null): \think\Paginator
     {
         return $this->getModel()->where($map)->when($with, function ($query) use ($with) {
             $query->with($with);
-        })->field($field)->order($order)->paginate($rows);
+        })->field($field)->order($order)->paginate(['page' => $page, 'list_rows' => $rows, 'path' => '/' . $fullpath . 'page/[PAGE].html']);
     }
 
     /**
