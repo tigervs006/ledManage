@@ -6,9 +6,9 @@ declare (strict_types = 1);
 if (!function_exists('getPath')) {
     /**
      * 获取pathinfo
-     * @return string
+     * @return bool|string
      */
-    function getPath(): string
+    function getPath(): bool|string
     {
         $pathinfo = request()->pathinfo();
         /* 处理带分页的路径 */
