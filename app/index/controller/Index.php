@@ -54,7 +54,7 @@ class Index extends BaseController
     final public function search(?string $keyword): string
     {
         $map = array(['title', 'like', '%' . $keyword . '%']);
-        $list = $this->articleServices->getPaginate($map, 15, '*', $this->order, ['channel']);
+        $list = $this->articleServices->getPaginate($map, $this->current, $this->pageSize, null, '*', $this->order, ['channel']);
         $total = $list->isEmpty() ? 0 : $this->articleServices->getCount($map);
         return $this->view::fetch('../search', compact('list', 'total'));
     }
