@@ -24,7 +24,7 @@ class Bootstrap extends Paginator
      * @param string $text
      * @return string
      */
-    protected function getPreviousButton(string $text = "<<"): string
+    protected function getPreviousButton(string $text = "<"): string
     {
 
         if ($this->currentPage() <= 1) {
@@ -43,7 +43,7 @@ class Bootstrap extends Paginator
      * @param string $text
      * @return string
      */
-    protected function getNextButton(string $text = '>>'): string
+    protected function getNextButton(string $text = '>'): string
     {
         if (!$this->hasMore) {
             return $this->getDisabledTextWrapper($text);
@@ -121,7 +121,7 @@ class Bootstrap extends Paginator
                 );
             } else {
                 return sprintf(
-                    '<ul class="pagination justify-content-center">%s %s %s</ul>',
+                    '<ul class="uk-pagination uk-flex-right uk-margin-medium-top" uk-margin>%s %s %s</ul>',
                     $this->getPreviousButton(),
                     $this->getLinks(),
                     $this->getNextButton()
@@ -139,7 +139,7 @@ class Bootstrap extends Paginator
      */
     protected function getAvailablePageWrapper(string $url, string $page): string
     {
-        return '<li class="page-item"><a class="page-link" href="' . htmlentities($url) . '">' . $page . '</a></li>';
+        return '<li><a href="' . htmlentities($url) . '">' . $page . '</a></li>';
     }
 
     /**
@@ -150,7 +150,7 @@ class Bootstrap extends Paginator
      */
     protected function getDisabledTextWrapper(string $text): string
     {
-        return '<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">' .$text .'</a></li>';
+        return '<li  class="uk-disabled"><span>' .$text .'</span></li>';
     }
 
     /**
@@ -161,7 +161,7 @@ class Bootstrap extends Paginator
      */
     protected function getActivePageWrapper(string $text): string
     {
-        return '<li class="page-item active" aria-current="page"><a href="#" class="page-link">' . $text . '</a></li>';
+        return '<li class="uk-active"><span>' . $text . '</span></li>';
     }
 
     /**
