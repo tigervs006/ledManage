@@ -20,7 +20,7 @@
 {volist name="product" id="item"}
                             <div>
                                 <div class="uk-wrap uk-position-relative">
-                                    <a href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                                    <a target="_blank" href="{:url(pathToDeatil($item.channel.fullpath), ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
                                     <div class="ico img" data-ratio="4:3">
                                         <div class="uk-flex uk-flex-middle uk-flex-center"><img src="{$item.litpic}" alt="{$item.title}"></div>
                                     </div>
@@ -487,7 +487,7 @@
 {volist name="hotart[$idx]" id="item" offset="0" length="4" empty="There's nothing here..."}
 {equal name="i" value="1"}
                             <div class="first uk-position-relative uk-transition-toggle">
-                                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                                <a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
                                 <div class="ico">
                                     <img src="{$item.litpic}" alt="{$item.title}">
                                 </div>
@@ -500,7 +500,7 @@
                             </div>
 {else /}
                             <div class="li uk-position-relative f16">
-                                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate">{$item.title}</a>
+                                <a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate">{$item.title}</a>
                             </div>
 {/equal}
 {/volist}
@@ -511,7 +511,7 @@
 {volist name="hotart[$idx]" id="item" offset="4" length="4" empty="There's nothing here..."}
 {equal name="i" value="1"}
                             <div class="first uk-position-relative uk-transition-toggle">
-                                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                                <a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
                                 <div class="ico">
                                     <img src="{$item.litpic}" alt="{$item.title}">
 
@@ -525,7 +525,7 @@
                             </div>
 {else /}
                             <div class="li uk-position-relative f16">
-                                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate">{$item.title}</a>
+                                <a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate">{$item.title}</a>
                             </div>
 {/equal}
 {/volist}
@@ -536,7 +536,7 @@
 {volist name="hotart[$idx]" id="item" offset="8" length="4" empty="There's nothing here..."}
 {equal name="i" value="1"}
                             <div class="first uk-position-relative uk-transition-toggle">
-                                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
+                                <a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-position-cover uk-position-z-index"></a>
                                 <div class="ico">
                                     <img src="{$item.litpic}" alt="{$item.title}">
 
@@ -550,7 +550,7 @@
                             </div>
 {else /}
                             <div class="li uk-position-relative f16">
-                                <a href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate">{$item.title}</a>
+                                <a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate">{$item.title}</a>
                             </div>
 {/equal}
 {/volist}
