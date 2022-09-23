@@ -1,5 +1,5 @@
 {extend name="../base" /}
-{block name="title"}<title>{$info.title}{notempty name="$Request.param.current"}_第{$Request.param.current}页{/notempty}</title>{/block}
+{block name="title"}<title>{$info.title}{notempty name="$Request.param.current"}_第{$Request.param.current}页{/notempty} - {$Think.config.index.sitename}</title>{/block}
 {block name="keywords"}<meta name="keywords" content="{$info.keywords}">{/block}
 {block name="description"}<meta name="description" content="{$info.description}">{/block}
 {block name="pagejs"}{__block__}{/block}
