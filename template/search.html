@@ -19,7 +19,7 @@
 <div class="uk-container">
     <div class="tBody">
         <div class="searchlist">
-            <div class="f16 searchinfo">搜索到 <em>{$Request.param.keyword}</em> 相关的结果 <em>{$total}</em> 条</div>
+            <div class="f16 searchinfo">搜索到 <em>{$Request.param.keyword}</em> 相关的结果 <em>{$total}</em> 条{notempty name="$Request.param.current"}_第{$Request.param.current}页{/notempty}</div>
             <ul class="news">
 {volist name="list" id="item"}
                 <li>
