@@ -1,5 +1,5 @@
 {extend name="../base" /}
-{block name="title"}<title>{$info.title}</title>{/block}
+{block name="title"}<title>{$info.title}{notempty name="$Request.param.current"}_第{$Request.param.current}页{/notempty}</title>{/block}
 {block name="keywords"}
 <meta name="keywords" content="{$info.keywords}">{/block}
 {block name="description"}
