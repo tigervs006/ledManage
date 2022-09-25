@@ -71,7 +71,7 @@ class ExceptionHandle extends Handle
     public function render($request, Throwable $e): Response
     {
         if ($e instanceof DbException) {
-            return app('json')->fail($e->getMessage(), [
+            return app('json')->fail($e->getMessage(), $e->getCode(), [
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
                 'message' => $e->getMessage()
