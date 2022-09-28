@@ -65,7 +65,7 @@ html { scroll-behavior: smooth; } /* 平滑滚动 */
 .srvwrap .isrv .uk-wrap .name{ background:#e6e6e6; line-height: 40px; margin-top: 10px; transition: all ease 0.2s; }
 .srvwrap .isrv .uk-wrap:hover::before{ position: absolute; content:''; display: block; left: -1px; bottom:-1px; right:-1px; top:-1px; border:1px solid #0053a4; }
 .srvwrap .isrv .uk-wrap:hover .name{ background:#8fbd20; color:#fff; }
-.ipart2{ padding:85px 0 110px; background:url(../img/bg2.png) center; background-size:cover; }
+.ipart2{ padding:85px 0 110px; background:url(../img/bg2.jpg) center; background-size:cover; }
 .ipart2 .youshi{ padding-top:20px; padding-bottom:40px; }
 .ipart2 .youshi .uk-wrap{ position: relative; background:#fff; padding:40px 20px 10px; top:0; transition: all 0.3s ease; }
 .ipart2 .youshi .uk-wrap::after{ content:''; width: 100%; height: 40px; background:url(../img/bg_f1.png) right; position: absolute; bottom:-40px; left: 0px; right:0; }
@@ -84,7 +84,7 @@ html { scroll-behavior: smooth; } /* 平滑滚动 */
 .ipart3 .uk-wrap .name{ padding:5px 10px; background:#fff; line-height: 40px; text-align: center; }
 .ipart3 .uk-wrap:hover{ border-color:#8fbd20; }
 .ipart3 .uk-position-small{ background:#ffffff; border-radius: 50%; color:#000; width:40px; height: 40px; text-align: center; padding:8px; }
-.ipart4{ padding:85px 0 140px; background:url(../img/bg4.png) center; background-size:cover; }
+.ipart4{ padding:85px 0 140px; background:url(../img/bg4.jpg) center; background-size:cover; }
 .ipart4 .iflow{ padding-top:50px; }
 .ipart4 .iflow .uk-wrap{ background:#0053a4; border-radius:42px; min-width: 120px;  text-align: center; margin:0 5px; flex: 1; }
 .ipart4 .iflow .uk-flex{ align-items: flex-start; }
@@ -105,7 +105,7 @@ html { scroll-behavior: smooth; } /* 平滑滚动 */
 .ipart5 .iabout .right .uk-wrap::before{ content:''; display: block; border:4px solid #8fbd20; position: absolute; left: 0; right:0; top:10%; bottom:10%;}
 .ipart5 .iabout .right .uk-wrap img{ position: relative; z-index: 2;}
 .ipart5 .iabout .right .uk-wrap .uk-position-center{ z-index: 3;}
-.igbook{ padding:100px 0 80px; background:url(../img/bg5.png); background-size: cover; }
+.igbook{ padding:100px 0 80px; background:url(../img/bg5.jpg); background-size: cover; }
 .igbook .sub{ position: relative; padding-bottom:30px; }
 .igbook .sub::before{ position: absolute; left: 0; bottom:0px; content:''; display: block; width:120px; height:3px; background:#8fbd20; }
 .title.text-white::before{ background:#fff; }
