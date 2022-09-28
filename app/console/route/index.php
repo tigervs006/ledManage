@@ -15,6 +15,12 @@ Route::group(function () {
         Route::post('login', 'login')->option(['route_name' => '用户登录']);
         Route::post('logout', 'logout')->option(['route_name' => '用户登出']);
         Route::post('submit', 'submitForm')->option(['route_name' => '表单留言']);
+        Route::get('download', function ($key) {
+            $file = cache($key);
+            return !is_null($file)
+                ? download($file['path'], $file['fileName'])
+                : response('Resource not found!', 404);
+        })->pattern(['key' => '\S+'])->option(['route_name' => '文件下载']);
     })->prefix('publicController/');
 })->option(['https' => true])->pattern(['id' => '\d+']);
 
@@ -124,6 +130,18 @@ Route::group(function () {
     Route::group('system', function () {
         Route::get('record', 'list')->option(['route_name' => '操作日志列表']);
     })->prefix('system.systemLogsController/');
+    /* 数据库备份 */
+    Route::group('system', function () {
+        Route::get('database/info', 'read')->option(['route_name' => '查看表结构']);
+        Route::get('database/list', 'index')->option(['route_name' => '读取数据列表']);
+        Route::post('database/backup', 'backup')->option(['route_name' => '备份数据表']);
+        Route::post('database/repair', 'repair')->option(['route_name' => '修复数据表']);
+        Route::post('database/revert', 'import')->option(['route_name' => '还原数据表']);
+        Route::get('database/record', 'record')->option(['route_name' => '获取备份记录']);
+        Route::post('database/remove', 'delete')->option(['route_name' => '删除备份记录']);
+        Route::post('database/optimize', 'optimize')->option(['route_name' => '优化数据表']);
+        Route::get('database/download', 'download')->option(['route_name' => '下载数据备份']);
+    })->prefix('system.dataBackupController/');
     // 数据看板
     Route::group('dashboard', function () {
         Route::get('monitor', 'monitorController/index')->option(['route_name' => '监控页']);
