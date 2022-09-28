@@ -16,6 +16,7 @@
         }
     ],
     "require": {
+        "ext-zlib": "*",
         "php": ">=8.0.0",
         "lcobucci/jwt": "4.2.1",
         "qcloud/cos-sdk-v5": "^2.5.6",
