@@ -97,24 +97,22 @@ Route::group(function () {
     // 用户组权限列表
     Route::group('group', function () {
         Route::get('list', 'list')->option(['route_name' => '用户组列表']);
-        Route::post('save', 'save')->option(['route_name' => '新增/编辑用户组']);
         Route::post('del', 'delete')->option(['route_name' => '删除用户组']);
+        Route::post('save', 'save')->option(['route_name' => '新增/编辑用户组']);
         Route::post('status', 'setStatus')->option(['route_name' => '设置用户组状态']);
     })->prefix('auth.groupController/');
     // 公共接口
     Route::group('public', function () {
-        Route::post('upload', 'upload')->option(['route_name' => '文件上传']);
-        Route::post('remove', 'removeFile')->option(['route_name' => '文件删除']);
         Route::post('clear_log', 'clearLog')->option(['route_name' => '清除错误日志']);
         Route::post('refresh_cache', 'refreshCache')->option(['route_name' => '刷新缓存']);
     })->prefix('publicController/');
     // 行政区域
     Route::group('region', function () {
         Route::get('list', 'list')->option(['route_name' => '行政区域列表']);
-        Route::get('lists', 'index')->option(['route_name' => '懒加载行政区列表']);
         Route::post('del', 'delete')->option(['route_name' => '删除行政区域']);
-        Route::post('status', 'setStatus')->option(['route_name' => '设置行政区域状态']);
+        Route::get('lists', 'index')->option(['route_name' => '懒加载行政区列表']);
         Route::post('save', 'save')->option(['route_name' => '新增/编辑行政区域']);
+        Route::post('status', 'setStatus')->option(['route_name' => '设置行政区域状态']);
     })->prefix('system.regionController/');
     // 个人中心
     Route::group('account', function () {
@@ -130,7 +128,15 @@ Route::group(function () {
     Route::group('system', function () {
         Route::get('record', 'list')->option(['route_name' => '操作日志列表']);
     })->prefix('system.systemLogsController/');
-    /* 数据库备份 */
+    /* 数据看板 */
+    Route::group('dashboard', function () {
+        Route::get('monitor', 'monitorController/index')->option(['route_name' => '监控页']);
+        Route::get('analysis', 'analysisController/index')->option(['route_name' => '分析页']);
+        Route::get('notice', 'workplaceController/notice')->option(['route_name' => '通知信息']);
+        Route::get('workplace', 'workplaceController/index')->option(['route_name' => '工作台']);
+        Route::get('activities', 'workplaceController/activities')->option(['route_name' => '活动页']);
+    })->prefix('dashboard.');
+    /* 数据备份 */
     Route::group('system', function () {
         Route::get('database/info', 'read')->option(['route_name' => '查看表结构']);
         Route::get('database/list', 'index')->option(['route_name' => '读取数据列表']);
@@ -142,14 +148,18 @@ Route::group(function () {
         Route::post('database/optimize', 'optimize')->option(['route_name' => '优化数据表']);
         Route::get('database/download', 'download')->option(['route_name' => '下载数据备份']);
     })->prefix('system.dataBackupController/');
-    // 数据看板
-    Route::group('dashboard', function () {
-        Route::get('monitor', 'monitorController/index')->option(['route_name' => '监控页']);
-        Route::get('analysis', 'analysisController/index')->option(['route_name' => '分析页']);
-        Route::get('notice', 'workplaceController/notice')->option(['route_name' => '通知信息']);
-        Route::get('workplace', 'workplaceController/index')->option(['route_name' => '工作台']);
-        Route::get('activities', 'workplaceController/activities')->option(['route_name' => '活动页']);
-    })->prefix('dashboard.');
+    /* 文件管理 */
+    Route::group('attach', function () {
+        Route::get('list', 'system.attachController/list')->option(['route_name' => '文件列表']);
+        Route::get('cate', 'system.attachCateController/list')->option(['route_name' => '目录列表']);
+        Route::post('move', 'system.attachController/moveCate')->option(['route_name' => '移动分类']);
+        Route::post('upload', 'system.attachController/upload')->option(['route_name' => '文件上传']);
+        Route::post('remove', 'system.attachController/remove')->option(['route_name' => '文件删除']);
+        Route::get('info', 'system.attachCateController/index')->option(['route_name' => '目录信息']);
+        Route::post('stream', 'system.attachController/upStream')->option(['route_name' => '二进制上传']);
+        Route::post('delete', 'system.attachCateController/delete')->option(['route_name' => '删除目录']);
+        Route::post('save', 'system.attachCateController/save')->option(['route_name' => '新增/编辑目录']);
+    });
 })->option(['https' => true])->pattern(['id' => '\d+', 'name' => '\w+'])->middleware(
     [
         /* 跨域请求 */
