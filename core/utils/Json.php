@@ -38,11 +38,10 @@ class Json
      */
     public function make(int $status, string $msg, ?array $data = null, ?bool $success = true): Response
     {
-        $res = compact('status', 'msg', 'success');
+        $method = Request::method();
+        $path = Request::pathinfo();
+        $res = compact('status', 'success', 'method', 'msg', 'path');
 
-        $msg && $res['msg'] = $msg;
-        $res['method'] = Request::method();
-        $res['path'] = Request::pathinfo();
         !is_null($data) && $res['data'] = $data;
 
         return Response::create($res, 'json', $this->code);
