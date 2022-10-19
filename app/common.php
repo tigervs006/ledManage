@@ -18,6 +18,18 @@ if (!function_exists('getPath')) {
     }
 }
 
+if(!function_exists('intvals')) {
+    /**
+     * 转换数字字符串
+     * @return mixed
+     * @param mixed $val
+     */
+    function intvals(mixed $val): mixed
+    {
+        return is_numeric($val) ? intval($val) : $val;
+    }
+}
+
 if (!function_exists('msectime')) {
     /**
      * 获取毫秒数
@@ -39,7 +51,7 @@ if (!function_exists('formatBytes')) {
      */
     function formatBytes($size, string $delimiter = ''): string
     {
-        $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
+        $units = array(' Byte', ' KB', ' MB', ' GB', ' TB', ' PB');
         for ($i = 0; $size >= 1024 && $i < 5; $i++) $size /= 1024;
         return round($size, 2) . $delimiter . $units[$i];
     }
