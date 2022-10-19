@@ -174,17 +174,18 @@ abstract class BaseDao
 
     /**
      * 删除一条或多条数据
-     * @return boolean
+     * @return int|bool
      * @param int|array|string $id
-     * @param string|null $key key
+     * @param null|string $key key
+     * @param null|bool $force 强制删除
      */
-    public function delete(int|array|string $id, ?string $key = null): bool
+    public function delete(int|array|string $id, ?string $key = null, ?bool $force = false): int|bool
     {
-        if (is_array($id)) {
-            return $this->getModel()->useSoftDelete('delete_time',time())->delete($id) >= 1;
+        if ($force) {
+            return $this->getModel()->destroy($id, $force);
         } else {
             $where = [is_null($key) ? $this->getPk() : $key => $id];
-            return $this->getModel()->where($where)->useSoftDelete('delete_time',time())->delete() >= 1;
+            return $this->getModel()->where($where)->useSoftDelete('delete_time',time())->delete();
         }
     }
 
@@ -207,12 +208,12 @@ abstract class BaseDao
 
     /**
      * 批量更新数据
-     * @return BaseModel
+     * @return int|BaseModel
      * @param array $ids
      * @param array $data
      * @param string|null $key
      */
-    public function batchUpdate(array $ids, array $data, ?string $key): BaseModel
+    public function batchUpdate(array $ids, array $data, ?string $key): int|BaseModel
     {
         return $this->getModel()->whereIn(is_null($key) ? $this->getPK() : $key, $ids)->update($data);
     }
@@ -244,13 +245,13 @@ abstract class BaseDao
     public function getPrenext(int $id, ?array $map = null, ?string $field = 'id, title', ?string $firstPre = '已经是第一篇了', ?string $lastNext = '这是最后一篇了'): array
     {
         $nextMap = array(['id', '>', $id]);
-        $pretMap = array(['id', '<', $id]);
+        $prevMap = array(['id', '<', $id]);
         if ($map) {
             $nextMap = array(['id', '>', $id], ...$map);
-            $pretMap = array(['id', '<', $id], ...$map);
+            $prevMap = array(['id', '<', $id], ...$map);
         }
         $next = $this->getModel()->where($nextMap)->field($field)->with(['channel'])->limit(1)->select();
-        $pre = $this->getModel()->where($pretMap)->field($field)->with(['channel'])->order('id', 'desc')->limit(1)->select();
+        $pre = $this->getModel()->where($prevMap)->field($field)->with(['channel'])->order('id', 'desc')->limit(1)->select();
         if ($pre->isEmpty()) {
             $pre = array(
                 'title' => $firstPre
@@ -287,8 +288,8 @@ abstract class BaseDao
      * @param string|null $fullpath
      * @param string|null $field 字段
      * @param array|null $order 排序
-     * @param array|null $query url参数
      * @param array|null $with 关联模型
+     * @param array|null $query url参数
      * @throws DbException
      */
     public function getPaginate(array $map, int $page = 1, int $rows = 15, ?string $fullpath = null, ?string $field = '*', ?array $order = ['id' => 'desc'], ?array $with = null, ?array $query = []): \think\Paginator
