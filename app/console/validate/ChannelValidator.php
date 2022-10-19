@@ -7,7 +7,7 @@ use think\validate;
 class ChannelValidator extends validate
 {
     protected $regex = [
-        'url'   => '//[^\s]*'
+        'url'   => '(\/\/|\/)[^\s]*'
     ];
 
     protected $rule = [

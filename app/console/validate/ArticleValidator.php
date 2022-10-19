@@ -7,7 +7,7 @@ use think\validate;
 class ArticleValidator extends Validate
 {
     protected $regex = [
-        'url'   => '//[^\s]*'
+        'url'   => '(\/\/|\/)[^\s]*'
     ];
 
     protected $rule =   [
