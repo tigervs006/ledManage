@@ -68,7 +68,6 @@ class Oss extends BaseUpload
     /**
      * 初始化OSS
      * @return OssClient
-     * @throws OssException
      */
     protected function app(): OssClient
     {
@@ -89,6 +88,7 @@ class Oss extends BaseUpload
     public function move(string $file = 'file', bool $realName = false): bool|array
     {
         $fileHandle = app()->request->file($file);
+        $size = formatBytes(config($this->configFile . '.filesize', 2097152));
         if (!$fileHandle) {
             return $this->setError('Upload file does not exist');
         }
@@ -96,8 +96,8 @@ class Oss extends BaseUpload
             try {
                 $error = [
                     $file . '.fileExt' => 'Upload fileExt error',
-                    $file . '.filesize' => 'Upload filesize error',
                     $file . '.fileMime' => 'Upload fileMine error',
+                    $file . '.filesize' => "Upload filesize more than max ${size}"
                 ];
                 validate([$file => $this->validate], $error)->check([$file => $fileHandle]);
             } catch (ValidateException $e) {
@@ -111,12 +111,13 @@ class Oss extends BaseUpload
             if (!isset($uploadInfo['info']['url'])) {
                 return $this->setError('Failed to upload to OSS');
             }
-            $this->fileInfo['storage'] = 'OSS';
+            $this->fileInfo['storage'] = 2;
             $this->fileInfo['name'] = $fileName;
+            $this->fileInfo['type'] = $fileHandle->getMime();
             $this->fileInfo['uid'] = $uploadInfo['x-oss-request-id'];
             $this->fileInfo['relativePath'] = $filePath;
             $this->fileInfo['url'] = $this->uploadUrl . '/' . $filePath;
-            $this->fileInfo['ossPath'] = $uploadInfo['info']['url'];
+            $this->fileInfo['realPath'] = preg_replace('/http(s)?:/', '', $uploadInfo['info']['url']);
             return $this->fileInfo;
         } catch (UploadException $e) {
             return $this->setError($e->getMessage());
@@ -134,19 +135,20 @@ class Oss extends BaseUpload
     {
         try {
             if (!$fileName) {
-                $fileName = $this->setFileName();
+                $fileName = $this->setFileName('attach');
             }
             $filePath = $this->setUploadPath($fileName);
             $uploadInfo = $this->app()->putObject($this->storageName, $filePath, $fileContent);
             if (!isset($uploadInfo['info']['url'])) {
                 return $this->setError('Upload failure');
             }
-            $this->fileInfo['storage'] = 'OSS';
+            $this->fileInfo['storage'] = 2;
             $this->fileInfo['name'] = $fileName;
+            $this->fileInfo['type'] = request()->header('Content-Type');
             $this->fileInfo['uid'] = $uploadInfo['x-oss-request-id'];
             $this->fileInfo['relativePath'] = $filePath;
             $this->fileInfo['url'] = $this->uploadUrl . '/' . $filePath;
-            $this->fileInfo['ossPath'] = $uploadInfo['info']['url'];
+            $this->fileInfo['realPath'] = preg_replace('/http(s)?:/', '', $uploadInfo['info']['url']);
             return $this->fileInfo;
         } catch (UploadException $e) {
             return $this->setError($e->getMessage());

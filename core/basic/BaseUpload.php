@@ -78,9 +78,9 @@ abstract class BaseUpload extends BaseStorage
      */
     protected function checkImage($filePath): bool
     {
-        //获取图像信息
+        /* 获取图像信息 */
         $info = @getimagesize($filePath);
-        //检测图像合法性
+        /* 检测图像合法性 */
         if (false === $info || (IMAGETYPE_GIF === $info[2] && empty($info['bits']))) {
             return false;
         }
@@ -123,7 +123,7 @@ abstract class BaseUpload extends BaseStorage
      */
     protected function setUploadPath(string $fileName): string
     {
-        return ($this->path ? $this->path . '/' . date('Y-m-d', time()) . '/' : date('Y-m-d', time()) . '/') . $fileName;
+        return ($this->path ? $this->path . '/' : 'attach/' . date('Y-m-d', time()) . '/') . $fileName;
     }
 
     /**

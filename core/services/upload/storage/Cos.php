@@ -92,15 +92,16 @@ class Cos extends BaseUpload
     {
         if (!$isStream) {
             $fileHandle = app()->request->file($file);
+            $size = formatBytes(config($this->configFile . '.filesize'));
             if (!$fileHandle) {
                 return $this->setError('Upload file does not exist');
             }
             if ($this->validate) {
                 try {
                     $error = [
-                        $file . '.filesize' => 'Upload filesize error',
                         $file . '.fileExt' => 'Upload fileExt error',
-                        $file . '.fileMime' => 'Upload fileMine error'
+                        $file . '.fileMime' => 'Upload fileMine error',
+                        $file . '.filesize' => "Upload filesize more than max ${size}"
                     ];
                     validate([$file => $this->validate], $error)->check([$file => $fileHandle]);
                 } catch (ValidateException $e) {
@@ -124,12 +125,13 @@ class Cos extends BaseUpload
             if (!isset($uploadInfo['Location'])) {
                 return $this->setError('Failed to upload to COS');
             }
-            $this->fileInfo['storage'] = 'COS';
+            $this->fileInfo['storage'] = 3;
             $this->fileInfo['name'] = $fileName;
+            $this->fileInfo['type'] = isset($fileHandle) ? $fileHandle->getMime() : request()->header('Content-Type');
             $this->fileInfo['uid'] = $uploadInfo['RequestId'];
             $this->fileInfo['relativePath'] = $uploadInfo['Key'];
             $this->fileInfo['url'] = $this->uploadUrl . '/' . $uploadInfo['Key'];
-            $this->fileInfo['cosPath'] = '//' . $uploadInfo['Location'];
+            $this->fileInfo['realPath'] = '//' . $uploadInfo['Location'];
             return $this->fileInfo;
         } catch (UploadException $e) {
             return $this->setError($e->getMessage());
@@ -156,7 +158,7 @@ class Cos extends BaseUpload
     public function stream(string $fileContent, string $fileName = null): bool|array
     {
         if (!$fileName) {
-            $fileName = $this->setFileName();
+            $fileName = $this->setFileName('attach');
         }
         return $this->upload($fileName, true, $fileContent);
     }

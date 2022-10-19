@@ -16,6 +16,10 @@ use think\exception\ValidateException;
  */
 class Local extends BaseUpload
 {
+    /**
+     * @var string
+     */
+    private string $uploadUrl;
 
     /**
      * 默认存放路径
@@ -26,6 +30,7 @@ class Local extends BaseUpload
     public function initialize(array $config): void
     {
         parent::initialize($config);
+        $this->uploadUrl = $config['uploadUrl'] ?? '';
         $this->defaultPath = Config::get('filesystem.disks.' . Config::get('filesystem.default') . '.url');
     }
 
@@ -48,7 +53,7 @@ class Local extends BaseUpload
     public function uploadDir($path, $root = null): string
     {
         if ($root === null) $root = app()->getRootPath() . 'public/';
-        return str_replace('\\', '/', $root . 'uploads/' . $path);
+        return str_replace('\\', '/', $root . 'storage/' . $path);
     }
 
     /**
@@ -58,7 +63,7 @@ class Local extends BaseUpload
      */
     protected function validDir($dir): bool
     {
-        return is_dir($dir) == true || mkdir($dir, 0777, true) == true;
+        return is_dir($dir) == true || mkdir($dir, 0755, true) == true;
     }
 
     /**
@@ -70,15 +75,16 @@ class Local extends BaseUpload
     public function move(string $file = 'file', bool $realName = false): bool|array
     {
         $fileHandle = app()->request->file($file);
+        $size = formatBytes(config($this->configFile . '.filesize', 2097152));
         if (!$fileHandle) {
             return $this->setError('Upload file does not exist');
         }
         if ($this->validate) {
             try {
                 $error = [
-                    $file . '.filesize' => 'Upload filesize error',
                     $file . '.fileExt' => 'Upload fileExt error',
-                    $file . '.fileMime' => 'Upload fileMine error'
+                    $file . '.fileMime' => 'Upload fileMine error',
+                    $file . '.filesize' => "Upload filesize more than max ${size}"
                 ];
                 validate([$file => $this->validate], $error)->check([$file => $fileHandle]);
             } catch (ValidateException $e) {
@@ -88,17 +94,19 @@ class Local extends BaseUpload
         if ($realName) {
             $fileName = Filesystem::putFileAs($this->path, $fileHandle, $fileHandle->getOriginalName());
         } else {
-            $fileName = Filesystem::putFile($this->path, $fileHandle);
+            $fileName = Filesystem::putFile($this->path, $fileHandle, 'uniqid');
         }
         if (!$fileName) {
             return $this->setError('Failed to upload to Local');
         }
         $filePath = Filesystem::path($fileName);
-        $this->fileInfo['storage'] = 'Local';
-        $this->fileInfo['originalName'] = $fileHandle->getOriginalName();
+        $this->fileInfo['storage'] = 1;
         $this->fileInfo['uid'] = rand(100000, 100000000);
         $this->fileInfo['name'] = (new File($filePath))->getFilename();
+        $this->fileInfo['type'] = (new File($filePath))->getMime();
         $this->fileInfo['url'] = $this->defaultPath . '/' . str_replace('\\', '/', $fileName);
+        $this->fileInfo['realPath'] = $this->defaultPath . '/' . str_replace('\\', '/', $fileName);
+        $this->fileInfo['relativePath'] = $this->defaultPath . '/' . str_replace('\\', '/', $fileName);
         return $this->fileInfo;
     }
 
@@ -110,16 +118,20 @@ class Local extends BaseUpload
      */
     public function stream(string $fileContent, string $fileName = null): bool|array
     {
-        $realName = $this->setFileName();
+        $realName = $this->setFileName('attach');
         $dir = $this->uploadDir($this->path);
         if (!$this->validDir($dir)) {
-            return $this->setError('Failed to generate upload directory, please check the permission!');
+            return $this->setError('Failed to generate upload directory');
         }
         $fileName = $dir . '/' . $realName;
         file_put_contents($fileName, $fileContent);
+        $this->fileInfo['storage'] = 1;
         $this->fileInfo['name'] = $realName;
+        $this->fileInfo['type'] = request()->header('Content-Type');
         $this->fileInfo['uid'] = rand(100000, 100000000);
         $this->fileInfo['url'] = $this->defaultPath . '/' . $this->path . '/' . $realName;
+        $this->fileInfo['realPath'] = $this->defaultPath . '/' . $this->path . '/' . $realName;
+        $this->fileInfo['relativePath'] = $this->defaultPath . '/' . $this->path . '/' . $realName;
         return $this->fileInfo;
     }
 
@@ -158,6 +170,9 @@ class Local extends BaseUpload
         if (file_exists($path)) {
             try {
                 unlink($path);
+                $dirpath = preg_replace('/(?!.*\/).*/', '', $path);
+                /* todo: 是否考虑向上递归删除空文件夹？ */
+                if (2 >= count(scandir($dirpath))) return rmdir($dirpath);
                 return true;
             } catch (UploadException $e) {
                 return $this->setError($e->getMessage());
