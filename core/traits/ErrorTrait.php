@@ -11,9 +11,9 @@ trait ErrorTrait
 {
     /**
      * 错误信息
-     * @var string
+     * @var null|string
      */
-    protected string $error;
+    protected null|string $error;
 
     /**
      * 设置错误信息
