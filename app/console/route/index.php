@@ -156,7 +156,7 @@ Route::group(function () {
         Route::get('database/record', 'record')->option(['route_name' => '获取备份记录']);
         Route::post('database/remove', 'delete')->option(['route_name' => '删除备份记录']);
         Route::post('database/optimize', 'optimize')->option(['route_name' => '优化数据表']);
-        Route::get('database/download', 'download')->option(['route_name' => '下载数据备份']);
+        Route::post('database/download', 'download')->option(['route_name' => '下载数据备份']);
     })->prefix('system.dataBackupController/');
     /* 文件管理 */
     Route::group('attach', function () {

@@ -177,7 +177,7 @@ class DataBackupController extends BaseController
                 'time',
                 'part' => 0,
                 'isFile' => 1,
-            ], 'get', 'intval');
+            ], 'post', 'intval');
         $key = $this->services->getDbBackup()->downloadFile(...$param);
         return $this->json->successful(compact('key'));
     }
