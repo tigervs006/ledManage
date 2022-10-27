@@ -31,9 +31,8 @@ class ConfigServices extends BaseServices
      */
     public function updateConfig(array $data): void
     {
-        /* 判断首页关键词长度 */
         foreach ($data as $val) {
-            10 === $val['id']
+            3 === $val['id']
             && 15 < count(explode(',', $val['value']))
             && throw new ApiException('【首页关键词】不得超过15个，否则会被搜索引擎判断为堆砌关键词而被K站');
         }
