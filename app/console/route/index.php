@@ -166,6 +166,7 @@ Route::group(function () {
         Route::post('upload', 'system.attachController/upload')->option(['route_name' => '文件上传']);
         Route::post('remove', 'system.attachController/remove')->option(['route_name' => '文件删除']);
         Route::get('info', 'system.attachCateController/index')->option(['route_name' => '目录信息']);
+        Route::get('default', 'system.attachController/default')->option(['route_name' => '默认配置']);
         Route::post('stream', 'system.attachController/upStream')->option(['route_name' => '二进制上传']);
         Route::post('delete', 'system.attachCateController/delete')->option(['route_name' => '删除目录']);
         Route::post('save', 'system.attachCateController/save')->option(['route_name' => '新增/编辑目录']);
