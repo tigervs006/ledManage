@@ -65,6 +65,19 @@ class AttachController extends BaseController
     }
 
     /**
+     * 默认配置
+     * @return Json
+     * @author Kevin
+     * @createAt 2022/10/25 22:24
+     */
+    final public function default(): Json
+    {
+        $list = config('upload');
+        unset($list['stores']); unset($list['default']);
+        return $this->json->successful(compact('list'));
+    }
+
+    /**
      * 文件上传
      * @return Json
      * @throws \Exception
@@ -73,13 +86,16 @@ class AttachController extends BaseController
     {
             $params = $this->request->only(
                 [
-                    'pid' => 0,
-                    'path' => 'attach',
-                ], 'post', 'trim');
+                    'pid'       => 0,
+                    'path'      => 'attach',
+                ], 'post', 'intvals');
             try {
                 $this->validate(
                     $params,
-                    ['pid' => 'require|integer', 'path' => 'require|regex:[\w\/]+'],
+                    [
+                        'pid' => 'require|integer',
+                        'path' => 'require|regex:[\w\/]+'
+                    ],
                     [
                         'pid.require'       => '请选择文件所属目录',
                         'pid.integer'       => '文件所属目录ID必须是正整数',
@@ -90,9 +106,11 @@ class AttachController extends BaseController
             } catch (\think\exception\ValidateException $e) {
                 throw new UploadException($e->getError());
             }
-            /* 组装文件路径 */
+            /* 组装上传路径 */
             $path = $params['path'] . '/' . date('Y-m-d');
-            $fileInfo = $this->storage->to($path)->validate()->move();
+            /* 获取验证规则 */
+            $validator = $this->cateServices->verify($params['pid']);
+            $fileInfo = $this->storage->to($path)->validate($validator)->move();
             !$fileInfo && throw new UploadException($this->storage->getError());
             $fileInfo && $attach = [
                 'type'      => $fileInfo['type'],
