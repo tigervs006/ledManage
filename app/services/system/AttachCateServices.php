@@ -24,10 +24,30 @@ class AttachCateServices extends BaseServices
     }
 
     /**
-     * 新增/编辑
+     * 获取上传规则
+     * @return null|array
+     * @author Kevin
+     * @param int $id
+     * @createAt 2022/10/27 16:16
+     */
+    public function verify(int $id): null|array
+    {
+        $result = $this->dao->value(['id' => $id], 'config');
+        $rules = [
+            'filesize' => isset($result['size']) ? $result['size'] * 1024 * 1024 : null,
+            'fileExt'   => $result['fileExt'] ?? null,
+            'fileMime'  => $result['fileMime'] ?? null,
+        ];
+        $validator = array_filter($rules);
+        return $validator ?: null;
+    }
+
+    /**
      * @return void
+     * @author Kevin
      * @param array $data
      * @param string $message
+     * @createAt 2022/10/27 16:57
      */
     public function saveCate(array $data, string $message): void
     {
