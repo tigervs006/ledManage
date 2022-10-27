@@ -99,17 +99,22 @@ abstract class BaseUpload extends BaseStorage
 
     /**
      * 获取系统配置
-     * @return mixed
+     * @return array
      */
-    protected function getConfig(): mixed
+    protected function getConfig(): array
     {
-        $config = Config::get($this->configFile . '.stores.' . $this->name, []);
-        if (empty($config)) {
+        /* 从缓存中读取配置 */
+        $result = cache('config');
+        $config['filesize'] = (int) $result['filesize'];
+        $config['fileExt'] = json_decode($result['fileExt'], true);
+        $config['fileMime'] = json_decode($result['fileMime'], true);
+        if (empty($config)) { /* 如果缓存中配置为空，则从文件中读取配置 */
             $config['filesize'] = Config::get($this->configFile . '.filesize', []);
             $config['fileExt'] = Config::get($this->configFile . '.fileExt', []);
             $config['fileMime'] = Config::get($this->configFile . '.fileMime', []);
         }
-        return $config;
+        /* 过滤空值数组 */
+        return array_filter($config);
     }
 
     /**
