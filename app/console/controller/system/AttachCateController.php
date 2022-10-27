@@ -67,10 +67,15 @@ class AttachCateController extends BaseController
             'path',
             'name',
             'ename',
+            'fileExt',
             'aspects',
+            'fileMime',
             'astricts',
+            'suff' => 0,
+            'mime' => 0,
             'crop' => 0,
             'limit' => 0,
+            'option' => 0,
             'astrict' => 0,
         ], 'post', 'trim');
         $message = isset($post['id']) ? '编辑' : '新增';
@@ -97,16 +102,20 @@ class AttachCateController extends BaseController
             $data['dirname'] = implode('/', array_merge($names, [$data['ename']]));
         }
         /* 组装json数据 */
-        $data['config'] = array_filter([
+        $data['config'] = $data['option'] ? array_filter([
             'crop'      => (int) $post['crop'],
+            'suff'      => (int) $post['suff'],
+            'mime'      => (int) $post['mime'],
             'limit'     => (int) $post['limit'],
             'astrict'   => (int) $post['astrict'],
+            'fileExt'   => $post['fileExt'] ?? null,
+            'fileMime'  => $post['fileMime'] ?? null,
             'size'      => isset($post['size']) ? (int) $post['size'] : null,
             'aspects'   => isset($post['aspects']) ? array_map('intval', $post['aspects']) : null,
             'astricts'  => isset($post['astricts']) ? array_map('intval', $post['astricts']) : null,
         ], function ($val) {
             return $val !== null;
-        });
+        }) : NULL;
         $this->services->saveCate($data, $message);
         return $this->json->successful($message . '目录成功');
     }
