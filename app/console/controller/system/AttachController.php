@@ -113,13 +113,13 @@ class AttachController extends BaseController
             $fileInfo = $this->storage->to($path)->validate($validator)->move();
             !$fileInfo && throw new UploadException($this->storage->getError());
             $fileInfo && $attach = [
-                'type'      => $fileInfo['type'],
-                'name'      => $fileInfo['name'],
-                'static_path' => $fileInfo['url'],
-                'pid'       => (int) $params['pid'],
-                'storage'   => $fileInfo['storage'],
-                'real_path' => $fileInfo['realPath'],
-                'path'      => $fileInfo['relativePath'],
+                'static_path'   => $fileInfo['url'],
+                'type'          => $fileInfo['type'],
+                'name'          => $fileInfo['name'],
+                'pid'           => (int) $params['pid'],
+                'storage'       => $fileInfo['storage'],
+                'real_path'     => $fileInfo['realPath'],
+                'path'          => $fileInfo['relativePath'],
             ];
             /* 写入到附件表 */
             $fileInfo && $this->services->saveOne($attach);
@@ -167,16 +167,31 @@ class AttachController extends BaseController
     {
         try {
             $content = file_get_contents("php://input");
-            $params = $this->request->only(['pid' => 0], 'post', 'trim');
-            $fileInfo = $this->storage->to('attach/' . date('Y-m-d'))->validate()->stream($content);
+            $ext = $this->request->header('content-ext');
+            $pid = $this->request->header('content-pid', '0');
+            $path = $this->cateServices->value(['id' => $pid], 'dirname') . '/';
+            try {
+                $this->validate(
+                    ['pid' => $pid, 'ext' => $ext],
+                    ['pid' => 'require|integer', 'ext' => 'require'],
+                    [
+                        'pid.integer' => '目录id须为正整数',
+                        'pid.require' => '请完善需上传的目录',
+                        'ext.require' => '请完善文件的扩展名',
+                    ]
+                );
+            } catch (\think\exception\ValidateException $e) {
+                throw new UploadException($e->getMessage());
+            }
+            $fileInfo = $this->storage->to($path . date('Y-m-d'))->stream($content, $ext);
             $attach = [
-                'type'      => $fileInfo['type'],
-                'name'      => $fileInfo['name'],
-                'static_path' => $fileInfo['url'],
-                'pid'       => (int) $params['pid'],
-                'storage'   => $fileInfo['storage'],
-                'real_path' => $fileInfo['realPath'],
-                'path'      => $fileInfo['relativePath'],
+                'static_path'   => $fileInfo['url'],
+                'type'          => $fileInfo['type'],
+                'name'          => $fileInfo['name'],
+                'storage'       => $fileInfo['storage'],
+                'real_path'     => $fileInfo['realPath'],
+                'path'          => $fileInfo['relativePath'],
+                'pid'           => $headers['content-pid'] ?? 0,
             ];
             /* 写入到附件表 */
             $this->services->saveOne($attach);

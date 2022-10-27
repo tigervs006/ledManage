@@ -135,22 +135,19 @@ class Oss extends BaseUpload
     }
 
     /**
-     * 上传文件流
+     * 二进制上传
      * @return bool|array
-     * @throws OssException
+     * @param string $ext
      * @param string $fileContent
-     * @param string|null $fileName
      */
-    public function stream(string $fileContent, string $fileName = null): bool|array
+    public function stream(string $fileContent, string $ext): bool|array
     {
         try {
-            if (!$fileName) {
-                $fileName = $this->setFileName('attach');
-            }
+            $fileName = $this->setFileName((string) time(), $ext);
             $filePath = $this->setUploadPath($fileName);
             $uploadInfo = $this->app()->putObject($this->storageName, $filePath, $fileContent);
             if (!isset($uploadInfo['info']['url'])) {
-                return $this->setError('Upload failure');
+                return $this->setError('Upload Failed');
             }
             $this->fileInfo['storage'] = 2;
             $this->fileInfo['name'] = $fileName;

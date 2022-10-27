@@ -123,12 +123,12 @@ class Local extends BaseUpload
     /**
      * 文件流上传
      * @return bool|array
+     * @param string $ext 扩展名
      * @param string $fileContent
-     * @param string|null $fileName
      */
-    public function stream(string $fileContent, string $fileName = null): bool|array
+    public function stream(string $fileContent, string $ext): bool|array
     {
-        $realName = $this->setFileName('attach');
+        $realName = $this->setFileName((string) time(), $ext);
         $dir = $this->uploadDir($this->path);
         if (!$this->validDir($dir)) {
             return $this->setError('Failed to generate upload directory');

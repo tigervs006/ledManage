@@ -162,14 +162,12 @@ class Cos extends BaseUpload
     /**
      * 文件流上传
      * @return bool|array
+     * @param string $ext
      * @param string $fileContent
-     * @param string|null $fileName
      */
-    public function stream(string $fileContent, string $fileName = null): bool|array
+    public function stream(string $fileContent, string $ext): bool|array
     {
-        if (!$fileName) {
-            $fileName = $this->setFileName('attach');
-        }
+        $fileName = $this->setFileName((string) time(), $ext);
         return $this->upload($fileName, true, $fileContent);
     }
 
