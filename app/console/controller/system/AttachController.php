@@ -194,7 +194,7 @@ class AttachController extends BaseController
                 'pid'           => $headers['content-pid'] ?? 0,
             ];
             /* 写入到附件表 */
-            $this->services->saveOne($attach);
+            $fileInfo && $this->services->saveOne($attach);
             return $fileInfo ? $this->json->successful('uploaded done', $fileInfo) : $this->json->fail('upload failed');
         } catch (\Exception $e) {
             throw new UploadException($e->getMessage());
