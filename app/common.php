@@ -11,8 +11,6 @@
 
 declare (strict_types = 1);
 
-// 应用公共文件
-
 if (!function_exists('getPath')) {
     /**
      * 获取pathinfo
@@ -52,6 +50,22 @@ if (!function_exists('msectime')) {
     }
 }
 
+if(!function_exists('filterSearch')) {
+    /**
+     * 模糊搜索条件
+     * @return array
+     * @param array $map
+     */
+    function filterSearch(array $map): array
+    {
+        $search = [];
+        foreach ($map as $key => $val) {
+            $search[] = [$key, 'like', '%' . $val . '%'];
+        }
+        return $search;
+    }
+}
+
 if (!function_exists('formatBytes')) {
     /**
      * 格式化字节大小
@@ -78,18 +92,5 @@ if (!function_exists('strOrderFilter')) {
     function strOrderFilter(string $str, ?string $needle = 'end', ?bool $before_needle = true): string
     {
         return stristr($str, $needle, $before_needle);
-    }
-}
-
-if (!function_exists('pathToDeatil')) {
-    /**
-     * 根据路径获取route_name
-     * @return string
-     * @param string $path
-     */
-    function pathToDeatil(string $path): string
-    {
-        $arr = explode('/', $path);
-        return array_shift($arr) . 'Detail';
     }
 }
