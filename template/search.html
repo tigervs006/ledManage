@@ -4,10 +4,10 @@
 {block name="description"}<meta name="description" content="{notempty name='$Request.param.keyword'}搜索{$Request.param.keyword}相关的搜索结果共{$total}条{else /}全站搜索{/notempty}{notempty name='$Request.param.current'}_第{$Request.param.current}页{/notempty}">{/block}
 {block name="pagejs"}{__block__}{/block}
 {block name="main"}
-<div class="inban maxwidth uk-visible@m" style="background-image: url(/static/img/ban_1.png);">
+<div class="inban maxwidth uk-visible@m" style="background-image: url(__STATIC__/img/ban_1.png);">
 </div>
 <div class="mban uk-position-relative uk-hidden@m">
-  <img src="/static/img/mban_1.png" alt="电池检测">
+  <img src="__STATIC__/img/mban_1.png" alt="电池检测">
 </div>
 <div class="uk-container uk-visible@s">
     <div class="crumb">
