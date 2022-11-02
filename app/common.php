@@ -94,3 +94,16 @@ if (!function_exists('strOrderFilter')) {
         return stristr($str, $needle, $before_needle);
     }
 }
+
+if (!function_exists('pathToDeatil')) {
+    /**
+     * 根据路径获取route_name
+     * @return string
+     * @param string $path
+     */
+    function pathToDeatil(string $path): string
+    {
+        $arr = explode('/', $path);
+        return array_shift($arr) . 'Detail';
+    }
+}
