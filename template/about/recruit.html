@@ -1,0 +1,88 @@
+{extend name="../base" /}
+{block name="title"}<title>{$info.title} - {$Think.config.index.sitename}</title>{/block}
+{block name="keywords"}
+<meta name="keywords" content="{$info.keywords}">{/block}
+{block name="description"}
+<meta name="description" content="{$info.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(__STATIC__/banner/2022-11-03/6ad3ab7e1667458060.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+    <img src="__STATIC__/banner/2022-11-03/f8eae7731667458060.png" alt="立讯检测股份企业简介">
+</div>
+{include file="../basic/crumbs" /}
+<div class="uk-hidden@s subname pt15">
+    <div class="uk-text-center">
+        <span class="f30 text-blue">关于我们</span>
+    </div>
+</div>
+<div class="uk-container">
+    <div class="tBody">
+        <div class="uk-grid">
+            {include file="../basic/about_left_nav" /}
+            <div class="uk-width-expand">
+                    <div class="joblist">
+                            <div class="hd">
+                                    <div class="uk-grid uk-child-width-1-4 f16 fb">
+                                            <div>招聘岗位</div>
+                                            <div>部门</div>
+                                            <div>工作地点</div>
+                                            <div>截止时间</div>
+                                    </div>
+                            </div>
+                            <ul uk-accordion="" class="uk-accordion">
+
+                                    <li class="uk-open">
+                                            <a class="uk-accordion-title" href="javascript:">
+                                                    <span uk-icon="icon:chevron-up; ratio:1.4" class="uk-icon"><svg width="28" height="28" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="4 13 10 7 16 13"></polyline></svg></span>
+                                                    <div class="uk-grid uk-child-width-1-4 f16">
+                                                            <div>测试工程师</div>
+                                                            <div>工程部</div>
+                                                            <div>深圳</div>
+                                                            <div>2021-12-30</div>
+                                                    </div>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                    <p><strong>基本素质要求：</strong></p><p>学历：大专&nbsp; &nbsp; &nbsp; 年龄：&nbsp; 22&nbsp; 岁— 35岁&nbsp; &nbsp; &nbsp; 性别：&nbsp; 男&nbsp; &nbsp;&nbsp;</p><p>专业：仪器测量与测控/机电一体化/电化学/电子信息</p><p>相关工作经验：1年以上&nbsp; 其它：有工厂测试经验优先</p><p><br></p><p><strong>岗位职责简述：&nbsp;</strong></p><p>接收测试原始记录和测试进度表</p><p>利用设备进行检测工作，整理测试数据曲线</p><p>提交原始记录和测试进度表单到项目工程师</p><p><br></p><p><strong>公司地址</strong>：深圳市宝安区航城街道三围奋达高新科技园C/D/E栋</p>
+                                            </div>
+                                    </li>
+
+                                    <li>
+                                            <a class="uk-accordion-title" href="javascript:">
+                                                    <span uk-icon="icon:chevron-up; ratio:1.4" class="uk-icon"><svg width="28" height="28" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="4 13 10 7 16 13"></polyline></svg></span>
+                                                    <div class="uk-grid uk-child-width-1-4 f16">
+                                                            <div>销售工程师</div>
+                                                            <div>销售</div>
+                                                            <div>深圳</div>
+                                                            <div>2021-12-30</div>
+                                                    </div>
+                                            </a>
+                                            <div class="uk-accordion-content" hidden="">
+                                                    <p><strong>基本素质要求：</strong></p><p>学历：大专&nbsp; 年龄：22岁—35岁&nbsp;&nbsp;</p><p>性别：男女不限&nbsp; &nbsp; &nbsp;专业：不限</p><p>CTE-4 相关工作经验：1年以上</p><p><br></p><p><strong>岗位职责简述：</strong></p><p>1、受理外发测试和转证项目咨询</p><p>2、跟进项目进度，处理项目中的资料问题。</p><p>3、处理项目中遇到的异常。</p><p>4、负责实验室分包项目。</p><p><br></p><p><strong>专业素质要求：</strong></p><p>5、对检测认证基础知识及认证行业有一定程度的了解，有一定的英文基础；</p><p>6、资料整理有条理，思路清晰；</p><p>7、普通话标准，语言表达能力强，善于沟通；</p><p>8、熟练使用电脑，熟悉办公软件和网络工具。</p><p>5.有良好的服务意识，勤奋敬业，性格好，工作耐心细致有责任心，身体健康，能够长期稳定的干好工作。</p><p><br></p><p><strong>公司地址</strong>：深圳市宝安区航城街道三围奋达高新科技园C/D/E栋</p><p><br></p>
+                                            </div>
+                                    </li>
+
+                                    <li>
+                                            <a class="uk-accordion-title" href="javascript:">
+                                                    <span uk-icon="icon:chevron-up; ratio:1.4" class="uk-icon"><svg width="28" height="28" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.03" points="4 13 10 7 16 13"></polyline></svg></span>
+                                                    <div class="uk-grid uk-child-width-1-4 f16">
+                                                            <div>转证专员</div>
+                                                            <div>转正</div>
+                                                            <div>深圳</div>
+                                                            <div>2021-12-30</div>
+                                                    </div>
+                                            </a>
+                                            <div class="uk-accordion-content" hidden="">
+                                                    <p><strong>基本素质要求：</strong></p><p>学历：大专&nbsp; 年龄：22岁—35岁&nbsp;&nbsp;</p><p>性别：男女不限&nbsp; &nbsp; &nbsp;专业：不限</p><p>CTE-4 相关工作经验：1年以上</p><p><br></p><p><strong>岗位职责简述：</strong></p><p>1、受理外发测试和转证项目咨询</p><p>2、跟进项目进度，处理项目中的资料问题。</p><p>3、处理项目中遇到的异常。</p><p>4、负责实验室分包项目。</p><p><br></p><p><strong>专业素质要求：</strong></p><p>5、对检测认证基础知识及认证行业有一定程度的了解，有一定的英文基础；</p><p>6、资料整理有条理，思路清晰；</p><p>7、普通话标准，语言表达能力强，善于沟通；</p><p>8、熟练使用电脑，熟悉办公软件和网络工具。</p><p>5.有良好的服务意识，勤奋敬业，性格好，工作耐心细致有责任心，身体健康，能够长期稳定的干好工作。</p><p><br></p><p><strong>公司地址</strong>：深圳市宝安区航城街道三围奋达高新科技园C/D/E栋</p><p><br></p>
+                                            </div>
+                                    </li>
+
+                            </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footer"}{/block}

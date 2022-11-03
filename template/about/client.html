@@ -1,0 +1,225 @@
+{extend name="../base" /}
+{block name="title"}<title>{$info.title} - {$Think.config.index.sitename}</title>{/block}
+{block name="keywords"}
+<meta name="keywords" content="{$info.keywords}">{/block}
+{block name="description"}
+<meta name="description" content="{$info.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(__STATIC__/banner/2022-11-03/6ad3ab7e1667458060.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+    <img src="__STATIC__/banner/2022-11-03/f8eae7731667458060.png" alt="立讯检测股份企业简介">
+</div>
+{include file="../basic/crumbs" /}
+<div class="uk-hidden@s subname pt15">
+    <div class="uk-text-center">
+        <span class="f30 text-blue">关于我们</span>
+    </div>
+</div>
+<div class="uk-container">
+    <div class="tBody">
+        <div class="uk-grid">
+            {include file="../basic/about_left_nav" /}
+            <div class="uk-width-expand">
+                    <div class="partner">
+                            <ul class="uk-child-width-1-4@m uk-child-width-1-2 uk-grid" uk-grid="" uk-scrollspy="target: > li; cls: uk-animation-slide-bottom-medium; repeat: false; delay:100">
+
+                                    <li class="uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569186505496.png" alt="亿纬锂能">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">亿纬锂能</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569267182068.png" alt="比克">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">比克</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569231707330.png" alt="超霸">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">超霸</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569204658740.png" alt="珠海冠宇">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">珠海冠宇</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569126323901.png" alt="飞毛腿">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">飞毛腿</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569288811126.png" alt="力神">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">力神</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569375414327.png" alt="卓能">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">卓能</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569437530355.png" alt="创明">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">创明</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640568488204510.png" alt="风帆">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">风帆</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569654604441.png" alt="恒信永基">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">恒信永基</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569614347446.png" alt="PACT">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">PACT</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569574345416.png" alt="赣锋">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">赣锋</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569554104821.png" alt="雄韬">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">雄韬</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569536814528.png" alt="路华">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">路华</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569514979354.png" alt="天贸">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">天贸</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569489314052.png" alt="维科">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">维科</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569081135526.png" alt="欣旺达">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">欣旺达</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569103827165.png" alt="格瑞普">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">格瑞普</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                                    <li class="uk-grid-margin uk-scrollspy-inview uk-animation-slide-bottom-medium" style="">
+                                            <div class="wrap uk-text-center uk-transition-toggle">
+                                                    <div class="pic uk-flex uk-flex-center uk-flex-middle"><img src="__STATIC__/img/partner/1640569166468083.png" alt="豪鹏国际">
+                                                    </div>
+                                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-flex uk-flex-center uk-flex-middle">
+                                                            <div class="name f16">豪鹏国际</div>
+                                                    </div>
+                                            </div>
+                                    </li>
+
+                            </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footer"}{/block}

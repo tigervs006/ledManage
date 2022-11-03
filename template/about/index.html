@@ -1,309 +1,326 @@
 {extend name="../base" /}
-{block name="title"}<title>关于我们，立讯检测企业简介</title>{/block}
-{block name="keywords"}<meta name="keywords" content="立讯检测,立讯公司">{/block}
-{block name="description"}<meta name="description" content="立讯检测企业简介">{/block}
+{block name="title"}<title>{$info.title} - {$Think.config.index.sitename}</title>{/block}
+{block name="keywords"}
+<meta name="keywords" content="{$info.keywords}">{/block}
+{block name="description"}
+<meta name="description" content="{$info.description}">{/block}
 {block name="pagejs"}{__block__}{/block}
 {block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(__STATIC__/banner/2022-11-03/6ad3ab7e1667458060.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+    <img src="__STATIC__/banner/2022-11-03/f8eae7731667458060.png" alt="立讯检测股份企业简介">
+</div>
+{include file="../basic/crumbs" /}
+<div class="uk-hidden@s subname pt15">
+    <div class="uk-text-center">
+        <span class="f30 text-blue">关于我们</span>
+    </div>
+</div>
 <div class="uk-container">
     <div class="tBody">
-        <p><img alt="总部" src="__STATIC__/img/headquarters.jpg"/></p>
+        <div class="uk-grid">
+            {include file="../basic/about_left_nav" /}
+            <div class="uk-width-expand">
+                <div class="content f18 uk-text-justify uk-scrollspy-inview uk-animation-slide-bottom-small" uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: false; delay:200" style="">
+                        <p style="text-align: center"><img alt="深圳立讯检测股份有限公司" title="深圳立讯检测股份有限公司" src="//static.led-lcs.com/settings/2022-11-02/8890ebce1667387389.png"/></p>
 
-        <p>&nbsp;</p>
+                        <br>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><a href="http://www.lcs-cert.com"><span style="color:#3498db;">深圳立讯检测股份有限公司</span></a>（简称LCS）成立于2004年，LCS自成立以来，致力于为客户提供专业的一站</span>式产品检测认证服务，目前已在深圳沙井、深圳后亭、深圳公明、深圳福永、广州、中山、宁波、苏州、重庆分别建立分公司。并在深圳（沙井、后亭、公明、福永）、广州、宁波、苏州、重庆等地建立8大检测基地，在各检测基地建立大型规模的检测实验室已有40余间，主要有电磁兼容、无线射频、产品安全、新能源电池、能效性能、灯具照明、汽车电子、环境可靠性、生态环境检测、化学等类别实验室。目前员工人数460余人，其中技术占比50%。</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><a href="/"><span style="color:#3498db;">深圳立讯检测股份有限公司</span></a>（简称LCS）成立于2004年，LCS自成立以来，致力于为客户提供专业的一站</span>式产品检测认证服务，目前已在深圳沙井、深圳后亭、深圳公明、深圳福永、广州、中山、宁波、苏州、重庆分别建立分公司。并在深圳（沙井、后亭、公明、福永）、广州、宁波、苏州、重庆等地建立8大检测基地，在各检测基地建立大型规模的检测实验室已有40余间，主要有电磁兼容、无线射频、产品安全、新能源电池、能效性能、灯具照明、汽车电子、环境可靠性、生态环境检测、化学等类别实验室。目前员工人数460余人，其中技术占比50%。</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <br>
 
-        <p>LCS实验室服务领域涵盖广泛，主要服务领域包括无线、灯具照明、信息资讯、音视频、开关插座、家电、电池、玩具、儿童用品、食品、环境（水、气、土等）、汽车、纺织品、鞋材、机械等产品类别。</p>
+                        <p>LCS实验室服务领域涵盖广泛，主要服务领域包括无线、灯具照明、信息资讯、音视频、开关插座、家电、电池、玩具、儿童用品、食品、环境（水、气、土等）、汽车、纺织品、鞋材、机械等产品类别。</p>
 
-        <p><br>
-            LCS作为专业的民营第三方检测、认证服务型的国家级高新技术企业，同时已获得CNAS、CMA、NVLAP（实验室&nbsp;代码：600112-0）、MICOM、A2AL、CPSC、IC、EMSD、NATA、SABS、KOSTEC、&nbsp;lNSPECCO、E-mark、TUV、CETECOM、EUROFINS、PHOENIX、HOENIX、KTC、ITS、SAA、UL等20多个国内和国际权威认证认可授权，是值得信赖的第三方专业检测认证平台。</p>
+                        <p>LCS作为专业的民营第三方检测、认证服务型的国家级高新技术企业，同时已获得CNAS、CMA、NVLAP（实验室&nbsp;代码：600112-0）、MICOM、A2AL、CPSC、IC、EMSD、NATA、SABS、KOSTEC、&nbsp;lNSPECCO、E-mark、TUV、CETECOM、EUROFINS、PHOENIX、HOENIX、KTC、ITS、SAA、UL等20多个国内和国际权威认证认可授权，是值得信赖的第三方专业检测认证平台。</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <br>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">立讯检测(LCS)服务过的品牌包括：德赛、珠江灯光、华为、创维、联想、海信、TCL、飞利浦、COSLIGHT、格林德、雷士照明、中兴、小米、欧普照明、金立、中国教育、OPPO、vivo、通用、TOYOTA、SONY等等公司都有合作。LCS18年用心服务，18年沉淀发展，我们坚定致力于为客户提供一站式认证服务，帮助客户的产品放心的行销全球。</p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">立讯检测(LCS)服务过的品牌包括：德赛、珠江灯光、华为、创维、联想、海信、TCL、飞利浦、COSLIGHT、格林德、雷士照明、中兴、小米、欧普照明、金立、中国教育、OPPO、vivo、通用、TOYOTA、SONY等等公司都有合作。LCS18年用心服务，18年沉淀发展，我们坚定致力于为客户提供一站式认证服务，帮助客户的产品放心的行销全球。</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <br>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="深圳总部" src="__STATIC__/img/szbranch.jpg" style="width: 100%; height: auto;"/></p>
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="深圳总部" src="__STATIC__/img/szbranch.jpg" style="width: 100%; height: auto;"/></p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <br>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳总部</strong></span></span></span></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳总部</strong></span></span></span></p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <br>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">立讯检测深圳总部实验室位于深圳市宝安区沙井巨基工业园。设有电磁兼容实验室、无线射频实验室、安规实验 室、可靠性实验室，新能源电池实验室、多媒体实验室、家电实验室、电子附件 实验室。拥有完善的电磁兼容、无线射频(无线充,对讲机,蓝牙,2.4G/5GWIFI, Wi- Fi6,LoRa,ZigBee,Z-Wave,FM,2G/3G/4G/5G NR,NB-IoT等产品)、产品安全， 环境可靠性，材料失效分析等测试能力，测试仪器先进完善，均由德国Rohde &amp;&nbsp;Schwarz、德国Schwarzbeck、瑞士EMTEST、日本Anritsu、瑞士Luethi等行业 内知名的国际公司制造和承建。</span></p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">立讯检测深圳总部实验室位于深圳市宝安区沙井巨基工业园。设有电磁兼容实验室、无线射频实验室、安规实验 室、可靠性实验室，新能源电池实验室、多媒体实验室、家电实验室、电子附件 实验室。拥有完善的电磁兼容、无线射频(无线充,对讲机,蓝牙,2.4G/5GWIFI, Wi- Fi6,LoRa,ZigBee,Z-Wave,FM,2G/3G/4G/5G NR,NB-IoT等产品)、产品安全， 环境可靠性，材料失效分析等测试能力，测试仪器先进完善，均由德国Rohde &amp;&nbsp;Schwarz、德国Schwarzbeck、瑞士EMTEST、日本Anritsu、瑞士Luethi等行业 内知名的国际公司制造和承建。</span></p>
 
-        <p>&nbsp;</p>
+                        <br>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>CMA、CNAS、NVLAP（实验室 代码：600112-0）、EMSD、CBTL、MiCOM Cert、KTC、NATA RTA、SAA、SABS、TUV Rheinland PTL、TUV Rheinland Cert、ITS RTLUN38.3、KC、CQC等资质认可。</span></p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>CMA、CNAS、NVLAP（实验室 代码：600112-0）、EMSD、CBTL、MiCOM Cert、KTC、NATA RTA、SAA、SABS、TUV Rheinland PTL、TUV Rheinland Cert、ITS RTLUN38.3、KC、CQC等资质认可。</span></p>
 
-        <p>&nbsp;</p>
+                        <br>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>4800平米</span></p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>4800平米</span></p>
 
-        <p>&nbsp;</p>
+                        <br>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>60余人</span></p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>60余人</span></p>
 
-        <p>&nbsp;</p>
+                        <br>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong>无线通信产品、多媒体产品、家电、电器附件、开关插座、气候环境、电池、电玩具、机械环境、包装运输环境、ISO工厂辅导等。</span></p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong>无线通信产品、多媒体产品、家电、电器附件、开关插座、气候环境、电池、电玩具、机械环境、包装运输环境、ISO工厂辅导等。</span></p>
 
-        <p>&nbsp;</p>
+                        <br>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong><a href="http://www.lcs-cert.com/news/200.html">CB认证</a>，<a href="http://www.lcs-cert.com/news/44.html">KC认证</a>，<a href="http://www.lcs-cert.com/news/44.html">GS认证</a>，TUV-MARK，SAA认证，GEMS认证，RCM认证等认证服务。</span></p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong><a href="http://www.lcs-cert.com/news/200.html">CB认证</a>，<a href="http://www.lcs-cert.com/news/44.html">KC认证</a>，<a href="http://www.lcs-cert.com/news/44.html">GS认证</a>，TUV-MARK，SAA认证，GEMS认证，RCM认证等认证服务。</span></p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <br>
 
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳新能源公司</strong></span></span></span></span></p>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳新能源公司</strong></span></span></span></span></p>
+                        <br>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="深圳新能源公司" src="__STATIC__/img/xinnengyuan.jpg" style="width: 100%; height: auto;"></p>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="深圳新能源公司" src="__STATIC__/img/xinnengyuan.jpg" style="width: 100%; height: auto;"></p>
+                        <br>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">新能源公司于2018年从总部独立出来成为独立实验室单位。现设有电池安全 测试实验室、电池可靠性实验室，电池性能测试实验室。LCS电池团队现能为世界 各地用户提供全球范围的认证、 委托检测服务，帮助客户的电池产品突破技术贸 易壁垒，顺利进入全球各个市场。</span></p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">新能源公司于2018年从总部独立出来成为独立实验室单位。现设有电池安全 测试实验室、电池可靠性实验室，电池性能测试实验室。LCS电池团队现能为世界 各地用户提供全球范围的认证、 委托检测服务，帮助客户的电池产品突破技术贸 易壁垒，顺利进入全球各个市场。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>获得CNAS、 CMA、 CBTL、 KC、CQC等认可资质。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>获得CNAS、 CMA、 CBTL、 KC、CQC等认可资质。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>800平米</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>800平米</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>30余人。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>30余人。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong>各种类型、 各种用途的锂电池、 镍氢电池、 镍镉电池、 铅酸蓄电池、碱性电池及不可充电电池等产品。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong>各种类型、 各种用途的锂电池、 镍氢电池、 镍镉电池、 铅酸蓄电池、碱性电池及不可充电电池等产品。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong>CB认证、KC认证、CQC认证、TUV-MARK，TUV-MARK认证、PSE认证、UN38.3认证、GB认证等认证服务。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong>CB认证、KC认证、CQC认证、TUV-MARK，TUV-MARK认证、PSE认证、UN38.3认证、GB认证等认证服务。</span></p>
 
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳公明分公司</strong></span></span></span></span></p>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳公明分公司</strong></span></span></span></span></p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="公明分公司" src="__STATIC__/img/gmbranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="公明分公司" src="__STATIC__/img/gmbranch.jpg" style="width: 100%; height: auto;"></p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">深圳公明分公司成立于2015年，<span class="p">电磁兼容EMC实验室、安规实验室、 灯具及光源性能与能效实验室、寿命老化实验室、防尘防水实验室、材料可靠性测 试实验室，具有先进的立式光度分布计，2m直径的积分球，LM80寿命加速老化测 试系统、亮度计等光学设备，能够为客户提供的灯具产品进行颜色、光效、光分 布、电学等方面的测试，同时也可通过LM-79、 LM-82等测试完成灯具灯泡相关 能效寿命检测及LED灯珠LM80测试，南方立讯检测，致力于打造中国最大、最专 业的照明灯具检测实验室。</span></span></p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">深圳公明分公司成立于2015年，<span class="p">电磁兼容EMC实验室、安规实验室、 灯具及光源性能与能效实验室、寿命老化实验室、防尘防水实验室、材料可靠性测 试实验室，具有先进的立式光度分布计，2m直径的积分球，LM80寿命加速老化测 试系统、亮度计等光学设备，能够为客户提供的灯具产品进行颜色、光效、光分 布、电学等方面的测试，同时也可通过LM-79、 LM-82等测试完成灯具灯泡相关 能效寿命检测及LED灯珠LM80测试，南方立讯检测，致力于打造中国最大、最专 业的照明灯具检测实验室。</span></span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong><span class="p">国家高新技术企业、CMA认可实验室、中国质量中心委托CCC测试实验室、中国合格评定国家认可委员会CNAS认可实验室、美国国家实验室自愿认可程序NVLAP认可实验室、美国环保署认可能源之星Energy Star认可灯具实验室、加州能效CEC认可检测实验室、美国DLC认可实验室、北美照明工程协会IES成员、新加坡测试认可实验室、UL授权测试实验室，LED灯具华南指定检测实验室、德国TUV/Intertek/Nemko/DEKRA授权实验室、中国、香港、澳洲等灯具能效认可备案实验室、沙特光源/灯具能效LP认可实验室、约旦能效认可实验室、深圳市中小企业产品检测公共服务平台等认可资质。</span></span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong><span class="p">国家高新技术企业、CMA认可实验室、中国质量中心委托CCC测试实验室、中国合格评定国家认可委员会CNAS认可实验室、美国国家实验室自愿认可程序NVLAP认可实验室、美国环保署认可能源之星Energy Star认可灯具实验室、加州能效CEC认可检测实验室、美国DLC认可实验室、北美照明工程协会IES成员、新加坡测试认可实验室、UL授权测试实验室，LED灯具华南指定检测实验室、德国TUV/Intertek/Nemko/DEKRA授权实验室、中国、香港、澳洲等灯具能效认可备案实验室、沙特光源/灯具能效LP认可实验室、约旦能效认可实验室、深圳市中小企业产品检测公共服务平台等认可资质。</span></span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>3600平米</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>3600平米</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>80余人。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>80余人。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试服务领域：</strong>各类照明灯具产品和LED灯具产品的欧洲ERP认证，北美DLC认证、能源之星认证、澳洲VEET认证等能效补贴认证申请服务；同时提供各国的安全认证和清关认证如：UL认证、CB认证、ENEC认证、澳洲安全认证、FCC认证，CE认证、PVOC认证、CCC认证、COC符合性认证、IECEE认证、SABER认证、BIS等认证。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试服务领域：</strong>各类照明灯具产品和LED灯具产品的欧洲ERP认证，北美DLC认证、能源之星认证、澳洲VEET认证等能效补贴认证申请服务；同时提供各国的安全认证和清关认证如：UL认证、CB认证、ENEC认证、澳洲安全认证、FCC认证，CE认证、PVOC认证、CCC认证、COC符合性认证、IECEE认证、SABER认证、BIS等认证。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong>ERP、GEMS 、IC-4/IC-F 、IK/IP 、AS/NZS 2293.3 、LM79/80/82/84 、ISTMT 、TM21、CEC、DOE、CA135、CA80、蓝光危害分析、MEPS、SASO2870、SASO2902等项目服务。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong>ERP、GEMS 、IC-4/IC-F 、IK/IP 、AS/NZS 2293.3 、LM79/80/82/84 、ISTMT 、TM21、CEC、DOE、CA135、CA80、蓝光危害分析、MEPS、SASO2870、SASO2902等项目服务。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>特色服务项目：</strong>能效资质齐全，可测试植物灯PPF含量，灯具蓝光测试，灯具 配光曲线测试，灯具频闪测试，EMC设计、EMC测试和预测试、 EMC整改及解决方案，并针对测试中未能够满足标准要求的产品 提供整改咨询服务。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>特色服务项目：</strong>能效资质齐全，可测试植物灯PPF含量，灯具蓝光测试，灯具 配光曲线测试，灯具频闪测试，EMC设计、EMC测试和预测试、 EMC整改及解决方案，并针对测试中未能够满足标准要求的产品 提供整改咨询服务。</span></p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳沙井分公司</strong></span></span></span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳沙井分公司</strong></span></span></span></span></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="沙井分公司" src="__STATIC__/img/sjbranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="沙井分公司" src="__STATIC__/img/sjbranch.jpg" style="width: 100%; height: auto;"></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em; text-align: justify;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">深圳沙井分公司成立于<span style="text-align: justify;">2018年，主要设有化学消费品测试实验室 。 拥有安捷伦Agilent、沃特士waters、岛津Shimadzu品牌的多台（套）大型现代化分析测试仪器 （LC-MS-MS, GC-MS,GC-FID,ICP,AAS）和经验丰富和相关专业的测试分析团队，实现产品一站式检测服务。</span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em; text-align: justify;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">深圳沙井分公司成立于<span style="text-align: justify;">2018年，主要设有化学消费品测试实验室 。 拥有安捷伦Agilent、沃特士waters、岛津Shimadzu品牌的多台（套）大型现代化分析测试仪器 （LC-MS-MS, GC-MS,GC-FID,ICP,AAS）和经验丰富和相关专业的测试分析团队，实现产品一站式检测服务。</span></span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong><span style="text-align: justify;">CNAS、CPSC、CMA等资质授权。</span></span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong><span style="text-align: justify;">CNAS、CPSC、CMA等资质授权。</span></span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>3000㎡</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>3000㎡</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>40余人。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>40余人。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试领域：</strong><span style="text-align:justify;">电子电器有害物质检测、成分分析、鞋材有害物质检测、纺织品有害物质检测 、玩具物理，燃烧，有害物质检测、食品接触材料测试、电子烟、烟油、烟气测试、涂料，油墨，油漆、汽车ELV等。</span></span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试领域：</strong><span style="text-align:justify;">电子电器有害物质检测、成分分析、鞋材有害物质检测、纺织品有害物质检测 、玩具物理，燃烧，有害物质检测、食品接触材料测试、电子烟、烟油、烟气测试、涂料，油墨，油漆、汽车ELV等。</span></span></p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳福永分公司</strong></span></span></span></span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>深圳福永分公司</strong></span></span></span></span></span></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="福永分公司" src="__STATIC__/img/fybranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="福永分公司" src="__STATIC__/img/fybranch.jpg" style="width: 100%; height: auto;"></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p style="text-align: justify;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-align:justify;text-indent:0em;"><span class="p">深圳福永分公司成立于2020年，主要设有环境检测实验室，LCS环境实验室主营业务为生态环境检测，已通过CMA资质认定，同时积极拓展职业卫生、食品检测等领域 。 实验室现配有电感耦合等离子体发射光谱仪（ICAP7000）、原子吸收光谱仪（AA-6880）、离子色谱仪（CIC-D100）、原子荧光光度计（AFS-8520）、相色谱仪（Gc2030）、气相色谱质谱联用仪</span></span><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-align:justify;text-indent:0em;"><span class="p">（GCMS-QP2010Plus）...等上百种检测和采样仪器，可向社会提供环境类检测服务、室内空气质量检测服务、环评验收、民用建筑工程竣工验收等分析服务。 </span></span></p>
 
-        <p style="text-align: justify;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-align:justify;text-indent:0em;"><span class="p">深圳福永分公司成立于2020年，主要设有环境检测实验室，LCS环境实验室主营业务为生态环境检测，已通过CMA资质认定，同时积极拓展职业卫生、食品检测等领域 。 实验室现配有电感耦合等离子体发射光谱仪（ICAP7000）、原子吸收光谱仪（AA-6880）、离子色谱仪（CIC-D100）、原子荧光光度计（AFS-8520）、相色谱仪（Gc2030）、气相色谱质谱联用仪</span></span><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-align:justify;text-indent:0em;"><span class="p">（GCMS-QP2010Plus）...等上百种检测和采样仪器，可向社会提供环境类检测服务、室内空气质量检测服务、环评验收、民用建筑工程竣工验收等分析服务。 </span></span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>CMA等资质授权，深圳市环境监测协会会员单位，广东省环境监测协会永久副会长单位。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>CMA等资质授权，深圳市环境监测协会会员单位，广东省环境监测协会永久副会长单位。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>2000㎡</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>2000㎡</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试领域： </strong>1、建筑验收检测 2、环评验收检测3、海水检测 4、饮用水检测5、空气和废气检测 6、工作场所空气检测7、公共场所空气检测 8、加油站油气检测9、照明、照度检测 10、各类噪声检测11、土壤和底泥检测 12、地下水检测13、水和废水检测 14、固体废物检测15. 洁净室检测 16、环境技术和体系咨询。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试领域： </strong>1、建筑验收检测 2、环评验收检测3、海水检测 4、饮用水检测5、空气和废气检测 6、工作场所空气检测7、公共场所空气检测 8、加油站油气检测9、照明、照度检测 10、各类噪声检测11、土壤和底泥检测 12、地下水检测13、水和废水检测 14、固体废物检测15. 洁净室检测 16、环境技术和体系咨询。</span></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="font-size:20px;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>广州分公司</strong></span></span></span></span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="font-size:20px;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>广州分公司</strong></span></span></span></span></span></p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="广州分公司" src="__STATIC__/img/gzbranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="广州分公司" src="__STATIC__/img/gzbranch.jpg" style="width: 100%; height: auto;"></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">广州分公司成立于2017年，设有汽车EMC测试实验室，环境可靠性实验室，实验室拥有2间汽车电子零部件专用电波暗室、十几间测试屏蔽室，及R&amp;S罗德与施瓦茨品牌接收机和辐射测量天线，高压人工网络，ETS-Lindgren品牌电流探头， EM Test品牌BCI测试系统，EM Test品牌7637测试系统，TESEQ品牌ESD模拟器等国外进口高端测试设备。 </span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">广州分公司成立于2017年，设有汽车EMC测试实验室，环境可靠性实验室，实验室拥有2间汽车电子零部件专用电波暗室、十几间测试屏蔽室，及R&amp;S罗德与施瓦茨品牌接收机和辐射测量天线，高压人工网络，ETS-Lindgren品牌电流探头， EM Test品牌BCI测试系统，EM Test品牌7637测试系统，TESEQ品牌ESD模拟器等国外进口高端测试设备。 </span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>国家实验室(CNAS)授权，CMA授权，美国实验室认可协会(A2LA)的资质授权，汽车电子的E-MARK授权，&nbsp; ATIC授权，江铃汽车认可，海马汽车认可，金龙汽车认可等。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>国家实验室(CNAS)授权，CMA授权，美国实验室认可协会(A2LA)的资质授权，汽车电子的E-MARK授权，&nbsp; ATIC授权，江铃汽车认可，海马汽车认可，金龙汽车认可等。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>3000㎡</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>3000㎡</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>50人。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>50人。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试领域：</strong>多功能车载娱乐系统、GPS导航系统、车载冰箱、车充、车载逆变器、车载摄像头、倒车后视系统、倒车雷达、汽车防盗系统、汽车胎压监测系统、ABS系统、ECU控制器等汽车电子产品、LED仪表等。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要测试领域：</strong>多功能车载娱乐系统、GPS导航系统、车载冰箱、车充、车载逆变器、车载摄像头、倒车后视系统、倒车雷达、汽车防盗系统、汽车胎压监测系统、ABS系统、ECU控制器等汽车电子产品、LED仪表等。</span></p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>宁波分公司</strong></span></span></span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>宁波分公司</strong></span></span></span></span></p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="宁波分公司" src="__STATIC__/img/nbbranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="宁波分公司" src="__STATIC__/img/nbbranch.jpg" style="width: 100%; height: auto;"></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">宁波分公司成立于2018年，设有EMC实验室，安规实验室，光学性能与能效实验室、 寿命老化实验室、防尘防水实验室。实验室建有标准的966电波暗室，屏弊室，雷 击浪涌，工频磁场，三维天环，静电，谐波闪烁等EMC检测场地和相关设备。同 时配备有光度分布计，2m直径的积分球，频闪仪，日本恒河310功率计等光学测 试设备，能够为客户提供电子电器，照明灯具产品的安规，EMC，光学性能，能 效等综合立体性的测试和认证服务。立讯宁波分公司将与集团总部一道，致力于 打造中国最大、最专业、最全面的照明灯具检测中心。2021年公司组建化学实验 室，将专注于提供电子电器领域产品的环保测试和服务。</span><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"> </span></p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">宁波分公司成立于2018年，设有EMC实验室，安规实验室，光学性能与能效实验室、 寿命老化实验室、防尘防水实验室。实验室建有标准的966电波暗室，屏弊室，雷 击浪涌，工频磁场，三维天环，静电，谐波闪烁等EMC检测场地和相关设备。同 时配备有光度分布计，2m直径的积分球，频闪仪，日本恒河310功率计等光学测 试设备，能够为客户提供电子电器，照明灯具产品的安规，EMC，光学性能，能 效等综合立体性的测试和认证服务。立讯宁波分公司将与集团总部一道，致力于 打造中国最大、最专业、最全面的照明灯具检测中心。2021年公司组建化学实验 室，将专注于提供电子电器领域产品的环保测试和服务。</span><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"> </span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>CNAS、CMA等。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>获得的资质认可：</strong>CNAS、CMA等。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>2700㎡</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>实验室面积：</strong>2700㎡</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>30人。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>专业技术人员：</strong>30人。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong>照明灯具综合性检测认证、消费类电子电器产品的安规、EMC测试认证、体育休闲和轻工产品化学测试服务等。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong>照明灯具综合性检测认证、消费类电子电器产品的安规、EMC测试认证、体育休闲和轻工产品化学测试服务等。</span></p>
+                        <p class="MsoNormal" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="MsoNormal" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p class="MsoNormal" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong>Ca135、Ca80、IC-4、IKXX、IPXX、LM79/80/82/84、ISTMT、Tm21、CEC、DOE、ERP、GEMS、MEPS、蓝光危害分析、SASO2870、SASO2902等。</span></p>
 
-        <p class="MsoNormal" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务项目：</strong>Ca135、Ca80、IC-4、IKXX、IPXX、LM79/80/82/84、ISTMT、Tm21、CEC、DOE、ERP、GEMS、MEPS、蓝光危害分析、SASO2870、SASO2902等。</span></p>
+                        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>苏州分公司</strong></span></span></span></span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>苏州分公司</strong></span></span></span></span></span></p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="苏州分公司" src="__STATIC__/img/suzbranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="苏州分公司" src="__STATIC__/img/suzbranch.jpg" style="width: 100%; height: auto;"></p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">苏州分公司成立于2021年。设有材料实验室、可靠性实验室、性能与耐久实验室和化学实验室。拥有材料测试、可靠性测试、汽车零部件性能测试和耐久性测试、ELV与VOC测试等各个领域的试验能力。试验设备的厂家有德国伟思富奇、美国穆格、美国安捷伦、等国际知名品牌，也有上海增达、苏州苏试等业内主流品牌。</span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">苏州分公司成立于2021年。设有材料实验室、可靠性实验室、性能与耐久实验室和化学实验室。拥有材料测试、可靠性测试、汽车零部件性能测试和耐久性测试、ELV与VOC测试等各个领域的试验能力。试验设备的厂家有德国伟思富奇、美国穆格、美国安捷伦、等国际知名品牌，也有上海增达、苏州苏试等业内主流品牌。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>实验室面积：</strong>7000㎡</span></p>
 
-        <p><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>实验室面积：</strong>7000㎡</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>专业技术人员：</strong>30人。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>专业技术人员：</strong>30人。</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域: </strong>汽车电子电器（线束，车灯，仪表，传感器，电控系统等等），汽车内外饰（座椅，仪表板，门饰板，保险杠，天窗，地毯，顶棚等），车身及附件（汽车车身及门系统），汽车底盘（承载，转向，制动，传动），车用材料，汽车内饰材料挥发物（VOC）。</span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域: </strong>汽车电子电器（线束，车灯，仪表，传感器，电控系统等等），汽车内外饰（座椅，仪表板，门饰板，保险杠，天窗，地毯，顶棚等），车身及附件（汽车车身及门系统），汽车底盘（承载，转向，制动，传动），车用材料，汽车内饰材料挥发物（VOC）。</span></p>
+                        <p style="margin-top:0em; margin-bottom:0em">&nbsp;</p>
 
-        <p style="margin-top:0em; margin-bottom:0em">&nbsp;</p>
+                        <p style="margin-top:0em; margin-bottom:0em"><span style="LETTER-SPACING:0em"><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>主要服务项目：</strong></span></span><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">材料类测试项⽬、可靠性类测试项⽬、电学性能测试项⽬、性能与耐久测试项⽬等。</span></p>
 
-        <p style="margin-top:0em; margin-bottom:0em"><span style="LETTER-SPACING:0em"><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>主要服务项目：</strong></span></span><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">材料类测试项⽬、可靠性类测试项⽬、电学性能测试项⽬、性能与耐久测试项⽬等。</span></p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>重庆分公司</strong></span></span></span></span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p"><span style="font-size:20px;"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>重庆分公司</strong></span></span></span></span></span></p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="重庆分公司" src="__STATIC__/img/cqbranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="重庆分公司" src="__STATIC__/img/cqbranch.jpg" style="width: 100%; height: auto;"></p>
 
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
+                        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p">重庆分公司成立于2021年。设有可靠性实验室，实验室拥有电热鼓风干燥箱， 恒温水浴锅，全自动固体密度计，线性耐磨试验机，双柱电脑式拉力试验机，漆 膜冲击器测定仪，铅笔硬度计，全自动智能盐雾试验机，恒温恒湿试验箱，光泽 度计，色差仪，推拉力计，标准光源对色灯箱，洛氏硬度计等设备。除了自有实 验室外，公司还长期和同行包括SGS，ITS，重庆车检院以及中国汽研院等检测机 构保持深度合作关系。 </span></span></p>
 
-        <p style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p">重庆分公司成立于2021年。设有可靠性实验室，实验室拥有电热鼓风干燥箱， 恒温水浴锅，全自动固体密度计，线性耐磨试验机，双柱电脑式拉力试验机，漆 膜冲击器测定仪，铅笔硬度计，全自动智能盐雾试验机，恒温恒湿试验箱，光泽 度计，色差仪，推拉力计，标准光源对色灯箱，洛氏硬度计等设备。除了自有实 验室外，公司还长期和同行包括SGS，ITS，重庆车检院以及中国汽研院等检测机 构保持深度合作关系。 </span></span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>实验室面积：</strong>600㎡</span></p>
 
-        <p><span class="p" style="letter-spacing:0em; margin-bottom:0em; margin-top:0em"><strong>实验室面积：</strong>600㎡</span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong></span><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p">汽车电子电器（线束，车灯，仪表等） 、车身及附件、车用材料、汽车内外饰（仪表板，后视镜，保险杠，天窗，地毯，顶棚等）、消费类电子产品等。</span></span></p>
 
-        <p><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><strong>主要服务领域：</strong></span><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span class="p">汽车电子电器（线束，车灯，仪表等） 、车身及附件、车用材料、汽车内外饰（仪表板，后视镜，保险杠，天窗，地毯，顶棚等）、消费类电子产品等。</span></span></p>
+                        <br>
 
-        <p>&nbsp;</p>
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span class="p"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>中山分公司</strong></span></span></span></span></span></p>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><span style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;"><span style="font-size:20px;"><span class="p"><span style="font-family:微软雅黑体,tahoma,arial,sans-serif;"><span style="color:#ff0000;"><strong>中山分公司</strong></span></span></span></span></span></p>
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;">&nbsp;</p>
+                        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="中山立讯检测有限公司" src="__STATIC__/img/zsbranch.jpg" style="width: 100%; height: auto;"></p>
 
-        <p class="p" style="margin-top: 0em; margin-bottom: 0em; text-indent: 0em; letter-spacing: 0em;"><img alt="中山立讯检测有限公司" src="__STATIC__/img/zsbranch.jpg" style="width: 100%; height: auto;"></p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
 
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;">&nbsp;</p>
-
-        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">中山立讯检测有限公司(立讯检测集团中山分公司)主要服务于从事电源、家电、灯具、消费产品、无线产品、机械产品、食品机械、个人防护用品和玩具等产品提供安全、电磁兼容、能效等测试认证服务。</span></p>
+                        <p class="p" style="margin-top:0em;margin-bottom:0em;TEXT-INDENT:0em;LETTER-SPACING:0em;"><span class="p" style="letter-spacing:0em;margin-bottom:0em;margin-top:0em;text-indent:0em;">中山立讯检测有限公司(立讯检测集团中山分公司)主要服务于从事电源、家电、灯具、消费产品、无线产品、机械产品、食品机械、个人防护用品和玩具等产品提供安全、电磁兼容、能效等测试认证服务。</span></p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {/block}
 {block name="footer"}{/block}
-

@@ -1,0 +1,59 @@
+{extend name="../base" /}
+{block name="title"}<title>{$info.title} - {$Think.config.index.sitename}</title>{/block}
+{block name="keywords"}
+<meta name="keywords" content="{$info.keywords}">{/block}
+{block name="description"}
+<meta name="description" content="{$info.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(__STATIC__/banner/2022-11-03/6ad3ab7e1667458060.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+    <img src="__STATIC__/banner/2022-11-03/f8eae7731667458060.png" alt="立讯检测股份企业简介">
+</div>
+{include file="../basic/crumbs" /}
+<div class="uk-hidden@s subname pt15">
+    <div class="uk-text-center">
+        <span class="f30 text-blue">关于我们</span>
+    </div>
+</div>
+<div class="uk-container">
+    <div class="tBody">
+        <div class="uk-grid">
+            {include file="../basic/about_left_nav" /}
+            <div class="uk-width-expand">
+                    <div class="honorlist">
+                            <div class="uk-child-width-1-4@m uk-child-width-1-2 uk-grid" uk-grid="" uk-lightbox="" uk-scrollspy="target: > div; cls: uk-animation-slide-bottom-medium; repeat: false; delay:100">
+
+                                    <div class="uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-medium">
+                                            <div class="uk-wrap uk-position-relative">
+                                                    <a href="__STATIC__/img/69b0134de296.jpg" data-caption="深圳总部" class="uk-position-cover uk-position-z-index"></a>
+                                                    <div class="ico"><img src="__STATIC__/img/69b0134de296.jpg" alt="深圳总部"></div>
+                                                    <div class="f16 tit">深圳总部</div>
+                                            </div>
+                                    </div>
+
+                                    <div class="uk-first-column uk-scrollspy-inview uk-animation-slide-bottom-medium">
+                                            <div class="uk-wrap uk-position-relative">
+                                                    <a href="__STATIC__/upload/images/2022-08-04/gzbranch.jpg" data-caption="广州分公司" class="uk-position-cover uk-position-z-index"></a>
+                                                    <div class="ico"><img src="__STATIC__/upload/images/2022-08-04/gzbranch.jpg" alt="广州分公司"></div>
+                                                    <div class="f16 tit">广州分公司</div>
+                                            </div>
+                                    </div>
+
+                                    <div class="uk-scrollspy-inview uk-animation-slide-bottom-medium">
+                                            <div class="uk-wrap uk-position-relative">
+                                                    <a href="__STATIC__/upload/images/2022-08-04/suzbranch.jpg" data-caption="苏州分公司" class="uk-position-cover uk-position-z-index"></a>
+                                                    <div class="ico"><img src="__STATIC__/upload/images/2022-08-04/suzbranch.jpg" alt="苏州分公司"></div>
+                                                    <div class="f16 tit">苏州分公司</div>
+                                            </div>
+                                    </div>
+
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footer"}{/block}

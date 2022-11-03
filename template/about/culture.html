@@ -1,0 +1,136 @@
+{extend name="../base" /}
+{block name="title"}<title>{$info.title} - {$Think.config.index.sitename}</title>{/block}
+{block name="keywords"}
+<meta name="keywords" content="{$info.keywords}">{/block}
+{block name="description"}
+<meta name="description" content="{$info.description}">{/block}
+{block name="pagejs"}{__block__}{/block}
+{block name="main"}
+<div class="inban maxwidth uk-visible@m" style="background-image: url(__STATIC__/banner/2022-11-03/6ad3ab7e1667458060.png);">
+</div>
+<div class="mban uk-position-relative uk-hidden@m">
+    <img src="__STATIC__/banner/2022-11-03/f8eae7731667458060.png" alt="立讯检测股份企业简介">
+</div>
+{include file="../basic/crumbs" /}
+<div class="uk-hidden@s subname pt15">
+    <div class="uk-text-center">
+        <span class="f30 text-blue">关于我们</span>
+    </div>
+</div>
+<div class="uk-container">
+    <div class="tBody">
+        <div class="uk-grid">
+            {include file="../basic/about_left_nav" /}
+            <div class="uk-width-expand">
+                    <div class="culture">
+                            <div class="f48 text-green fen line-height-12">LCS<sup class="f28">’S</sup> Mission Statement</div>
+                            <div class="f48 text-green fb line-height-12">立讯之道</div>
+                            <ul>
+                                    <li>
+                                            <div class="uk-grid uk-grid-match">
+                                                    <div class="uk-width-auto first">
+                                                            <div class="ico uk-flex uk-flex-center uk-flex-middle">
+                                                                    <img src="__STATIC__/img/ico7.png" alt="">
+                                                            </div>
+                                                    </div>
+                                                    <div class="name uk-flex-middle uk-visible@s">
+                                                            <div>
+                                                                    <div class="f24 text-black2">愿景</div>
+                                                                    <div class="f18 text-gray3 fs100">Vision</div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="uk-width-expand uk-flex-middle">
+                                                            <div class="desc">
+                                                                    <div class="name uk-text-left uk-hidden@s">
+                                                                            <span class="f24 fb text-black">愿景</span>
+                                                                            <span class="f12 text-gray3 fs100">Vision</span>
+                                                                    </div>
+                                                                    <div class="f16">成为最受人信赖的质量技术服务机构</div>
+                                                                    <div class="f13 text-gray2">To be the most reliable testing and certification agency</div>
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                    </li>
+                                    <li>
+                                            <div class="uk-grid uk-grid-match">
+                                                    <div class="uk-width-auto first">
+                                                            <div class="ico uk-flex uk-flex-center uk-flex-middle">
+                                                                    <img src="__STATIC__/img/ico8.png" alt="">
+                                                            </div>
+                                                    </div>
+                                                    <div class="name uk-flex-middle uk-visible@s">
+                                                            <div>
+                                                                    <div class="f24 text-black2">核心价值观</div>
+                                                                    <div class="f18 text-gray3 fs100">Core Values</div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="uk-width-expand uk-flex-middle">
+                                                            <div class="desc">
+                                                                    <div class="name uk-text-left uk-hidden@s">
+                                                                            <span class="f24 fb text-black">核心价值观</span>
+                                                                            <span class="f12 text-gray3 fs100">Core Values</span>
+                                                                    </div>
+                                                                    <div class="f16">客户第一、团队合作、拥抱变化激情、诚信、敬业</div>
+                                                                    <div class="f13 text-gray2">Client first, teamwork, embrace change, passion, integrity, professionalism</div>
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                    </li>
+                                    <li>
+                                            <div class="uk-grid uk-grid-match">
+                                                    <div class="uk-width-auto first">
+                                                            <div class="ico uk-flex uk-flex-center uk-flex-middle">
+                                                                    <img src="__STATIC__/img/ico9.png" alt="">
+                                                            </div>
+                                                    </div>
+                                                    <div class="name uk-flex-middle uk-visible@s">
+                                                            <div>
+                                                                    <div class="f24 text-black2">使命</div>
+                                                                    <div class="f18 text-gray3 fs100">Mission</div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="uk-width-expand uk-flex-middle">
+                                                            <div class="desc">
+                                                                    <div class="name uk-text-left uk-hidden@s">
+                                                                            <span class="f24 fb text-black">使命</span>
+                                                                            <span class="f12 text-gray3 fs100">Mission</span>
+                                                                    </div>
+                                                                    <div class="f16">为客户提供最合适的解决方案，用行动与责任成就生活之美</div>
+                                                                    <div class="f13 text-gray2">To provide the most suitable solution for clients,to achieve beauty of life with action and obligation</div>
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                    </li>
+                                    <li>
+                                            <div class="uk-grid uk-grid-match">
+                                                    <div class="uk-width-auto first">
+                                                            <div class="ico uk-flex uk-flex-center uk-flex-middle">
+                                                                    <img src="__STATIC__/img/ico10.png" alt="">
+                                                            </div>
+                                                    </div>
+                                                    <div class="name uk-flex-middle uk-visible@s">
+                                                            <div>
+                                                                    <div class="f24 text-black2">社会责任</div>
+                                                                    <div class="f12 text-gray3 fs100">Social Responsibility</div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="uk-width-expand uk-flex-middle">
+                                                            <div class="desc">
+                                                                    <div class="name uk-text-left uk-hidden@s">
+                                                                            <span class="f24 fb text-black">社会责任</span>
+                                                                            <span class="f12 text-gray3 fs100">Social Responsibility</span>
+                                                                    </div>
+                                                                    <div class="f16">促进全球产业快速发展，从质量体系、健康与安全、环境和社会责任管理等方面，为客户创造经济价值，服务民生，优化环境，促进人与自然和谐发展，从而降低经营者风险，提高经营绩效</div>
+                                                                    <div class="f13 text-gray2">Strengthening the quality system, health and safety, environmental and socialresponsibility management in the global industry s rapid development, creatingeconomic value for customers, serving and optimizing the environment of thepeople' s livehood, promoting the hamonious development of man and natureatthe same time, so as to reduce the risk of the operator, and to improve businessperformance.</div>
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                    </li>
+                            </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="footer"}{/block}

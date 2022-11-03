@@ -1,0 +1,35 @@
+<div class="uk-width-auto uk-visible@s">
+    <div class="sidebar uk-scrollspy-inview uk-animation-slide-left-small"
+         uk-scrollspy="cls: uk-animation-slide-left-small; repeat: false; delay:0" style="">
+        <div class="sidenav">
+            <h3 class="text-white f30 fb uk-text-center">关于我们</h3>
+            <ul>
+{volist name="channel" id="item"}
+{equal name="item.id" value="44"}
+{volist name="item.children" id="item"}
+                <li><a href="/{$item.fullpath}" class="<?php if (1 <= stripos($_SERVER['REQUEST_URI'], $item['fullpath'])) echo 'active';?>">{$item.cname}</a>
+                </li>
+{/volist}
+{/equal}
+{/volist}
+            </ul>
+        </div>
+        <div class="sidenews">
+            <h3 class="text-white f30 fb uk-text-center">企业动态</h3>
+            <ul>
+{volist name="hotart" id="item" empty="There's nothing here..."}
+                <li><a target="_blank" href="{:url('newsDetail', ['dirname' => $item.channel.dirname ?? '', 'id' => $item.id])}" class="uk-text-truncate"><span class="iconfont icon-arr-right text-green"></span> {$item.title}</a></li>
+{/volist}
+            </ul>
+        </div>
+        <div class="sidetel uk-text-center">
+            <div class="f16 text-green line-height-12">
+                <span class="iconfont icon-telq f60"></span>
+                <div>全国服务热线</div>
+            </div>
+            <div class="f32 text-white line-height-14">
+                {$Think.config.index.aftermarket}
+            </div>
+        </div>
+    </div>
+</div>
