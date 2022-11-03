@@ -16,6 +16,8 @@ Route::group(function () {
     Route::rule('/', 'index');
     /* 行政区域 */
     Route::rule('region', 'index/region');
+    /* 关于我们 */
+    Route::redirect('about/$', '/about/qiyejianjie/');
     /* 单页模型 */
     Route::rule('single/<dirname?>$', 'single/index');
     /* 网站地图 */
@@ -113,7 +115,17 @@ Route::group(function () {
     /* 关于我们伪静态 */
     Route::group('about', function () {
         /* 企业简介 */
-        Route::rule('<dirname?>/$', 'about/index')->name('index');
+        Route::rule('qiyejianjie/$', 'about/index')->name('index');
+        /* 合作客户 */
+        Route::rule('hezuokehu/$', 'about/client')->name('client');
+        /* 荣誉资质 */
+        Route::rule('rongyuzizhi/$', 'about/honor')->name('honor');
+        /* 团队风采 */
+        Route::rule('tuanduifengcai/$', 'about/team')->name('team');
+        /* 企业文化 */
+        Route::rule('qiyewenhua/$', 'about/culture')->name('culture');
+        /* 招贤纳士 */
+        Route::rule('zhaoxiannashi/$', 'about/recruit')->name('recruit');
     });
     /* 服务支持伪静态 */
     Route::group('support', function () {
