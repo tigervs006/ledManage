@@ -16,6 +16,7 @@ use think\facade\Cache;
 use app\services\BaseServices;
 use app\dao\channel\ChannelDao;
 use core\exceptions\ApiException;
+use Throwable;
 
 class ChannelServices extends BaseServices
 {
@@ -39,7 +40,7 @@ class ChannelServices extends BaseServices
     /**
      * 从缓存中获取栏目
      * @return mixed
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function channel(): mixed
     {
@@ -50,9 +51,9 @@ class ChannelServices extends BaseServices
     }
 
     /**
-     * 获取当前子栏目id
+     * 获取当前栏目信息
      * @return array
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function listInfo(): array
     {
@@ -67,7 +68,7 @@ class ChannelServices extends BaseServices
      * 遍历当前子栏目id
      * @return array
      * @param int $id id
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function getChildIds(int $id): array
     {
