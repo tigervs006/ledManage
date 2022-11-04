@@ -1,3 +1,13 @@
+/*
+ * +----------------------------------------------------------------------------------
+ * | https://www.tigervs.com
+ * +----------------------------------------------------------------------------------
+ * | Email: Kevin@tigervs.com
+ * +----------------------------------------------------------------------------------
+ * | Copyright (c) Shenzhen Tiger Technology Co., Ltd. 2018~2022. All rights reserved.
+ * +----------------------------------------------------------------------------------
+ */
+
 html { scroll-behavior: smooth; } /* 平滑滚动 */
 .blankgray{ background: #f7f7f7; height: 45px; }
 .uk-width-180{ width: 180px; }
@@ -208,26 +218,8 @@ html { scroll-behavior: smooth; } /* 平滑滚动 */
 .joblist>ul>li.uk-open{ border:1px solid #8fbd20; }
 .joblist>ul>li.uk-open .uk-accordion-title{ background:#8fbd20; color:#fff; font-weight: bold; }
 .joblist>ul>li.uk-open .uk-accordion-title .uk-icon{ color:rgba(255,255,255,0.75); transform: rotate(0deg); }
-/* .joblist>ul>li{ border:1px solid #ececec; padding:20px; margin-bottom:20px; background-color: #f8f8f8; }
-.joblist>ul>li .tit span{ position: relative; display: inline-block; background: #b3b3b3; padding:5px 100px 5px 15px; color:#fff; line-height: 40px;}
-.joblist>ul>li .tit span::before{ position: absolute; right:-20px; top:0; content:''; display: block; width:0; height: 0; border:25px solid #b3b3b3; border-right:20px solid transparent; border-left:0; }
-.joblist>ul>li:hover{ background:#fff; border-color:#0053a4; }
-.joblist>ul>li:hover .tit span{ background:#0053a4; }
-.joblist>ul>li:hover .tit span::before{ border-color:#0053a4; border-right-color:transparent; }
-.joblist>ul>li .ctn{ padding:15px 15px 25px; color:#575757; line-height: 2; }
-.joblist>ul>li .ctn ol{ padding-left:16px; }
-.joblist>ul>li .ctn ol li{ list-style-type:decimal; } */
 
 .content{ line-height: 2; color:#444444; }
-.content img{ height: auto!important;}
-/* .content table{ max-width:100%; }
-.content table td,.content table th{ border:1px solid #ccc; padding: 3px; } */
-/* .content table{ border-collapse:collapse; backface-visibility:visible; width: 100%; }
-.content table td,.content table th{ border:1px solid #ccc; padding: 3px; } */
-/* .content table{ border-collapse: collapse; width:100%; }
-.content table td{border:1px solid #ccc!important; padding:3px 10px; word-wrap:break-word; word-break:break-word;}
-.content table thead tr td,.prointro table thead tr th{ background: #ececec; font-weight: bold;}
-.content table tbody tr >td:first-child{ background: #f8f8f8!important; max-width: 300px!important; width:auto!important; } */
 /*公司简介*/
 .company2{}
 
@@ -620,7 +612,6 @@ h1.f30{ margin-top:30px; padding-left:50px; padding-right:50px; line-height: 1.4
 
 .protit{ border-bottom:1px solid #d9d9d9; margin-bottom: 40px; line-height: 1.4; padding-bottom: 20px; }
 .productdetail{ color:#515151; }
-.productdetail img{ width: 100%; margin:15px 0; }
 .productdetail table{ border-collapse: collapse; margin:15px 0; max-width: 100%; }
 .productdetail table td{ border:1px solid #d9d9d9; padding:20px 20px; vertical-align: middle;  }
 .productdetail table tr:nth-child(even) td{ background:#f4f4f4; }
