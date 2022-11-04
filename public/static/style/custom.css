@@ -1,3 +1,13 @@
+/*
+ * +----------------------------------------------------------------------------------
+ * | https://www.tigervs.com
+ * +----------------------------------------------------------------------------------
+ * | Email: Kevin@tigervs.com
+ * +----------------------------------------------------------------------------------
+ * | Copyright (c) Shenzhen Tiger Technology Co., Ltd. 2018~2022. All rights reserved.
+ * +----------------------------------------------------------------------------------
+ */
+
 html { scroll-behavior: smooth; } /* 平滑滚动 */
 .blankgray{ background: #f7f7f7; height: 45px; }
 .uk-width-180{ width: 180px; }
@@ -620,7 +630,6 @@ h1.f30{ margin-top:30px; padding-left:50px; padding-right:50px; line-height: 1.4
 
 .protit{ border-bottom:1px solid #d9d9d9; margin-bottom: 40px; line-height: 1.4; padding-bottom: 20px; }
 .productdetail{ color:#515151; }
-.productdetail img{ width: 100%; margin:15px 0; }
 .productdetail table{ border-collapse: collapse; margin:15px 0; max-width: 100%; }
 .productdetail table td{ border:1px solid #d9d9d9; padding:20px 20px; vertical-align: middle;  }
 .productdetail table tr:nth-child(even) td{ background:#f4f4f4; }
