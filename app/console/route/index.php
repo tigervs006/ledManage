@@ -170,6 +170,29 @@ Route::group(function () {
         Route::post('stream', 'system.attachController/upStream')->option(['route_name' => '二进制上传']);
         Route::post('delete', 'system.attachCateController/delete')->option(['route_name' => '删除目录']);
         Route::post('save', 'system.attachCateController/save')->option(['route_name' => '新增/编辑目录']);
+        Route::post('find_delete', 'system.attachController/findAndDelete')->option(['route_name' => '查找并删除文件']);
+    });
+    Route::group('develop', function () {
+        /** 配置分类 */
+        Route::get('config/list', 'develop.configCateController/list')->option(['route_name' => '配置分类列表']);
+        Route::post('config/save', 'develop.configCateController/save')->option(['route_name' => '保存配置分类']);
+        Route::post('config/delete', 'develop.configCateController/delete')->option(['route_name' => '删除配置分类']);
+        Route::post('config/status', 'develop.configCateController/status')->option(['route_name' => '设置配置分类状态']);
+        /** 配置列表 */
+        Route::get('config_data/list', 'develop.configListController/list')->option(['route_name' => '获取配置列表']);
+        Route::post('config_data/save', 'develop.configListController/save')->option(['route_name' => '保存配置列表']);
+        Route::post('config_data/delete', 'develop.configListController/delete')->option(['route_name' => '删除配置列表']);
+        Route::post('config_data/status', 'develop.configListController/status')->option(['route_name' => '配置列表状态']);
+        /** 组合数据 */
+        Route::get('group/list', 'develop.groupDataController/list')->option(['route_name' => '组合数据分类列表']);
+        Route::get('group/info', 'develop.groupDataController/info')->option(['route_name' => '组合数据分类信息']);
+        Route::post('group/save', 'develop.groupDataController/save')->option(['route_name' => '保存组合数据分类']);
+        Route::post('group/delete', 'develop.groupDataController/delete')->option(['route_name' => '删除组合数据分类']);
+        /** 组合数据列表 */
+        Route::get('group_data/list', 'develop.groupDataListController/list')->option(['route_name' => '组合数据列表']);
+        Route::post('group_data/save', 'develop.groupDataListController/save')->option(['route_name' => '保存组合数据列表']);
+        Route::post('group_data/delete', 'develop.groupDataListController/delete')->option(['route_name' => '保存组合数据列表']);
+        Route::post('group_data/status', 'develop.groupDataListController/status')->option(['route_name' => '设置组合数据状态']);
     });
 })->option(['https' => true])->pattern(['id' => '\d+', 'name' => '\w+'])->middleware(
     [
