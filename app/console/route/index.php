@@ -22,15 +22,15 @@ Route::group(function () {
 /** 无授权接口 */
 Route::group(function () {
     Route::group('public', function () {
-        Route::post('login', 'login')->option(['route_name' => '用户登录']);
-        Route::post('logout', 'logout')->option(['route_name' => '用户登出']);
-        Route::post('submit', 'submitForm')->option(['route_name' => '表单留言']);
         Route::get('download', function ($key) {
             $file = cache($key);
             return !is_null($file)
                 ? download($file['path'], $file['fileName'])
                 : response('Resource not found!', 404);
         })->pattern(['key' => '\S+'])->option(['route_name' => '文件下载']);
+        Route::post('login', 'login')->option(['route_name' => '用户登录']);
+        Route::post('logout', 'logout')->option(['route_name' => '用户登出']);
+        Route::post('submit', 'submitForm')->option(['route_name' => '表单留言']);
     })->prefix('publicController/');
 })->option(['https' => true])->pattern(['id' => '\d+']);
 
