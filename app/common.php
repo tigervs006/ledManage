@@ -66,6 +66,30 @@ if(!function_exists('filterSearch')) {
     }
 }
 
+if(!function_exists('filterParams')) {
+    /**
+     * 组装搜索条件
+     * @return array
+     * @author Kevin
+     * @param bool $json
+     * @param array $params
+     * @param array $where 条件
+     * @param string|null $jsonField
+     * @createAt 2022/11/11 8:57
+     */
+    function filterParams(array $params, bool $json = false, string $jsonField = null, array $where = []): array
+    {
+        foreach ($params as $key => $val) {
+            $where[] = match (true) {
+                is_array($val) => ($json && $jsonField) ? ["$jsonField->$key", 'in', $val] : [$key, 'in', $val],
+                is_numeric($val) => ($json && $jsonField) ? ["$jsonField->$key", '=', $val] : [$key, '=', $val],
+                default => ($json && $jsonField) ? ["$jsonField->$key", 'like', "%$val%"] : [$key, 'like', "%$val%"],
+            };
+        }
+        return $where;
+    }
+}
+
 if (!function_exists('formatBytes')) {
     /**
      * 格式化字节大小
