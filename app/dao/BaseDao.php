@@ -290,6 +290,29 @@ abstract class BaseDao
     }
 
     /**
+     * @return array|Collection
+     * @author Kevin
+     * @param int $current
+     * @param int $pageSize
+     * @param bool|null $json
+     * @param array|null $map
+     * @param array|null $order
+     * @param array|null $jsonMap
+     * @param array|null $jsonField
+     * @createAt 2022/11/11 1:31
+     * @throws DbException
+     * @throws DataNotFoundException
+     * @throws ModelNotFoundException
+     */
+    public function jsonSearch(int $current, int $pageSize, ?bool $json = false, ?array $jsonField = null, ?array $map = null, ?array $jsonMap = null, ?array $order = ['id' => 'desc']): array|\think\Collection
+    {
+        return $this->getModel()
+            ->when($json && $jsonField, function ($query) use ($jsonMap, $jsonField) {
+                $query->json($jsonField)->where($jsonMap);
+        }, function ($query) use ($map, $order) { $query->where($map)->order($order); })->page($current, $pageSize)->select();
+    }
+
+    /**
      * 用于前端的分页列表
      * @return \think\Paginator
      * @param array $map 条件
